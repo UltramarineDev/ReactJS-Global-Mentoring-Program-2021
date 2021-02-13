@@ -1,8 +1,8 @@
-Home task (Task 1)
+### Home task (Task 1)
 
-Solution : https://codesandbox.io/s/ktie3
+#### Solution : https://codesandbox.io/s/ktie3
 
-Description
+#### Description
 Setting up the environment. 
 
 Create a repository. Install an application created via create-react-app. Commit the changes to repository. Install extensions mentioned in the lecture (react developer tools, etc.). 
@@ -18,7 +18,7 @@ Create components in different ways, using:
 
 4. Functional component. 
  
-Evaluation criteria* 
+#### Evaluation criteria* 
  
 2 - Install blank create-react-app application; 
 3 - Render blank message (Hello World) with React; 
