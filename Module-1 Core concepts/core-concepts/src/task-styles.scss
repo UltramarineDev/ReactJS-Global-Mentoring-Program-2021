@@ -1,0 +1,20 @@
+.title {
+  font-family: sans-serif;
+  text-align: center;
+
+  &__createElement {
+    color: #e07a5f;
+  }
+
+  &__component {
+    color: #3d405b;
+  }
+  
+  &__pureComponent {
+    color: #81b29a;
+  }
+
+  &__functionalComponent {
+    color: #f2cc8f;
+  }
+}
