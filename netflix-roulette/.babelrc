@@ -3,10 +3,7 @@
     ["@babel/preset-env",
       {
         "targets": {
-          "chrome": "70",
-          "ie": "11",
-          "safari": "10",
-          "firefox": "60"
+          "chrome": "88"
         }
       }],
       "@babel/preset-react"
