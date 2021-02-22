@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://netflix-roulette/./src/app/index.scss"],"names":[],"mappings":"AAAA;EACE;AACF,C","file":"styles/main.css","sourcesContent":[".root {\r\n  background-color: yellow;\r\n}"],"sourceRoot":""}
