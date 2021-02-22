@@ -1,6 +1,6 @@
 ### Home task (Task 2)
 
-#### Solution : https://github.com/UltramarineDev/ReactJS-Global-Mentoring-Program-2021/tree/master/netflix-roulette
+#### Solution : [netflix-roulette](https://github.com/UltramarineDev/ReactJS-Global-Mentoring-Program-2021/tree/master/netflix-roulette)
 
 #### Description
 Create package.json file and install React, Redux, React-Redux, React-Router, Jest. Install and configure Webpack & Babel to get build artifact by running npm command.  
