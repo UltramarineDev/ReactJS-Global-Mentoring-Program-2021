@@ -16,7 +16,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "TEST");
+  return {};
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
@@ -31,12 +31,18 @@ var App = function App() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _app_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app/App */ "./src/app/App.js");
+/* harmony import */ var _app_App__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app/App */ "./src/app/App.js");
 
 
 
-react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_app_App__WEBPACK_IMPORTED_MODULE_2__.default, null)), document.querySelector("#root"));
+function startup() {
+  var app = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_app_App__WEBPACK_IMPORTED_MODULE_1__.default, null);
+  var root = document.querySelector('.content');
+  ReactModal.setAppElement(root);
+  render(app, root);
+}
+
+startup();
 
 /***/ })
 
@@ -118,7 +124,7 @@ react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPOR
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("7f1d888656124e8957f2")
+/******/ 		__webpack_require__.h = () => ("f068808fd69ed57d7d85")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
@@ -677,7 +683,7 @@ react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPOR
 /******/ 		};
 /******/ 		
 /******/ 		var deferredModules = [
-/******/ 			["./src/index.js","vendors-node_modules_react-dom_index_js"]
+/******/ 			["./src/index.js","vendors-node_modules_react_index_js"]
 /******/ 		];
 /******/ 		// no chunk on demand loading
 /******/ 		
