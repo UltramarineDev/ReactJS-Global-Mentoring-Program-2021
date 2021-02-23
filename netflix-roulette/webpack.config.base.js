@@ -19,7 +19,6 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'NetflixRoulette',
       template: 'src/index.html',
     }),
     new CleanWebpackPlugin(),
