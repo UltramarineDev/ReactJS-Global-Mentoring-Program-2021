@@ -7,7 +7,7 @@
     "test": "jest",
     "start:prod": "cross-env NODE_ENV=production webpack serve",
     "start:dev": "cross-env NODE_ENV=development webpack serve",
-    "build:prod": "cross-env NODE_ENV=production node_modules/.bin/webpack -p",
+    "build:prod": "cross-env NODE_ENV=production node_modules/.bin/webpack",
     "build:dev": "cross-env NODE_ENV=development node_modules/.bin/webpack"
   },
   "author": "\"UltramarineDev\"",

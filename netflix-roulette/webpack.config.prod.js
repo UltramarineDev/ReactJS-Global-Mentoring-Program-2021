@@ -1,4 +1,4 @@
-const { resolve } = require('path');
+const { resolve, join } = require('path');
 
 const getModule = require('./webpack.module');
 const getPlugins = require('./webpack.plugins');
