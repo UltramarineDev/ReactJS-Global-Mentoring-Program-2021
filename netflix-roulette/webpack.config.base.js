@@ -11,7 +11,7 @@ module.exports = {
   },
   resolve: {
     modules: [resolve(__dirname, './src'), 'node_modules'],
-    extensions: ['.js', '.jsx', '.json']
+    extensions: ['.js', '.jsx', '.json', '.css']
   },
   watchOptions: {
     aggregateTimeout: 100,
@@ -37,11 +37,16 @@ module.exports = {
         }
       },
       {
-        test: /\.scss$/,
+        test: /\.s?css$/,
         use: [
           { loader: MiniCssExtractPlugin.loader },
-          'css-loader',
-          'sass-loader'
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true
+            }
+          },
+          'sass-loader',
         ],
       },
       {
