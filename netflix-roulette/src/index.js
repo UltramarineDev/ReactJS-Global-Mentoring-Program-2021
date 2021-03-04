@@ -3,6 +3,8 @@ import App from './components/App';
 import { render } from 'react-dom';
 
 import './fontawesome';
+import './index.scss';
+
 render(
   <React.StrictMode> 
     <App />
