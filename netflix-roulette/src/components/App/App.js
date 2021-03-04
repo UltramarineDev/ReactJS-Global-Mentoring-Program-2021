@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
-import Home from '../home';
-import Layout from '../layout';
+const Home = React.lazy(() => import('../features/home'));
+const Layout = React.lazy(() => import('../layout'));
 
+//TO ASK: how to implement withLayout(Home);
+
+//TODO: Implement default font family, font size
 const App = () => (
   <>
-    <Layout>
-      <Home/>
-    </Layout>
+    <Suspense fallback="Loading...">
+      <Layout>
+        <Home/>
+      </Layout>
+    </Suspense>
   </>
 );
 

@@ -1,0 +1,91 @@
+.searchSectionWrapper {
+  margin-bottom: 16px;
+  position: relative;
+  height: 600px;
+  width: 100%;
+  background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/e178a4e7-4f52-4661-b2ae-41efa25dca7c/eb618394-24cd-43ae-8799-c1a76a7bcbfc/BY-en-20210222-popsignuptwoweeks-perspective_alpha_website_small.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &:before {
+    position: absolute;
+  background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/e178a4e7-4f52-4661-b2ae-41efa25dca7c/eb618394-24cd-43ae-8799-c1a76a7bcbfc/BY-en-20210222-popsignuptwoweeks-perspective_alpha_website_small.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  }
+}
+
+.searchSection{
+  position: relative;
+  padding: 24px 64px;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchDescription {
+  text-transform: uppercase;
+  font-size: 76px;
+  color: #ffffff;
+  font-family: "Inv Maison Neue","Maison Neue","Open Sans",open-sans,sans-serif;
+  margin-top: 64px;
+  margin-left: 140px;
+}
+
+.movieListSection {
+  background-color: #232323;
+}
+
+.navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 64px;
+}
+
+.border {
+  margin-left: 64px;
+  border-bottom: solid thin #424242;
+}
+
+.moviesCount {
+  padding: 24px 64px;
+  color: #ffffff;
+  font-family: "Inv Maison Neue","Maison Neue","Open Sans",open-sans,sans-serif;
+  font-size: 16px;
+}
+
+.movieList {
+  padding-left: 64px;
+}
+
+.resultsFilter {
+  padding-left: 64px;
+}
+
+.resultsSort {
+  max-width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Inv Maison Neue","Maison Neue","Open Sans",open-sans,sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.resultsSort span {
+  color: #555555;
+  padding-right: 18px;
+}
