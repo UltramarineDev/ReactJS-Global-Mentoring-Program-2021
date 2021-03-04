@@ -11,7 +11,7 @@ module.exports = {
   },
   resolve: {
     modules: [resolve(__dirname, './src'), 'node_modules'],
-    extensions: ['.js', '.jsx', '.json', '.css']
+    extensions: ['.js', '.jsx', '.json', '.css', 'scss']
   },
   watchOptions: {
     aggregateTimeout: 100,
