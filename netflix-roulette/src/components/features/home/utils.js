@@ -28,7 +28,7 @@ export const getFilteredMovies = (movies, filterTagList) => {
     return movies;
   }
 
-  let filteredMovies = movies.filter(({genres}) => {
+  let filteredMovies = movies.filter(({ genres }) => {
     if(!genres || genres.length === 0) {
       return false;
     }

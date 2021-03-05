@@ -5,7 +5,7 @@ import NetflixRoulette from '../../shared/netflix-roulette';
 
 const FooterComponent = () => (
   <div className={styles.footer}>
-    <NetflixRoulette/>
+    <NetflixRoulette />
   </div>
 );
 

@@ -39,20 +39,19 @@ class HomeContainer extends Component {
           break;
       }
 
-      return { filteredMovies, activeTab};
+      return { filteredMovies, activeTab };
     });
   }
 
   handleSortOptionChange = (value) => {
     this.setState(({ filteredMovies }) => {
       const sortedMovies = getSortedMovies(filteredMovies, value);
-      return { filteredMovies: sortedMovies, sortOptionId: value};
+      return { filteredMovies: sortedMovies, sortOptionId: value };
     });
   }
 
   loadPage() {
     const movies = data;
-
     this.setState({ movies, filteredMovies: movies });
   }
 

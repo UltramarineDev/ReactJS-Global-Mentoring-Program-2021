@@ -9,18 +9,18 @@ const ButtonComponent = ({ label, type, icon }) => (
     {type === BUTTON_TYPES.ADD &&
     <a className={styles.addButton} href="#">
       <>
-      <span>{icon}</span>
-          <span>{label}</span>
+        <span>{icon}</span>
+        <span>{label}</span>
       </>
-      </a>
+    </a>
     }
     {type === BUTTON_TYPES.SEARCH &&
     <a className={styles.searchButton} href="#">
       <>
-      <span>{icon}</span>
-          <span>{label}</span>
+        <span>{icon}</span>
+        <span>{label}</span>
       </>
-      </a>
+    </a>
     }
   </>
 );
