@@ -1,17 +1,18 @@
 import React, { Suspense } from 'react';
 
+import ErrorBoundary from './error-boundary';
+import Layout from '../layout';
+
 const Home = React.lazy(() => import('../features/home'));
-const Layout = React.lazy(() => import('../layout'));
+const HomeWithLayout = Layout(Home);
 
-//TO ASK: how to implement withLayout(Home);
-
-//TODO: Implement default font family, font size
+//TODO: Implement app default font family, font size
 const App = () => (
   <>
     <Suspense fallback="Loading...">
-      <Layout>
-        <Home/>
-      </Layout>
+      <ErrorBoundary>
+        <HomeWithLayout/>
+      </ErrorBoundary>ost@
     </Suspense>
   </>
 );

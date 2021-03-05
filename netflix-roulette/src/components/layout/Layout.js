@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 
 import Footer from './footer';
 
-const PageComponent = ({ children }) => (
+const LayoutComponent = ({ children }) => (
   <>
     {children}
     <Footer />
   </>
 );
 
-PageComponent.propTypes = {
+LayoutComponent.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default PageComponent;
+export default LayoutComponent;
