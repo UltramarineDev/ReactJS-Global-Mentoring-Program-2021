@@ -11,8 +11,8 @@ const App = () => (
   <>
     <Suspense fallback="Loading...">
       <ErrorBoundary>
-        <HomeWithLayout/>
-      </ErrorBoundary>ost@
+        <HomeWithLayout />
+      </ErrorBoundary>
     </Suspense>
   </>
 );
