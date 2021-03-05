@@ -5,10 +5,10 @@ import styles from './TabBarItem.module.scss';
 
 const TabBarItemComponent = ({ label, active, onClick }) => (
   <>
-  {active ? 
-    <a className={styles.activeTab} onClick={onClick}>{label}</a> :
-    <a className={styles.tab} onClick={onClick}>{label}</a>
-  }
+    {active ? 
+      <a className={styles.activeTab} onClick={onClick}>{label}</a> :
+      <a className={styles.tab} onClick={onClick}>{label}</a>
+    }
   </>
 );
 

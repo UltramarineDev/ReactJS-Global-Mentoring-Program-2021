@@ -8,10 +8,10 @@ import styles from './Search.module.scss';
 
 const SearchComponent = () => (
   <>
-  <div className={styles.search}>
-    <SearchField />
-    <Button label='SEARCH' type={BUTTON_TYPES.SEARCH}/>
-  </div>
+    <div className={styles.search}>
+      <SearchField />
+      <Button label='SEARCH' type={BUTTON_TYPES.SEARCH}/>
+    </div>
   </>
 );
 

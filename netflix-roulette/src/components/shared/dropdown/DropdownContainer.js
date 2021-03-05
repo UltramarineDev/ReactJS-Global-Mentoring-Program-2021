@@ -17,7 +17,9 @@ class DropdownContainer extends Component {
     showOptions: false,
   }
 
-  handleDropDownClick = () => this.setState(({ showOptions }) => { return { showOptions: !showOptions } });
+  handleDropDownClick = () => this.setState(({ showOptions }) => { 
+    return { showOptions: !showOptions } 
+  });
 
   handleChangeClicked = (value) => {
     this.handleDropDownClick();

@@ -58,7 +58,7 @@ export const getSortOptions = () => {
   }))
 };
 
-//TODO: implement sorting
+//TODO: implement ui sorting in scope of module 4
 export const getSortedMovies = (movies, value) => {
   return movies;
 };
