@@ -1,4 +1,4 @@
-.addButton {
+.button {
   display: inline-block;
   padding: 6px 20px;
   margin: 0;
@@ -9,29 +9,22 @@
   height: 60px;
   width: 200px;
   line-height: 40px;
-  color: #f65261;
   font-size: 32px;
   font-family: "Inv Maison Neue","Maison Neue","Open Sans",open-sans,sans-serif;
   text-align: center;
-  background-color: #555555;
   border-radius: 6px;
 }
 
+.addButton {
+  @extend .button;
+
+  color: #f65261;
+  background-color: #555555;
+}
+
 .searchButton {
-  display: inline-block;
-  padding: 6px 20px;
-  margin: 0;
-  cursor: pointer;
-  overflow: visible;
-  text-decoration: none;
-  white-space: nowrap;
-  height: 60px;
-  width: 250px;
-  line-height: 40px;
+  @extend .button;
+
   color: #ffffff;
-  font-size: 32px;
-  font-family: "Inv Maison Neue","Maison Neue","Open Sans",open-sans,sans-serif;
-  text-align: center;
   background-color: #f65261;
-  border-radius: 6px;
 }
