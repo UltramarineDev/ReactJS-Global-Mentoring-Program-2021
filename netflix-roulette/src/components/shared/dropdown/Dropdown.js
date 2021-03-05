@@ -16,7 +16,10 @@ const DropdownComponent = ({
   <>
     <div className={styles.dropdown}>
       <a className={styles.value} onClick={onDropDownClick}>{currentValueLabel}</a>
-      <div className={styles.icon}><FontAwesomeIcon icon="sort-down" /></div>
+      {showOptions ? 
+        <div className={styles.icon}><FontAwesomeIcon icon="sort-up" /></div> :
+        <div className={styles.icon}><FontAwesomeIcon icon="sort-down" /></div>
+      }
       {showOptions &&
         <div className={styles.menu}>
           {options.map(({ id, name }) => 
