@@ -8,13 +8,11 @@ const HomeWithLayout = Layout(Home);
 
 //TODO: Implement app default font family, font size
 const App = () => (
-  <>
-    <Suspense fallback="Loading...">
-      <ErrorBoundary>
-        <HomeWithLayout />
-      </ErrorBoundary>
-    </Suspense>
-  </>
+  <Suspense fallback="Loading...">
+    <ErrorBoundary>
+      <HomeWithLayout />
+    </ErrorBoundary>
+  </Suspense>
 );
 
 export default App;
