@@ -1,16 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { BUTTON_ICONS, BUTTON_TYPES } from '/src/components/shared/constants';
-import Search from '/src/components/shared/search';
-import Button from '/src/components/shared/button'
-import NetflixRoulette from '/src/components/shared/netflix-roulette';
+import Header from '/src/components/shared/header';
 import MovieList from '/src/components/shared/movies-list/MoviesList';
 import TabBar from '/src/components/shared/tab-bar';
 import Dropdown from '/src/components/shared/Dropdown';
 import styles from './Home.module.scss';
 
-//TODO: Maybe move MovieList section to separate component
 const HomeComponent = ({ 
   filteredMovies,
   moviesCount,
@@ -22,17 +18,7 @@ const HomeComponent = ({
   sortOptionId,
   }) => (
   <>
-   <div className={styles.searchSectionWrapper}>
-     <div className={styles.searchSection}>
-       <div className={styles.header}>
-         <NetflixRoulette/>
-         <Button type={BUTTON_TYPES.ADD} iconType={BUTTON_ICONS.ADD} label='ADD MOVIE'/>
-       </div>
-       <div className={styles.searchDescription}>find your movie</div>
-       <Search />
-     </div>
-    </div>
-
+    <Header />
     <div className={styles.movieListSection}>
       <div className={styles.navBar}>
         <div className={styles.resultsFilter}>

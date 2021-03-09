@@ -1,0 +1,31 @@
+.searchSectionWrapper {
+  margin-bottom: 16px;
+  position: relative;
+  height: 600px;
+  width: 100%;
+  background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/e178a4e7-4f52-4661-b2ae-41efa25dca7c/eb618394-24cd-43ae-8799-c1a76a7bcbfc/BY-en-20210222-popsignuptwoweeks-perspective_alpha_website_small.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+  
+.searchSection{
+  position: relative;
+  padding: 24px 64px;
+}
+  
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchDescription {
+  text-transform: uppercase;
+  font-size: 76px;
+  color: #ffffff;
+  font-family: "Inv Maison Neue","Maison Neue","Open Sans",open-sans,sans-serif;
+  margin-top: 64px;
+  margin-left: 140px;
+}
