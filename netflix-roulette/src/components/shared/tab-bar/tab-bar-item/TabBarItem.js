@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import clsx from 'clsx';
 
 import styles from './TabBarItem.module.scss';
 
 const TabBarItemComponent = ({ label, active, onClick }) => (
-  <>
-    {active ? 
-      <a className={styles.activeTab} onClick={onClick}>{label}</a> :
-      <a className={styles.tab} onClick={onClick}>{label}</a>
-    }
-  </>
+  <a 
+    className={clsx(styles.tab, { [styles.activeTab]: active })} 
+    onClick={onClick}>
+    {label}
+  </a>
 );
 
 TabBarItemComponent.propTypes = {
