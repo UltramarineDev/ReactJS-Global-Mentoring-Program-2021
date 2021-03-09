@@ -1,4 +1,4 @@
-import { TABS, SORT_OPTIONS, SORT_OPTIONS_LABELS } from './constants';
+import { TABS, SORT_OPTIONS, SORT_OPTIONS_LABELS, FILTER_TAGS } from './constants';
 
 export const getTabs = () => ([
   {
@@ -23,8 +23,10 @@ export const getTabs = () => ([
   },
 ]);
 
-export const getFilteredMovies = (movies, filterTagList) => {
-  if (!movies || movies.length === 0) {
+export const getFilteredMovies = (movies, activeTab) => {
+  const filterTagList = FILTER_TAGS[activeTab];
+  
+  if (!movies || movies.length === 0 || !filterTagList) {
     return movies;
   }
 

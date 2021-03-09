@@ -18,29 +18,9 @@ class HomeContainer extends PureComponent {
   }
 
   handleTabChange = (activeTab) => {
-    this.setState(({ movies }) => {
-      let filteredMovies = movies;
-
-      //TODO: Maybe optimize filtering
-      switch (activeTab) {
-        case TABS.COMEDY:
-         filteredMovies = getFilteredMovies(movies, FILTER_TAGS.COMEDY);
-         break;
-        case TABS.CRIME:
-         filteredMovies = getFilteredMovies(movies, FILTER_TAGS.CRIME);
-         break;
-        case TABS.DOCUMENTARY:
-         filteredMovies = getFilteredMovies(movies, FILTER_TAGS.DOCUMENTARY);
-         break;
-        case TABS.HORROR:
-         filteredMovies = getFilteredMovies(movies, FILTER_TAGS.HORROR);
-         break;
-        default:
-          break;
-      }
-
-      return { filteredMovies, activeTab };
-    });
+    const { movies } = this.state;
+    const filteredMovies = getFilteredMovies(movies, activeTab);
+    this.setState({ filteredMovies, activeTab });
   }
 
   handleSortOptionChange = (value) => {
