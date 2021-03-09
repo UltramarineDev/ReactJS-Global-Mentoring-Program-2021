@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import MovieCardComponent from './MovieCard';
 
-class MovieCardContainer extends Component {
+class MovieCardContainer extends PureComponent {
   static propTypes = {
     imageUrl: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,

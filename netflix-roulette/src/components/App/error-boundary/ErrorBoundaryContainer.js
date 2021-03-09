@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-class ErrorBoundaryContainer extends Component {
+class ErrorBoundaryContainer extends PureComponent {
   static propTypes = {
     children: PropTypes.node.isRequired,
   }

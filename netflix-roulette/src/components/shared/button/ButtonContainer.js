@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import { BUTTON_TYPES } from '/src/components/shared/constants';
 import ButtonComponent from './Button';
 import { getButtonIcon } from './utils';
 
-class ButtonContainer extends Component {
+class ButtonContainer extends PureComponent {
   static propTypes = {
     label: PropTypes.string,
     type: PropTypes.string,

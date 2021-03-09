@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import DropdownComponent from './Dropdown';
 
-class DropdownContainer extends Component {
+class DropdownContainer extends PureComponent {
   static propTypes = {
     value: PropTypes.string.isRequired,
     options: PropTypes.arrayOf(PropTypes.PropTypes.shape({

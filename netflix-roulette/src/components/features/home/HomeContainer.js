@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 import { data } from './data.json';
 import HomeComponent from './Home';
 import { getTabs, getFilteredMovies, getSortOptions, getSortedMovies } from './utils';
 import { TABS, FILTER_TAGS, SORT_OPTIONS } from './constants';
 
-class HomeContainer extends Component {
+class HomeContainer extends PureComponent {
   state = {
     movies: [],
     filteredMovies: [],
