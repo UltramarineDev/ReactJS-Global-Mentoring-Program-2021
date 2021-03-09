@@ -1,0 +1,27 @@
+.navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 64px;
+}
+
+.resultsFilter {
+  padding-left: 64px;
+}
+  
+.resultsSort {
+  max-width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Inv Maison Neue","Maison Neue","Open Sans",open-sans,sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.resultsSort span {
+  color: #555555;
+  padding-right: 18px;
+}

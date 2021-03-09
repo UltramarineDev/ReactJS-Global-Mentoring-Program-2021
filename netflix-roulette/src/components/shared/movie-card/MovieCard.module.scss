@@ -1,0 +1,50 @@
+.cardWrapper {
+  padding-right: 48px;
+  padding-bottom: 24px;
+}
+
+.image {
+  padding-bottom: 8px;
+}
+
+.image img {
+  min-width: 300px;
+  width: 300px;
+  height: 450px;
+}
+
+.noImage {
+  background-color: #232323;
+}
+
+.nameWraper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: wrap;
+}
+
+.name {
+  color: #ffffff;
+  padding-bottom: 12px;
+  font-family: "Inv Maison Neue","Maison Neue","Open Sans",open-sans,sans-serif;
+}
+
+.genre {
+  padding-bottom: 12px;
+  color: #ffffff;
+  font-family: "Inv Maison Neue","Maison Neue","Open Sans",open-sans,sans-serif;
+}
+
+.year {
+  color: #ffffff;
+  font-family: "Inv Maison Neue", "Maison Neue", "Open Sans", open-sans, sans-serif;
+  border: #ffffff;
+  border-radius: 2px;
+  border: solid thin #424242;
+  width: 60px;
+  text-align: center;
+  height: 24px;
+}

@@ -11,7 +11,7 @@ module.exports = {
   },
   resolve: {
     modules: [resolve(__dirname, './src'), 'node_modules'],
-    extensions: ['.js', '.jsx', '.json']
+    extensions: ['.js', '.jsx', '.json', '.css', 'scss']
   },
   watchOptions: {
     aggregateTimeout: 100,
@@ -20,6 +20,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html',
+      favicon: "src/public/favicon.ico"
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
@@ -37,11 +38,16 @@ module.exports = {
         }
       },
       {
-        test: /\.scss$/,
+        test: /\.s?css$/,
         use: [
           { loader: MiniCssExtractPlugin.loader },
-          'css-loader',
-          'sass-loader'
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true
+            }
+          },
+          'sass-loader',
         ],
       },
       {

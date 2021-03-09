@@ -1,0 +1,19 @@
+.tab {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 0 8px;
+  line-height: 60px;
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+  cursor: pointer;
+  font-family: "Inv Maison Neue","Maison Neue","Open Sans",open-sans,sans-serif;
+}
+
+.activeTab {
+  @extend .tab;
+
+  cursor: pointer;
+  border-bottom: solid #f65261;
+}
