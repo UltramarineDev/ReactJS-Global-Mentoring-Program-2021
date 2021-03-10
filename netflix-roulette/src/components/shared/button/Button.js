@@ -6,10 +6,10 @@ import { BUTTON_TYPES } from '/src/components/shared/constants';
 import styles from './Button.module.scss';
 import { buttonIcon } from './constants';
 
-const ButtonComponent = ({ label, type }) => (
+const ButtonComponent = ({ label, type, onClick }) => (
   <>
     {type === BUTTON_TYPES.ADD &&
-    <a className={styles.addButton} href="#">
+    <a className={styles.addButton} onClick={onClick}>
       <>
         <span>
           <FontAwesomeIcon icon={buttonIcon[type]} />
@@ -19,7 +19,7 @@ const ButtonComponent = ({ label, type }) => (
     </a>
     }
     {type === BUTTON_TYPES.SEARCH &&
-    <a className={styles.searchButton} href="#">
+    <a className={styles.searchButton} onClick={onClick}>
       <>
         <span>
           <FontAwesomeIcon icon={buttonIcon[type]} />
@@ -34,11 +34,13 @@ const ButtonComponent = ({ label, type }) => (
 ButtonComponent.propTypes = {
   label: PropTypes.string,
   type: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 ButtonComponent.defaultProps = {
   label: 'Submit',
   type: BUTTON_TYPES.ADD,
+  onClick: () => {},
 };
 
 export default ButtonComponent;
