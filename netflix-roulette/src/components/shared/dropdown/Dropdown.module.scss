@@ -12,13 +12,11 @@
 
 .icon {
   display: inline;
-  padding-left: 12px;
+  padding-left: 12px; 
+  color: #f65261;
 }
 
 .menu:hover, .value:hover {
   cursor: pointer;
 }
 
-.icon {
- color: #f65261;
-}
