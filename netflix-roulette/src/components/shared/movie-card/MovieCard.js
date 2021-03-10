@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -16,9 +17,9 @@ const MovieCardComponent = ({
  }) => (
   <>
     <div className={styles.cardWrapper}>
-      <a onClick={onActionsClick}>
-        <div className={styles.dotsMenu}></div>
-      </a>
+        <a onClick={onActionsClick} className={styles.dotsMenu}>
+          <FontAwesomeIcon icon='ellipsis-v'/>
+        </a>
       {showOptions &&
         <div className={styles.actions}>
         {actions.map(({ id, name }) => 
