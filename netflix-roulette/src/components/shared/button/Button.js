@@ -10,21 +10,18 @@ const ButtonComponent = ({ label, type, onClick }) => (
   <>
     {type === BUTTON_TYPES.ADD &&
     <a className={styles.addButton} onClick={onClick}>
-      <>
-        <span>
-          <FontAwesomeIcon icon={buttonIcon[type]} />
-        </span>
+      <div className={styles.background}></div>
+      <div className={styles.labelAdd}>
+        {buttonIcon[type] && <span className={styles.icon}><FontAwesomeIcon icon={buttonIcon[type]} /></span>}
         <span>{label}</span>
-      </>
+      </div>
     </a>
     }
     {type === BUTTON_TYPES.SEARCH &&
     <a className={styles.searchButton} onClick={onClick}>
       <>
-        <span>
-          <FontAwesomeIcon icon={buttonIcon[type]} />
-        </span>
-        <span>{label}</span>
+        {buttonIcon[type] && <span className={styles.icon}><FontAwesomeIcon icon={buttonIcon[type]} /></span>}
+        <span className={styles.labelSearch}>{label}</span>
       </>
     </a>
     }
