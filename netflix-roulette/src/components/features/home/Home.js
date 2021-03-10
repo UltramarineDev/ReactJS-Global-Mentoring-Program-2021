@@ -6,8 +6,8 @@ import NavBar from '/src/components/shared/navBar'
 import MovieList from '/src/components/shared/movies-list/MoviesList';
 import Modal from '/src/components/shared/modal';
 
-import AddMovieForm from '../movie-form';
-import EditMovieForm from '../movie-form';
+import AddMovieForm from '../add-movie';
+import EditMovieForm from '../edit-movie';
 import DeleteMovieForm from '../delete-movie-form';
 
 import styles from './Home.module.scss';

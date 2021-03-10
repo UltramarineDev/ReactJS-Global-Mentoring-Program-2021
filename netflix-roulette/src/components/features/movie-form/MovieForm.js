@@ -2,23 +2,23 @@ import React from 'react';
 
 import styles from './MovieForm.module.scss';
 
-const AddMovieFormComponent = () => (
+const MovieFormComponent = () => (
   <>
     <form className={styles.form}>
-      <p>ADD MOVIE</p>
+      <p className={styles.label}>TITLE</p>
       <input></input>
-      <p>RELEASE DATE</p>
+      <p className={styles.label}>RELEASE DATE</p>
       <input></input>
-      <p>MOVIE URL</p>
+      <p className={styles.label}>MOVIE URL</p>
       <input></input>
-      <p>GENRE</p>
+      <p className={styles.label}>GENRE</p>
       <input></input>
-      <p>OVERVIEW</p>
+      <p className={styles.label}>OVERVIEW</p>
       <input></input>
-      <p>RUNTIME</p>
+      <p className={styles.label}>RUNTIME</p>
       <input></input>
     </form>
   </>
 );
 
-export default AddMovieFormComponent;
+export default MovieFormComponent;
