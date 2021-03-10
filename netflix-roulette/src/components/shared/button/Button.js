@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { BUTTON_TYPES } from '/src/components/shared/constants';
 import styles from './Button.module.scss';
 import { buttonIcon } from './constants';
 
-const ButtonComponent = ({ label, type, onClick }) => (
+const ButtonComponent = ({ label, type, onClick, className }) => (
   <>
     {type === BUTTON_TYPES.ADD &&
     <a className={styles.addButton} onClick={onClick}>
@@ -18,7 +19,7 @@ const ButtonComponent = ({ label, type, onClick }) => (
     </a>
     }
     {type === BUTTON_TYPES.SEARCH &&
-    <a className={styles.searchButton} onClick={onClick}>
+    <a className={classNames(styles.searchButton, className)} onClick={onClick}>
       <>
         {buttonIcon[type] && <span className={styles.icon}><FontAwesomeIcon icon={buttonIcon[type]} /></span>}
         <span className={styles.labelSearch}>{label}</span>

@@ -42,6 +42,8 @@ class HomeContainer extends PureComponent {
 
   handleActionCancel = () => this.handleAction();
 
+  handleDeleteMovie = () => { this.handleActionCancel() };
+
   loadPage() {
     const movies = data;
     this.setState({ movies, filteredMovies: movies });
@@ -70,6 +72,7 @@ class HomeContainer extends PureComponent {
         onActionCancel={this.handleActionCancel}
         isEditOpen={action === movieActions.edit}
         isDeleteOpen={action === movieActions.delete}
+        onDeleteMovie={this.handleDeleteMovie}
       />
     );
   }

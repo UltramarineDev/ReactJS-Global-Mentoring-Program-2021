@@ -29,6 +29,7 @@ const HomeComponent = ({
   onActionCancel,
   isEditOpen,
   isDeleteOpen,
+  onDeleteMovie,
   }) => (
   <>
     <Header onAddMovie={onAddMovie} />
@@ -56,8 +57,13 @@ const HomeComponent = ({
     <Modal onClose={onActionCancel} isOpen={isEditOpen}>
       <EditMovieForm />
     </Modal>
-    <Modal onClose={onActionCancel} isOpen={isDeleteOpen}>
-      <DeleteMovieForm />
+    <Modal 
+      onClose={onActionCancel}
+      isOpen={isDeleteOpen}
+      confirmLabel='CONFIRM'
+      onConfirm={onDeleteMovie}
+      className={styles.confirmButton}>
+        <DeleteMovieForm />
     </Modal>
   </>
 );
@@ -80,6 +86,7 @@ HomeComponent.propTypes = {
   onActionCancel: PropTypes.func.isRequired,
   isEditOpen: PropTypes.bool.isRequired,
   isDeleteOpen: PropTypes.bool.isRequired,
+  onDeleteMovie: PropTypes.func.isRequired,
 };
 
 HomeComponent.defaultProps = {
