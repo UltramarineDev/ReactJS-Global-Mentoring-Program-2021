@@ -30,6 +30,8 @@ const HomeComponent = ({
   isEditOpen,
   isDeleteOpen,
   onDeleteMovie,
+  onSubmitMovie,
+  onSaveEditedMovie,
   }) => (
   <>
     <Header onAddMovie={onAddMovie} />
@@ -51,10 +53,22 @@ const HomeComponent = ({
       }
     </div>
 
-    <Modal onClose={onCloseAddMovie} isOpen={isAddMovieModalOpened}>
+    <Modal 
+      onClose={onCloseAddMovie} 
+      isOpen={isAddMovieModalOpened}
+      confirmLabel='SUBMIT'
+      onConfirm={onSubmitMovie}
+      className={styles.submitButton}
+      >
       <AddMovieForm />
     </Modal>
-    <Modal onClose={onActionCancel} isOpen={isEditOpen}>
+    <Modal
+      onClose={onActionCancel}
+      isOpen={isEditOpen}
+      confirmLabel='SAVE'
+      onConfirm={onSaveEditedMovie}
+      className={styles.submitButton}
+    >
       <EditMovieForm />
     </Modal>
     <Modal 
@@ -87,6 +101,8 @@ HomeComponent.propTypes = {
   isEditOpen: PropTypes.bool.isRequired,
   isDeleteOpen: PropTypes.bool.isRequired,
   onDeleteMovie: PropTypes.func.isRequired,
+  onSubmitMovie: PropTypes.func.isRequired,
+  onSaveEditedMovie: PropTypes.func.isRequired,
 };
 
 HomeComponent.defaultProps = {

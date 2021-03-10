@@ -73,6 +73,8 @@ class HomeContainer extends PureComponent {
         isEditOpen={action === movieActions.edit}
         isDeleteOpen={action === movieActions.delete}
         onDeleteMovie={this.handleDeleteMovie}
+        onSubmitMovie={()=>{}}
+        onSaveEditedMovie={()=>{}}
       />
     );
   }
