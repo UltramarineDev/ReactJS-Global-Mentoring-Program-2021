@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react';
 
 import { data } from './data.json';
 import HomeComponent from './Home';
-import { getTabs, getFilteredMovies, getSortOptions, getSortedMovies } from './utils';
-import { TABS, FILTER_TAGS, SORT_OPTIONS } from './constants';
+import { getTabs, getFilteredMovies, getSortedMovies, getOptions } from './utils';
+import { TABS, SORT_OPTIONS, movieActions, SORT_OPTIONS_LABELS, movieActionLabels } from './constants';
 
 class HomeContainer extends PureComponent {
   state = {
@@ -11,6 +11,8 @@ class HomeContainer extends PureComponent {
     filteredMovies: [],
     activeTab: TABS.ALL,
     sortOptionId: SORT_OPTIONS.RELEASE_DATE,
+    isAddMovieModalOpened: false,
+    action: '',
   }
 
   componentDidMount() {
@@ -30,13 +32,23 @@ class HomeContainer extends PureComponent {
     });
   }
 
+  handleAddMovie = () => this.setState({ isAddMovieModalOpened: true });
+
+  handleCloseAddMovie = () => this.setState({ isAddMovieModalOpened: false });
+
+  handleActionClick = (id) => this.setState({ action: id });
+
+  handleAction = action => this.setState({ action });
+
+  handleActionCancel = () => this.handleAction();
+
   loadPage() {
     const movies = data;
     this.setState({ movies, filteredMovies: movies });
   }
 
   render() {
-    const { activeTab, filteredMovies, sortOptionId } = this.state;
+    const { activeTab, filteredMovies, sortOptionId, isAddMovieModalOpened, action } = this.state;
     const moviesCount = filteredMovies ? filteredMovies.length : 0;
 
     return (
@@ -46,9 +58,18 @@ class HomeContainer extends PureComponent {
         tabs={getTabs()}
         activeTab={activeTab}
         onTabChange={this.handleTabChange}
-        sortOptions={getSortOptions()}
+        sortOptions={getOptions(SORT_OPTIONS, SORT_OPTIONS_LABELS)}
         onSortOptionChange={this.handleSortOptionChange}
         sortOptionId={sortOptionId}
+        onAddMovie={this.handleAddMovie}
+        isAddMovieModalOpened={isAddMovieModalOpened}
+        onCloseAddMovie={this.handleCloseAddMovie}
+        onActionClick={this.handleActionClick}
+        action={action}
+        actions={getOptions(movieActions, movieActionLabels)}
+        onActionCancel={this.handleActionCancel}
+        isEditOpen={action === movieActions.edit}
+        isDeleteOpen={action === movieActions.delete}
       />
     );
   }
