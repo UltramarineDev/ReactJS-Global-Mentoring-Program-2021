@@ -1,11 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import OptionItem from '../dropdown/option-item';
 import styles from './MovieCard.module.scss';
 
-const MovieCardComponent = ({ imageUrl, name, genre, year }) => (
+const MovieCardComponent = ({ 
+  imageUrl, 
+  name, 
+  genre, 
+  year, 
+  onActionsClick, 
+  showOptions, 
+  actions, 
+  onActionClick,
+ }) => (
   <>
     <div className={styles.cardWrapper}>
+      <a onClick={onActionsClick}>
+        <div className={styles.dotsMenu}></div>
+      </a>
+      {showOptions &&
+        <div className={styles.actions}>
+        {actions.map(({ id, name }) => 
+          <OptionItem 
+            key={id}
+            value={id}
+            label={name}
+            onClick={()=> onActionClick(id)} />)}
+        </div>
+      }
       <div className={styles.image}>
         <img src={imageUrl} alt="Movie image"/>
       </div>
@@ -23,6 +46,10 @@ MovieCardComponent.propTypes = {
   name: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
+  onActionsClick: PropTypes.func.isRequired,
+  actions: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  showOptions: PropTypes.bool.isRequired,
+  onActionClick: PropTypes.func.isRequired,
 };
 
 export default MovieCardComponent;
