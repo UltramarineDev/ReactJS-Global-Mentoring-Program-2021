@@ -25,7 +25,10 @@ const MovieDetails = ({ movie, year, onClick }) => {
           <div className={styles.movieDetails}>
             <MovieImage imageUrl={movie.poster_path} />
             <div className={styles.description}>
-              <div className={styles.title}>{movie.title}</div>
+              <div className={styles.titleWrapper}>
+                <span className={styles.title}>{movie.title}</span>
+                <span className={styles.rating}>{movie.vote_average}</span>
+              </div>
               <div className={styles.tagLine}>{movie.tagline}</div>
               <div className={styles.dataWrapper}>
                 <span className={styles.year}>{year}</span>
