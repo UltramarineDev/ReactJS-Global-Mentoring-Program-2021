@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { wordings } from '/src/locales/wordings';
 
+import styles from './ErrorBoundary.module.scss';
 class ErrorBoundaryContainer extends PureComponent {
   static propTypes = {
     children: PropTypes.node.isRequired,
@@ -22,7 +23,7 @@ class ErrorBoundaryContainer extends PureComponent {
   
   render() {
     if (this.state.hasError) {
-      return <h1>{wordings.something_went_wrong}</h1>;
+      return <h1 className={styles.center}>{wordings.something_went_wrong}</h1>;
     }
   
     return this.props.children; 
