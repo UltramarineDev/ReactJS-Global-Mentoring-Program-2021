@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 
 import { data } from './data.json';
-import HomeComponent from './Home';
+import Home from './Home';
 import { getTabs, getFilteredMovies, getSortedMovies, getOptions } from './utils';
 import { TABS, SORT_OPTIONS, movieActions, SORT_OPTIONS_LABELS, movieActionLabels } from './constants';
 
@@ -54,7 +54,7 @@ class HomeContainer extends PureComponent {
     const moviesCount = filteredMovies ? filteredMovies.length : 0;
 
     return (
-      <HomeComponent
+      <Home
         filteredMovies={filteredMovies}
         moviesCount={moviesCount}
         tabs={getTabs()}

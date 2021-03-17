@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
-import DropdownComponent from './Dropdown';
+import Dropdown from './Dropdown';
 
 class DropdownContainer extends PureComponent {
   static propTypes = {
@@ -32,7 +32,7 @@ class DropdownContainer extends PureComponent {
 
     const currentValueLabel = options.find(({ id }) => id === value).name;
     return (
-      <DropdownComponent
+      <Dropdown
         value={value}
         options={options}
         onChange={this.handleChangeClicked}

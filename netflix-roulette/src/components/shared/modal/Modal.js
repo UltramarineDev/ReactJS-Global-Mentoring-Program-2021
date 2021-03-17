@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Button from '/src/components/shared/button';
+import Button from '/src/components/shared/button/Button';
 import { BUTTON_TYPES } from '/src/components/shared/constants';
 
 import styles from './Modal.module.scss';
 
-const ModalComponent = ({ onClose, isOpen, children, confirmLabel, onConfirm, className }) => (
+const Modal = ({ onClose, isOpen, children, confirmLabel, onConfirm, className }) => (
   <>
     { isOpen && 
       <div className={styles.modal}>
@@ -22,7 +22,7 @@ const ModalComponent = ({ onClose, isOpen, children, confirmLabel, onConfirm, cl
   </>
 );
 
-ModalComponent.propTypes = {
+Modal.propTypes = {
   onClose: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
   children: PropTypes.node,
@@ -31,11 +31,11 @@ ModalComponent.propTypes = {
   className: PropTypes.string,
 }
 
-ModalComponent.defaultProps = {
+Modal.defaultProps = {
   children: undefined,
   confirmLabel: '',
   onConfirm: undefined,
   className: '',
 }
 
-export default ModalComponent;
+export default Modal;

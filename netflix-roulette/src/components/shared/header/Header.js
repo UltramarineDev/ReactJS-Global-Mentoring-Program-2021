@@ -3,12 +3,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { BUTTON_ICONS, BUTTON_TYPES, backgroundImageUrl } from '/src/components/shared/constants';
-import Search from '/src/components/shared/search';
-import Button from '/src/components/shared/button'
-import NetflixRoulette from '/src/components/shared/netflix-roulette';
+import Search from '/src/components/shared/search/Search';
+import Button from '/src/components/shared/button/Button'
+import NetflixRoulette from '/src/components/shared/NetflixRoulette/NetflixRoulette';
+import { wordings } from '/src/locales/wordings';
+
 import styles from './Header.module.scss';
 
-const HeaderComponent = ({ onAddMovie }) => (
+const Header = ({ onAddMovie }) => (
   <div className={styles.searchSectionWrapper}>
     <div className={styles.background}>
       <img src={backgroundImageUrl} alt="Background image"/>
@@ -20,17 +22,17 @@ const HeaderComponent = ({ onAddMovie }) => (
        <Button 
          type={BUTTON_TYPES.ADD} 
          iconType={BUTTON_ICONS.ADD}
-         label='ADD MOVIE'
+         label={wordings.add_movie}
          onClick={onAddMovie}/>
      </div>
-     <div className={styles.searchDescription}>find your movie</div>
+     <div className={styles.searchDescription}>{wordings.find_your_movie}</div>
      <Search />
    </div>
   </div>
 );
 
-HeaderComponent.propTypes = {
+Header.propTypes = {
   onAddMovie: PropTypes.func.isRequired,
 };
 
-export default HeaderComponent;
+export default Header;

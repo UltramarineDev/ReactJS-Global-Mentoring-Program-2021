@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import OptionItem from './option-item';
+import OptionItem from './OptionItem/OptionItem';
 import styles from './Dropdown.module.scss';
 
-const DropdownComponent = ({ 
+const Dropdown = ({ 
   value,
   options,
   onChange,
@@ -34,7 +34,7 @@ const DropdownComponent = ({
   </>
 );
 
-DropdownComponent.propTypes = {
+Dropdown.propTypes = {
   value: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.PropTypes.shape({
     id: PropTypes.string,
@@ -46,4 +46,4 @@ DropdownComponent.propTypes = {
   currentValueLabel: PropTypes.string.isRequired
 };
 
-export default DropdownComponent;
+export default Dropdown;

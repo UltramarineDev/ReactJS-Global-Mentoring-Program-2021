@@ -1,16 +1,17 @@
 import React from 'react';
 
 import { BUTTON_TYPES } from '/src/components/shared/constants';
+import { wordings } from '/src/locales/wordings';
 
-import Button from '../button';
-import SearchField from './search-field';
+import Button from '../button/Button';
+import SearchField from './SearchField/SearchField';
 import styles from './Search.module.scss';
 
-const SearchComponent = () => (
+const Search = () => (
   <div className={styles.search}>
     <SearchField />
-    <Button label='SEARCH' type={BUTTON_TYPES.SEARCH}/>
+    <Button label={wordings.search} type={BUTTON_TYPES.SEARCH}/>
   </div>
 );
 
-export default SearchComponent;
+export default Search;

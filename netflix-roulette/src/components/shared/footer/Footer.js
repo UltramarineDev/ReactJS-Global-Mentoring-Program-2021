@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from './Footer.module.scss';
-import NetflixRoulette from '../netflix-roulette';
+import NetflixRoulette from '../NetflixRoulette/NetflixRoulette';
 
 const Footer = () => (
   <div className={styles.footer}>

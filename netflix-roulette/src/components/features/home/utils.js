@@ -1,24 +1,25 @@
-import { TABS, SORT_OPTIONS, SORT_OPTIONS_LABELS, FILTER_TAGS } from './constants';
+import { TABS, FILTER_TAGS } from './constants';
+import { wordings } from '/src/locales/wordings';
 
 export const getTabs = () => ([
   {
-    label: 'ALL',
+    label: wordings.all,
     id: TABS.ALL,
   },
   {
-    label: 'DOCUMENTARY',
+    label: wordings.documentary,
     id: TABS.DOCUMENTARY,
   },
   {
-    label: 'COMEDY',
+    label: wordings.comedy,
     id: TABS.COMEDY,
   },
   {
-    label: 'HORROR',
+    label: wordings.horror,
     id: TABS.HORROR,
   },
   {
-    label: 'CRIME',
+    label: wordings.crime,
     id: TABS.CRIME,
   },
 ]);

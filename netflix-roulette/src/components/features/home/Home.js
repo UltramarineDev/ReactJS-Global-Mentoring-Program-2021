@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Header from '/src/components/shared/header';
-import NavBar from '/src/components/shared/navBar'
-import MovieList from '/src/components/shared/movies-list/MoviesList';
-import Modal from '/src/components/shared/modal';
-
-import AddMovieForm from '../add-movie';
-import EditMovieForm from '../edit-movie';
-import DeleteMovieForm from '../delete-movie-form';
+import Header from '/src/components/shared/Header/Header';
+import NavBar from '/src/components/shared/NavBar/NavBar'
+import MovieList from '/src/components/shared/MoviesList/MoviesList';
+import Modal from '/src/components/shared/Modal/Modal';
+import { wordings } from '/src/locales/wordings';
+import AddMovieForm from '../AddMovie/AddMovie';
+import EditMovieForm from '../EditMovie/EditMovie';
+import DeleteMovieForm from '../DeleteMovieForm/DeleteMovieForm';
 
 import styles from './Home.module.scss';
 
-const HomeComponent = ({ 
+const Home = ({ 
   filteredMovies,
   moviesCount,
   tabs,
@@ -45,7 +45,7 @@ const HomeComponent = ({
         onSortOptionChange={onSortOptionChange}
       />
       <div className={styles.border}></div>
-      <div className={styles.moviesCount}><strong>{moviesCount}</strong> movies found</div>
+      <div className={styles.moviesCount}><strong>{moviesCount} </strong>{wordings.movies_found}</div>
       {filteredMovies &&  
         <div className={styles.movieList}>
           <MovieList movies={filteredMovies} onActionClick={onActionClick} actions={actions}/>
@@ -56,7 +56,7 @@ const HomeComponent = ({
     <Modal 
       onClose={onCloseAddMovie} 
       isOpen={isAddMovieModalOpened}
-      confirmLabel='SUBMIT'
+      confirmLabel={wordings.submit}
       onConfirm={onSubmitMovie}
       className={styles.submitButton}
       >
@@ -65,7 +65,7 @@ const HomeComponent = ({
     <Modal
       onClose={onActionCancel}
       isOpen={isEditOpen}
-      confirmLabel='SAVE'
+      confirmLabel={wordings.save}
       onConfirm={onSaveEditedMovie}
       className={styles.submitButton}
     >
@@ -74,7 +74,7 @@ const HomeComponent = ({
     <Modal 
       onClose={onActionCancel}
       isOpen={isDeleteOpen}
-      confirmLabel='CONFIRM'
+      confirmLabel={wordings.confirm}
       onConfirm={onDeleteMovie}
       className={styles.confirmButton}>
         <DeleteMovieForm />
@@ -82,7 +82,7 @@ const HomeComponent = ({
   </>
 );
 
-HomeComponent.propTypes = {
+Home.propTypes = {
   filteredMovies: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
   moviesCount: PropTypes.number.isRequired,
   tabs: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -105,8 +105,8 @@ HomeComponent.propTypes = {
   onSaveEditedMovie: PropTypes.func.isRequired,
 };
 
-HomeComponent.defaultProps = {
+Home.defaultProps = {
   action: '',
 }
 
-export default HomeComponent;
+export default Home;
