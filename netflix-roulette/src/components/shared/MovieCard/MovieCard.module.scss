@@ -5,7 +5,16 @@
 }
 
 .image {
-  padding-bottom: 8px;
+  margin-bottom: 8px;
+  height: 450px;
+  background-color: 232323;
+  width: 300px;
+}
+
+.noImageWrapper {
+  @extend .image;
+
+  border: solid thin;
 }
 
 .image img {
@@ -15,7 +24,11 @@
 }
 
 .noImage {
-  background-color: #232323;
+  font-size: 80px;
+  top: 30%;
+  position: absolute;
+  font-weight: 23px;
+  left: 30%;
 }
 
 .nameWraper {
@@ -48,7 +61,7 @@
 }
 
 .dotsMenu {
-   position: absolute;
+  position: absolute;
   margin-left: 270px;
   margin-top: 20px;
   width: 7px;

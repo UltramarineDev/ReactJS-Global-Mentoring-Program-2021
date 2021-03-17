@@ -14,12 +14,14 @@ const MovieCard = ({
   showOptions, 
   actions, 
   onActionClick,
+  hasImageError,
+  onImageError,
  }) => (
   <>
     <div className={styles.cardWrapper}>
-        <a onClick={onActionsClick} className={styles.dotsMenu}>
-          <FontAwesomeIcon icon='ellipsis-v'/>
-        </a>
+      <a onClick={onActionsClick} className={styles.dotsMenu}>
+        <FontAwesomeIcon icon='ellipsis-v'/>
+      </a>
       {showOptions &&
         <div className={styles.actions}>
         {actions.map(({ id, name }) => 
@@ -30,8 +32,11 @@ const MovieCard = ({
             onClick={()=> onActionClick(id)} />)}
         </div>
       }
-      <div className={styles.image}>
-        <img src={imageUrl} alt="Movie image"/>
+      <div className={hasImageError ? styles.noImageWrapper : styles.image}>
+        {hasImageError ?
+          <div className={styles.noImage}><FontAwesomeIcon icon='image'/></div> :
+          <img src={imageUrl} alt="Movie image" onError={onImageError}/>
+        }
       </div>
       <div className={styles.nameWraper}>
         <div className={styles.name}>{name}</div>
@@ -51,6 +56,8 @@ MovieCard.propTypes = {
   actions: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
   showOptions: PropTypes.bool.isRequired,
   onActionClick: PropTypes.func.isRequired,
+  onImageError: PropTypes.func.isRequired,
+  hasImageError: PropTypes.bool.isRequired,
 };
 
 export default MovieCard;

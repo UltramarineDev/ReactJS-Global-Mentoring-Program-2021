@@ -15,15 +15,18 @@ class MovieCardContainer extends PureComponent {
 
    state = {
     showOptions: false,
+    hasImageError: false,
   }
 
   handleActionsClick = () => this.setState(({ showOptions }) => { 
     return { showOptions: !showOptions } 
   });
 
+  handleImageError = () => this.setState({ hasImageError: true });
+
   render() {
     const { imageUrl, name, genres, releaseDate, onActionClick, actions } = this.props;
-    const { showOptions } = this.state;
+    const { showOptions, hasImageError } = this.state;
 
     const genre = genres.join(", ");
     const year = new Date(releaseDate).getFullYear();
@@ -37,6 +40,8 @@ class MovieCardContainer extends PureComponent {
         showOptions={showOptions}
         onActionClick={onActionClick}
         actions={actions}
+        onImageError={this.handleImageError}
+        hasImageError={hasImageError}
       />
     );
   }
