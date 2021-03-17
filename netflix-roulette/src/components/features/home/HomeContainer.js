@@ -3,14 +3,14 @@ import React, { PureComponent } from 'react';
 import { data } from './data.json';
 import Home from './Home';
 import { getTabs, getFilteredMovies, getSortedMovies, getOptions } from './utils';
-import { TABS, SORT_OPTIONS, movieActions, SORT_OPTIONS_LABELS, movieActionLabels } from './constants';
+import { tabs, sortOptions, movieActions, sortOptionsLabels, movieActionLabels } from './constants';
 
 class HomeContainer extends PureComponent {
   state = {
     movies: [],
     filteredMovies: [],
-    activeTab: TABS.ALL,
-    sortOptionId: SORT_OPTIONS.RELEASE_DATE,
+    activeTab: tabs.ALL,
+    sortOptionId: sortOptions.RELEASE_DATE,
     isAddMovieModalOpened: false,
     action: '',
   }
@@ -60,7 +60,7 @@ class HomeContainer extends PureComponent {
         tabs={getTabs()}
         activeTab={activeTab}
         onTabChange={this.handleTabChange}
-        sortOptions={getOptions(SORT_OPTIONS, SORT_OPTIONS_LABELS)}
+        sortOptions={getOptions(sortOptions, sortOptionsLabels)}
         onSortOptionChange={this.handleSortOptionChange}
         sortOptionId={sortOptionId}
         onAddMovie={this.handleAddMovie}

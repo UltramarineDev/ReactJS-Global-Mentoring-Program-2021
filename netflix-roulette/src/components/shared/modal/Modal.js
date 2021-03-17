@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Button from '/src/components/shared/button/Button';
-import { BUTTON_TYPES } from '/src/components/shared/constants';
+import { buttonTypes } from '/src/components/shared/constants';
 
 import styles from './Modal.module.scss';
 
@@ -14,7 +14,7 @@ const Modal = ({ onClose, isOpen, children, confirmLabel, onConfirm, className }
           <a className={styles.close} onClick={onClose}>&times;</a>
           {children}
           {confirmLabel &&
-          <Button label={confirmLabel} type={BUTTON_TYPES.SEARCH} onClick={onConfirm} className={className}/>
+          <Button label={confirmLabel} type={buttonTypes.SEARCH} onClick={onConfirm} className={className}/>
         }
         </div>
       </div>

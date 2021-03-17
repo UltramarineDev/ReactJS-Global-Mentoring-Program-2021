@@ -1,31 +1,31 @@
-import { TABS, FILTER_TAGS } from './constants';
+import { tabs, filterTags } from './constants';
 import { wordings } from '/src/locales/wordings';
 
 export const getTabs = () => ([
   {
     label: wordings.all,
-    id: TABS.ALL,
+    id: tabs.ALL,
   },
   {
     label: wordings.documentary,
-    id: TABS.DOCUMENTARY,
+    id: tabs.DOCUMENTARY,
   },
   {
     label: wordings.comedy,
-    id: TABS.COMEDY,
+    id: tabs.COMEDY,
   },
   {
     label: wordings.horror,
-    id: TABS.HORROR,
+    id: tabs.HORROR,
   },
   {
     label: wordings.crime,
-    id: TABS.CRIME,
+    id: tabs.CRIME,
   },
 ]);
 
 export const getFilteredMovies = (movies, activeTab) => {
-  const filterTagList = FILTER_TAGS[activeTab];
+  const filterTagList = filterTags[activeTab];
   
   if (!movies || movies.length === 0 || !filterTagList) {
     return movies;

@@ -1,4 +1,4 @@
-export const TABS = {
+export const tabs = {
   ALL: 'ALL',
   DOCUMENTARY: 'DOCUMENTARY',
   COMEDY: 'COMEDY',
@@ -6,21 +6,21 @@ export const TABS = {
   CRIME: 'CRIME',
 };
 
-export const FILTER_TAGS = {
+export const filterTags = {
   DOCUMENTARY: ['Documentary', 'Adventure'],
   COMEDY: ['Comedy', 'Family', 'Fantasy'],
   HORROR: ['Horror', 'Action'],
   CRIME: ['Crime', 'Action'],
 };
 
-export const SORT_OPTIONS = {
+export const sortOptions = {
   RELEASE_DATE: 'RELEASE_DATE',
   TITLE: 'TITLE',
 };
 
-export const SORT_OPTIONS_LABELS = {
-  [SORT_OPTIONS.RELEASE_DATE]: 'RELEASE DATE',
-  [SORT_OPTIONS.TITLE]: 'TITLE',
+export const sortOptionsLabels = {
+  [sortOptions.RELEASE_DATE]: 'RELEASE DATE',
+  [sortOptions.TITLE]: 'TITLE',
 };
 
 export const movieActions = {

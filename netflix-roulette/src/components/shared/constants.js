@@ -1,8 +1,8 @@
-export const BUTTON_ICONS = {
+export const buttonIcons = {
   ADD: 'ADD',
 };
 
-export const BUTTON_TYPES = {
+export const buttonTypes = {
   ADD: 'ADD',
   SEARCH: 'SEARCH',
   CANCEL: 'CANCEL',

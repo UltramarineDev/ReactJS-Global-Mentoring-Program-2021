@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { BUTTON_ICONS, BUTTON_TYPES, backgroundImageUrl } from '/src/components/shared/constants';
+import { buttonIcons, buttonTypes, backgroundImageUrl } from '/src/components/shared/constants';
 import Search from '/src/components/shared/search/Search';
 import Button from '/src/components/shared/button/Button'
 import NetflixRoulette from '/src/components/shared/NetflixRoulette/NetflixRoulette';
@@ -20,8 +20,8 @@ const Header = ({ onAddMovie }) => (
      <div className={styles.header}>
        <NetflixRoulette/>
        <Button 
-         type={BUTTON_TYPES.ADD} 
-         iconType={BUTTON_ICONS.ADD}
+         type={buttonTypes.ADD} 
+         iconType={buttonIcons.ADD}
          label={wordings.add_movie}
          onClick={onAddMovie}/>
      </div>
