@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { wordings } from '/src/locales/wordings';
 import TabBar from '/src/components/shared/TabBar/TabBar';
-import Dropdown from '/src/components/shared/dropdown/DropdownContainer';
+import Dropdown from '/src/components/shared/dropdown/Dropdown';
 import styles from './NavBar.module.scss';
 
 const NavBar = ({ 

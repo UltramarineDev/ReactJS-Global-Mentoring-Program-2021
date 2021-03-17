@@ -1,9 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 
-import { buttonIcons, buttonTypes } from '/src/components/shared/constants';
+import { buttonIcons, buttonTypes, emptyFunc } from '/src/components/shared/constants';
 import StoryCard from '/src/components/shared/StoryCard/StoryCard';
-import MoviesList from '/src/components/shared/MoviesList/MoviesListContainer';
+import MoviesList from '/src/components/shared/MoviesList/MoviesList';
 import Modal from '/src/components/shared/Modal/Modal';
 import { wordings } from '/src/locales/wordings';
 import Search from '/src/components/shared/Search/Search';
@@ -13,21 +12,18 @@ import AddMovieForm from '../AddMovie/AddMovie';
 
 import styles from './Home.module.scss';
 
-const Home = ({ 
-  onAddMovie,
-  isAddMovieModalOpened,
-  onCloseAddMovie,
-  onSubmitMovie,
-  }) => (
+const Home = () => {
+    const [isModalOpened, setModalOpened] = useState(false);
+    return (
   <>
     <StoryCard>
       <div className={styles.searchSection}>
          <Header>
-           <Button 
+           <Button
            type={buttonTypes.ADD} 
            iconType={buttonIcons.ADD}
            label={wordings.add_movie}
-           onClick={onAddMovie} />
+           onClick={() => setModalOpened(true)} />
          </Header>
        <div className={styles.searchDescription}>{wordings.find_your_movie}</div>
        <Search />
@@ -36,22 +32,15 @@ const Home = ({
     <MoviesList />
 
     <Modal 
-      onClose={onCloseAddMovie} 
-      isOpen={isAddMovieModalOpened}
+      onClose={() => setModalOpened(false)}
+      isOpen={isModalOpened}
       confirmLabel={wordings.submit}
-      onConfirm={onSubmitMovie}
+      onConfirm={emptyFunc}
       className={styles.submitButton}
       >
-      <AddMovieForm />
+        <AddMovieForm />
     </Modal>
   </>
-);
-
-Home.propTypes = {
-  onAddMovie: PropTypes.func.isRequired,
-  isAddMovieModalOpened: PropTypes.bool.isRequired,
-  onCloseAddMovie: PropTypes.func.isRequired,
-  onSubmitMovie: PropTypes.func.isRequired,
-};
+)};
 
 export default Home;

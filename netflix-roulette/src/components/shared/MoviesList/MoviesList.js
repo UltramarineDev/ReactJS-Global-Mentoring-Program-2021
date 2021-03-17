@@ -1,42 +1,50 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import uniqueId from 'lodash/uniqueId';
+import React, { useState, useEffect  } from 'react';
 
 import { wordings } from '/src/locales/wordings';
 import Modal from '/src/components/shared/Modal/Modal';
 import NavBar from '/src/components/shared/NavBar/NavBar'
-import MovieCard from '../MovieCard/MovieCardContainer';
+import MovieCard from '../MovieCard/MovieCard';
 import EditMovieForm from '../../features/EditMovie/EditMovie';
 import DeleteMovieForm from '../../features/DeleteMovieForm/DeleteMovieForm';
-
+import { data } from './data.json';
+import { getTabs, getFilteredMovies, getSortedMovies, getOptions } from './utils';
+import { tabs, sortOptions, movieActions, sortOptionsLabels, movieActionLabels } from './constants';
 import styles from './MoviesList.module.scss';
 
-const MoviesList = ({
-  filteredMovies, 
-  moviesCount,
-  tabs,
-  activeTab,
-  onTabChange,
-  sortOptions,
-  onSortOptionChange,
-  sortOptionId,
-  onActionClick,
-  actions,
-  onActionCancel,
-  isEditOpen,
-  isDeleteOpen,
-  onDeleteMovie,
-  onSaveEditedMovie,
-}) => (
+const MoviesList = () => {
+  const moviesCount = filteredMovies ? filteredMovies.length : 0;
+
+  const [movies, setMovies] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState([]);
+  const [activeTab, setActiveTab] = useState(tabs.ALL);
+  const [sortOptionId, setSortOptionId] = useState(sortOptions.RELEASE_DATE);
+  const [action, setAction] = useState('');
+
+  useEffect(() => {
+    setMovies(data);
+    setFilteredMovies(data);
+  });
+
+  const handleTabChange = (activeTab) => {
+    setFilteredMovies(getFilteredMovies(movies, activeTab));
+    setActiveTab(activeTab);
+  }
+  
+  const handleSortOptionChange = (value) => {
+    setFilteredMovies(getSortedMovies(filteredMovies, value));
+    setSortOptionId(value);
+  };
+
+  return (
   <>
     <div className={styles.movieListSection}>
       <NavBar
-        tabs={tabs}
+        tabs={getTabs()}
         activeTab={activeTab}
-        onTabChange={onTabChange}
-        sortOptions={sortOptions}
+        onTabChange={() => handleTabChange(activeTab)}
+        sortOptions={getOptions(sortOptions, sortOptionsLabels)}
         sortOptionId={sortOptionId}
-        onSortOptionChange={onSortOptionChange}
+        onSortOptionChange={(value) => handleSortOptionChange(value)}
       />
       <div className={styles.border}></div>
       <div className={styles.moviesCount}><strong>{moviesCount} </strong>{wordings.movies_found}</div>
@@ -44,53 +52,32 @@ const MoviesList = ({
         <div className={styles.moviesList}>
           {filteredMovies.map((movie) => (
             <MovieCard
-              key={uniqueId()}
+              key={movie.title}
               movie={movie}
-              onActionClick={onActionClick}
-              actions={actions}
+              onActionClick={(id) => setAction(id)}
+              actions={getOptions(movieActions, movieActionLabels)}
           />))}
         </div>
         }
     </div>
     <Modal
-      onClose={onActionCancel}
-      isOpen={isEditOpen}
+      onClose={() => setAction('')}
+      isOpen={action === movieActions.edit}
       confirmLabel={wordings.save}
-      onConfirm={onSaveEditedMovie}
+      onConfirm={() => setAction('')}
       className={styles.submitButton}
       >
         <EditMovieForm />
     </Modal>
     <Modal 
-      onClose={onActionCancel}
-      isOpen={isDeleteOpen}
+      onClose={() => setAction('')}
+      isOpen={action === movieActions.delete}
       confirmLabel={wordings.confirm}
-      onConfirm={onDeleteMovie}
+      onConfirm={() => setAction('')}
       className={styles.confirmButton}>
         <DeleteMovieForm />
     </Modal>
   </>
-);
-
-MoviesList.propTypes = {
-  onActionClick: PropTypes.func.isRequired,
-  actions: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
-  tabs: PropTypes.arrayOf(PropTypes.object).isRequired,
-  filteredMovies: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
-  moviesCount: PropTypes.number.isRequired,
-  activeTab: PropTypes.string.isRequired,
-  onTabChange: PropTypes.func.isRequired,
-  sortOptions: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
-  onSortOptionChange: PropTypes.func.isRequired,
-  sortOptionId: PropTypes.string.isRequired,
-  onActionClick: PropTypes.func.isRequired,
-  action: PropTypes.string,
-  actions: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
-  onActionCancel: PropTypes.func.isRequired,
-  isEditOpen: PropTypes.bool.isRequired,
-  isDeleteOpen: PropTypes.bool.isRequired,
-  onDeleteMovie: PropTypes.func.isRequired,
-  onSaveEditedMovie: PropTypes.func.isRequired,
-};
+)};
 
 export default MoviesList;

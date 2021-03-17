@@ -1,24 +1,27 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { emptyFunc } from '/src/components/shared/constants';
+import { data } from '../../shared/MoviesList/data.json';
 import { wordings } from '/src/locales/wordings';
-import MovieImage from '/src/components/shared/MovieImage/MovieImageContainer';
+import MovieImage from '/src/components/shared/MovieImage/MovieImage';
 import Header from '/src/components/shared/Header/Header';
 import StoryCard from '/src/components/shared/StoryCard/StoryCard';
-import MoviesList from '/src/components/shared/MoviesList/MoviesListContainer';
+import MoviesList from '/src/components/shared/MoviesList/MoviesList';
 
 import styles from './MovieDetails.module.scss';
 
-const MovieDetails = ({ movie, year, onClick }) => {
+const MovieDetails = () => {
+  const movie = data[3];
   const duration = `${movie.runtime} ${wordings.min}`;
-  
+  const year = movie ? new Date(movie.release_date).getFullYear() : '-';
+
   return (
     <>
       <StoryCard gradientClassName={styles.gradientClassName}>
         <div className={styles.root}>
           <Header>
-            <a onClick={onClick} className={styles.icon}>
+            <a onClick={emptyFunc} className={styles.icon}>
               <FontAwesomeIcon icon="search"/>
             </a>
           </Header>
@@ -42,11 +45,5 @@ const MovieDetails = ({ movie, year, onClick }) => {
       <MoviesList />
     </>
 )};
-
-MovieDetails.propTypes = {
-  movie: PropTypes.object.isRequired,
-  year: PropTypes.number.isRequired,
-  onClick: PropTypes.func.isRequired,
-};
 
 export default MovieDetails;

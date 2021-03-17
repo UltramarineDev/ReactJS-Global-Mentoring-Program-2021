@@ -1,24 +1,24 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import MovieImage from '../MovieImage/MovieImageContainer';
+import { emptyFunc } from '/src/components/shared/constants';
+import MovieImage from '../MovieImage/MovieImage';
 import OptionItem from '../dropdown/OptionItem/OptionItem';
 import styles from './MovieCard.module.scss';
 
 const MovieCard = ({
   movie,
-  genre, 
-  year, 
-  onActionsClick, 
-  showOptions, 
   actions, 
   onActionClick,
-  onMovieClick,
- }) => (
-  <>
+ }) => {
+  const genre = movie ? movie.genres.join(", ") : '-';
+  const year = movie ? new Date(movie.release_date).getFullYear() : '-';
+  const [showOptions, setShowOptions] = useState(false);
+
+   return (
     <div className={styles.cardWrapper}>
-      <a onClick={onActionsClick} className={styles.dotsMenu}>
+      <a onClick={() => setShowOptions(showOptions => !showOptions)} className={styles.dotsMenu}>
         <FontAwesomeIcon icon='ellipsis-v'/>
       </a>
       {showOptions &&
@@ -31,7 +31,7 @@ const MovieCard = ({
             onClick={()=> onActionClick(id)} />)}
         </div>
       }
-      <a onClick={onMovieClick}>
+      <a onClick={emptyFunc}>
         <MovieImage imageUrl={movie.poster_path} />
       </a>
       <div className={styles.nameWraper}>
@@ -40,18 +40,12 @@ const MovieCard = ({
       </div>
       <div className={styles.genre}>{genre}</div>
     </div>
-  </>
-);
+)};
 
 MovieCard.propTypes = {
   movie: PropTypes.object.isRequired,
-  genre: PropTypes.string.isRequired,
-  year: PropTypes.number.isRequired,
-  onActionsClick: PropTypes.func.isRequired,
   actions: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
-  showOptions: PropTypes.bool.isRequired,
   onActionClick: PropTypes.func.isRequired,
-  onMovieClick: PropTypes.func.isRequired,
 };
 
 export default MovieCard;
