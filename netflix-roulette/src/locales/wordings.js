@@ -31,5 +31,6 @@ export const wordings = {
   netflix: 'netflix',
   roulette: 'roulette',
   search_placeholder: 'What do you want to watch?',
-  search: 'SEARCH'
+  search: 'SEARCH',
+  min: 'min',
 };

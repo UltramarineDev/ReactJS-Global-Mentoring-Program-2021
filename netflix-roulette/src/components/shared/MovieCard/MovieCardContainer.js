@@ -5,43 +5,37 @@ import MovieCard from './MovieCard';
 
 class MovieCardContainer extends PureComponent {
   static propTypes = {
-    imageUrl: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    genres: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-    releaseDate: PropTypes.string.isRequired,
+    movie: PropTypes.object.isRequired,
     onActionClick: PropTypes.func.isRequired,
     actions: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
   };
 
    state = {
     showOptions: false,
-    hasImageError: false,
   }
 
   handleActionsClick = () => this.setState(({ showOptions }) => { 
     return { showOptions: !showOptions } 
   });
 
-  handleImageError = () => this.setState({ hasImageError: true });
+  handleMovieClick = () => {};
 
   render() {
-    const { imageUrl, name, genres, releaseDate, onActionClick, actions } = this.props;
-    const { showOptions, hasImageError } = this.state;
+    const { movie, onActionClick, actions } = this.props;
+    const { showOptions } = this.state;
 
-    const genre = genres.join(", ");
-    const year = new Date(releaseDate).getFullYear();
+    const genre = movie ? movie.genres.join(", ") : '-';
+    const year = movie ? new Date(movie.release_date).getFullYear() : '-';
     return (
       <MovieCard
-        imageUrl={imageUrl}
-        name={name}
+        movie={movie}
         year={year}
         genre={genre}
         onActionsClick={this.handleActionsClick}
         showOptions={showOptions}
         onActionClick={onActionClick}
         actions={actions}
-        onImageError={this.handleImageError}
-        hasImageError={hasImageError}
+        onMovieClick={this.handleMovieClick}
       />
     );
   }

@@ -2,20 +2,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import MovieImage from '../MovieImage/MovieImageContainer';
 import OptionItem from '../dropdown/OptionItem/OptionItem';
 import styles from './MovieCard.module.scss';
 
-const MovieCard = ({ 
-  imageUrl, 
-  name, 
+const MovieCard = ({
+  movie,
   genre, 
   year, 
   onActionsClick, 
   showOptions, 
   actions, 
   onActionClick,
-  hasImageError,
-  onImageError,
+  onMovieClick,
  }) => (
   <>
     <div className={styles.cardWrapper}>
@@ -32,14 +31,11 @@ const MovieCard = ({
             onClick={()=> onActionClick(id)} />)}
         </div>
       }
-      <div className={hasImageError ? styles.noImageWrapper : styles.image}>
-        {hasImageError ?
-          <div className={styles.noImage}><FontAwesomeIcon icon='image'/></div> :
-          <img src={imageUrl} alt="Movie image" onError={onImageError}/>
-        }
-      </div>
+      <a onClick={onMovieClick}>
+        <MovieImage imageUrl={movie.poster_path} />
+      </a>
       <div className={styles.nameWraper}>
-        <div className={styles.name}>{name}</div>
+        <div className={styles.name}>{movie.title}</div>
       <div className={styles.year}>{year}</div>
       </div>
       <div className={styles.genre}>{genre}</div>
@@ -48,16 +44,14 @@ const MovieCard = ({
 );
 
 MovieCard.propTypes = {
-  imageUrl: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  movie: PropTypes.object.isRequired,
   genre: PropTypes.string.isRequired,
   year: PropTypes.number.isRequired,
   onActionsClick: PropTypes.func.isRequired,
   actions: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
   showOptions: PropTypes.bool.isRequired,
   onActionClick: PropTypes.func.isRequired,
-  onImageError: PropTypes.func.isRequired,
-  hasImageError: PropTypes.bool.isRequired,
+  onMovieClick: PropTypes.func.isRequired,
 };
 
 export default MovieCard;
