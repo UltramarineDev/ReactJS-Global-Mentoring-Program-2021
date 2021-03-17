@@ -15,7 +15,7 @@ const DropdownComponent = ({
   }) => (
   <>
     <div className={styles.dropdown}>
-      <a className={styles.value} onClick={onDropDownClick}>{currentValueLabel}</a>
+      <a onClick={onDropDownClick}>{currentValueLabel}</a>
       {showOptions ? 
         <div className={styles.icon}><FontAwesomeIcon icon="sort-up" /></div> :
         <div className={styles.icon}><FontAwesomeIcon icon="sort-down" /></div>

@@ -51,12 +51,12 @@ export const getFilteredMovies = (movies, activeTab) => {
   return filteredMovies;
 };
 
-export const getSortOptions = () => {
-  const resultIds = Object.values(SORT_OPTIONS);
+export const getOptions = (options, labels) => {
+  const resultIds = Object.values(options);
 
   return resultIds.map(resultId => ({
     id: resultId,
-    name: SORT_OPTIONS_LABELS[resultId]
+    name: labels[resultId]
   }))
 };
 

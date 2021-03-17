@@ -5,7 +5,7 @@ import uniqueId from 'lodash/uniqueId';
 import MovieCard from '../movie-card';
 import styles from './MoviesList.module.scss';
 
-const MovieListComponent = ({ movies }) => (
+const MovieListComponent = ({ movies, onActionClick, actions }) => (
   <>
     <div className={styles.moviesList}>
       {movies.map((movie) => (
@@ -15,6 +15,8 @@ const MovieListComponent = ({ movies }) => (
           name={movie.title}
           genres={movie.genres}
           releaseDate={movie.release_date}
+          onActionClick={onActionClick}
+          actions={actions}
       />))}
     </div>
   </>
@@ -22,6 +24,8 @@ const MovieListComponent = ({ movies }) => (
 
 MovieListComponent.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  onActionClick: PropTypes.func.isRequired,
+  actions: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
 };
 
 export default MovieListComponent;

@@ -16,7 +16,7 @@ class ErrorBoundaryContainer extends PureComponent {
   }
   
   componentDidCatch(error, errorInfo) {
-    logError(error, errorInfo);
+    this.setState({ hasError: true });
   }
   
   render() {
