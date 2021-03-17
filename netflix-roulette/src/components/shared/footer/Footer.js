@@ -1,12 +1,12 @@
 import React from 'react';
 
 import styles from './Footer.module.scss';
-import NetflixRoulette from '../../shared/netflix-roulette';
+import NetflixRoulette from '../netflix-roulette';
 
-const FooterComponent = () => (
+const Footer = () => (
   <div className={styles.footer}>
     <NetflixRoulette />
   </div>
 );
 
-export default FooterComponent;
+export default Footer;
