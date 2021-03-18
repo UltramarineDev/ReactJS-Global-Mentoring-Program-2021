@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 import Button from '/src/components/shared/button/Button';
@@ -6,9 +7,9 @@ import { buttonTypes } from '/src/components/shared/constants';
 
 import styles from './Modal.module.scss';
 
-const Modal = ({ onClose, isOpen, children, confirmLabel, onConfirm, className }) => (
-  <>
-    { isOpen && 
+const Modal = ({ onClose, isOpen, children, confirmLabel, onConfirm, className }) => {
+  if (!isOpen) return null;
+  return ReactDOM.createPortal(
       <div className={styles.modal}>
         <div className={styles.modalContent}>
           <a className={styles.close} onClick={onClose}>&times;</a>
@@ -18,9 +19,8 @@ const Modal = ({ onClose, isOpen, children, confirmLabel, onConfirm, className }
         }
         </div>
       </div>
-    }
-  </>
-);
+   ,document.body);
+ };
 
 Modal.propTypes = {
   onClose: PropTypes.func.isRequired,
