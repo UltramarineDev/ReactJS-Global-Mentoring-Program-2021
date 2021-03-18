@@ -32,7 +32,7 @@ const Dropdown = ({
               key={id}
               value={id}
               label={name}
-              onClick={() => onChangeClick(value) } />)}
+              onClick={onChangeClick} />)}
         </div>
       }
     </div>

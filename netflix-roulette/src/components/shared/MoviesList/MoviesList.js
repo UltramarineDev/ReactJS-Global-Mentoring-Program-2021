@@ -25,12 +25,12 @@ const MoviesList = () => {
     setMoviesCount(data.length);
   }, filteredMovies);
 
-  const handleTabChange = (activeTab) => {
+  const handleTabChange = useCallback((activeTab) => {
     const filteredMovies = getFilteredMovies(movies, activeTab);
     setFilteredMovies(filteredMovies);
     setMoviesCount(filteredMovies.length);
     setActiveTab(activeTab);
-  };
+  }, [activeTab]);
 
   const handleSortOptionChange = (value) => {
     setFilteredMovies(getSortedMovies(filteredMovies, value));
@@ -47,10 +47,10 @@ const MoviesList = () => {
         <NavBar
           tabs={getTabs()}
           activeTab={activeTab}
-          onTabChange={(id) => handleTabChange(id)}
+          onTabChange={handleTabChange}
           sortOptions={getOptions(sortOptions, sortOptionsLabels)}
           sortOptionId={sortOptionId}
-          onSortOptionChange={(value) => handleSortOptionChange(value)}
+          onSortOptionChange={handleSortOptionChange}
         />
         <div className={styles.border}></div>
         <div className={styles.moviesCount}><strong>{moviesCount} </strong>{wordings.movies_found}</div>
@@ -60,26 +60,26 @@ const MoviesList = () => {
               <MovieCard
                 key={movie.title}
                 movie={movie}
-                onActionClick={(id) => onActionClick(id)}
+                onActionClick={onActionClick}
                 actions={getOptions(movieActions, movieActionLabels)}
             />))}
           </div>
           }
       </div>
       <Modal
-        onClose={() => setAction('')}
+        onClose={setAction}
         isOpen={action === movieActions.edit}
         confirmLabel={wordings.save}
-        onConfirm={() => setAction('')}
+        onConfirm={setAction}
         className={styles.submitButton}
         >
           <EditMovieForm />
       </Modal>
       <Modal 
-        onClose={() => setAction('')}
+        onClose={setAction}
         isOpen={action === movieActions.delete}
         confirmLabel={wordings.confirm}
-        onConfirm={() => setAction('')}
+        onConfirm={setAction}
         className={styles.confirmButton}>
           <DeleteMovieForm />
       </Modal>

@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 
 import styles from './OptionItem.module.scss';
 
-const OptionItem = ({ label, onClick }) => (
+const OptionItem = ({ label, onClick, value }) => {
+  const onLinkClick = () => onClick(value);
+  
+  return (
   <div className={styles.item}>
-    <a onClick={onClick}>{label}</a>
+    <a onClick={onLinkClick}>{label}</a>
   </div>
-);
+)};
 
 OptionItem.propTypes = {
   label: PropTypes.string.isRequired,
