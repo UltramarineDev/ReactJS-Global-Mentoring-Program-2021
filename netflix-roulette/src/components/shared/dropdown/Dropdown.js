@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -13,10 +13,10 @@ const Dropdown = ({
   const currentValueLabel = options.find(({ id }) => id === value).name;
   const [showOptions, setShowOptions] = useState(false);
 
-  const handleChangeClicked = (value) => {
+  const onChangeClick = useCallback((value) => {
     setShowOptions(showOptions => !showOptions);
     onChange(value);
-  }
+  }, []);
 
   return (
     <div className={styles.dropdown}>
@@ -32,7 +32,7 @@ const Dropdown = ({
               key={id}
               value={id}
               label={name}
-              onClick={() => handleChangeClicked } />)}
+              onClick={() => onChangeClick(value) } />)}
         </div>
       }
     </div>
