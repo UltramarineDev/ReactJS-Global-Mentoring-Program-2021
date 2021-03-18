@@ -3,14 +3,13 @@ import React, { Suspense } from 'react';
 import ErrorBoundary from './ErrorBoundary/ErrorBoundaryContainer';
 import Footer from '../shared/footer/Footer';
 import { wordings } from '/src/locales/wordings';
-import MovieDetails from '../features/MovieDetails/MovieDetailsContainer';
-
-const Home = React.lazy(() => import('../features/Home/HomeContainer'));
+import MovieDetails from '../features/MovieDetails/MovieDetails';
+import Home from '../features/Home/Home';
 
 const App = () => (
   <Suspense fallback={wordings.loading}>
     <ErrorBoundary>
-      <MovieDetails />
+      <Home />
       <Footer />
     </ErrorBoundary>
   </Suspense>
