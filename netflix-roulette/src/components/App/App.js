@@ -1,16 +1,16 @@
 import React, { Suspense } from 'react';
 
-import ErrorBoundary from './error-boundary';
-import Layout from '../layout';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundaryContainer';
+import Footer from '../shared/footer/Footer';
+import { wordings } from '/src/locales/wordings';
+import MovieDetails from '../features/MovieDetails/MovieDetails';
+import Home from '../features/Home/Home';
 
-const Home = React.lazy(() => import('../features/home'));
-const HomeWithLayout = Layout(Home);
-
-//TODO: Implement app default font family, font size
 const App = () => (
-  <Suspense fallback="Loading...">
+  <Suspense fallback={wordings.loading}>
     <ErrorBoundary>
-      <HomeWithLayout />
+      <Home />
+      <Footer />
     </ErrorBoundary>
   </Suspense>
 );

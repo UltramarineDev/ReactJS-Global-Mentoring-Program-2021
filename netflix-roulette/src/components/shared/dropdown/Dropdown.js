@@ -1,21 +1,26 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import OptionItem from './option-item';
+import OptionItem from './OptionItem/OptionItem';
 import styles from './Dropdown.module.scss';
 
-const DropdownComponent = ({ 
+const Dropdown = ({ 
   value,
   options,
   onChange,
-  onDropDownClick,
-  showOptions,
-  currentValueLabel,
-  }) => (
-  <>
+  }) => {
+  const currentValueLabel = options.find(({ id }) => id === value).name;
+  const [showOptions, setShowOptions] = useState(false);
+
+  const onChangeClick = useCallback((value) => {
+    setShowOptions(showOptions => !showOptions);
+    onChange(value);
+  }, []);
+
+  return (
     <div className={styles.dropdown}>
-      <a onClick={onDropDownClick}>{currentValueLabel}</a>
+      <a onClick={() => setShowOptions(showOptions => !showOptions)}>{currentValueLabel}</a>
       {showOptions ? 
         <div className={styles.icon}><FontAwesomeIcon icon="sort-up" /></div> :
         <div className={styles.icon}><FontAwesomeIcon icon="sort-down" /></div>
@@ -27,23 +32,19 @@ const DropdownComponent = ({
               key={id}
               value={id}
               label={name}
-              onClick={()=> onChange(value)} />)}
+              onClick={onChangeClick} />)}
         </div>
       }
     </div>
-  </>
-);
+)};
 
-DropdownComponent.propTypes = {
+Dropdown.propTypes = {
   value: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.PropTypes.shape({
     id: PropTypes.string,
     name: PropTypes.string,
   })),
   onChange: PropTypes.func.isRequired,
-  onDropDownClick: PropTypes.func.isRequired,
-  showOptions: PropTypes.bool.isRequired,
-  currentValueLabel: PropTypes.string.isRequired
 };
 
-export default DropdownComponent;
+export default Dropdown;

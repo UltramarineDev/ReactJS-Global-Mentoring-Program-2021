@@ -1,0 +1,36 @@
+.movieListSection {
+  background-color: #232323;
+}
+
+.border {
+  margin-left: 64px;
+  border-bottom: solid thin #424242;
+}
+
+.moviesCount {
+  padding: 24px 64px;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.moviesList {
+  padding-left: 64px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: wrap;
+}
+
+.confirmButton {
+  float: right;
+  width: 150px;
+  height: 50px;
+}
+
+.submitButton {
+  float: right;
+  width: 155px;
+  height: 55px;
+}

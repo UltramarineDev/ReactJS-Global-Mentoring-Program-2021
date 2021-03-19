@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import TabBar from '/src/components/shared/tab-bar';
-import Dropdown from '/src/components/shared/Dropdown';
+import { wordings } from '/src/locales/wordings';
+import TabBar from '/src/components/shared/TabBar/TabBar';
+import Dropdown from '/src/components/shared/dropdown/Dropdown';
 import styles from './NavBar.module.scss';
 
-const NavBarComponent = ({ 
+const NavBar = ({ 
   tabs,
   activeTab,
   onTabChange,
@@ -22,7 +23,7 @@ const NavBarComponent = ({
       />
     </div>
     <div className={styles.resultsSort}>
-      <span>SORT BY</span>
+      <span>{wordings.sort_by}</span>
       <Dropdown
         options={sortOptions}
         value={sortOptionId}
@@ -31,7 +32,7 @@ const NavBarComponent = ({
   </div>
 );
 
-NavBarComponent.propTypes = {
+NavBar.propTypes = {
   tabs: PropTypes.arrayOf(PropTypes.object).isRequired,
   activeTab: PropTypes.string.isRequired,
   onTabChange: PropTypes.func.isRequired,
@@ -40,5 +41,5 @@ NavBarComponent.propTypes = {
   sortOptionId: PropTypes.string.isRequired,
 };
 
-export default NavBarComponent;
+export default NavBar;
 

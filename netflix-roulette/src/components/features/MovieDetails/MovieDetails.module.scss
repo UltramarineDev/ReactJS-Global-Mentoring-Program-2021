@@ -1,0 +1,68 @@
+.root {
+  position: relative;
+  padding: 24px 64px;
+  z-index: 1;
+}
+
+.icon {
+  color: #f65261;
+  transform: rotate(90deg);
+  font-size: 25px;
+}
+
+.gradientClassName {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 0.9) 60%);
+}
+
+.movieDetails {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 30px;
+  max-width: 90%;
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-bottom: 12px;
+  padding-top: 24px;
+}
+
+.title {
+  padding-right: 16px;
+  text-transform: uppercase;
+  font-size: 46px;
+}
+
+.description {
+  padding-left: 42px;
+}
+
+.tagLine {
+  padding-bottom: 24px;
+}
+
+.dataWrapper {
+  padding-bottom: 24px;
+  color: #f65261;
+  font-size: 26px;
+}
+
+.year {
+  padding-right: 32px;
+}
+
+.rating {
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  padding: 8px;
+  border: 2px solid #666;
+  text-align: center;
+  font-size: 26px;
+  color: #80B859;
+}

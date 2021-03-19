@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { BUTTON_TYPES } from '/src/components/shared/constants';
+import { buttonTypes } from '/src/components/shared/constants';
 import styles from './Button.module.scss';
 import { buttonIcon } from './constants';
 
-const ButtonComponent = ({ label, type, onClick, className }) => (
+const Button = ({ label, type, onClick, className }) => (
   <>
-    {type === BUTTON_TYPES.ADD &&
+    {type === buttonTypes.ADD &&
     <a className={styles.addButton} onClick={onClick}>
       <div className={styles.background}></div>
       <div className={styles.labelAdd}>
@@ -18,7 +18,7 @@ const ButtonComponent = ({ label, type, onClick, className }) => (
       </div>
     </a>
     }
-    {type === BUTTON_TYPES.SEARCH &&
+    {type === buttonTypes.SEARCH &&
     <a className={classNames(styles.searchButton, className)} onClick={onClick}>
       <>
         {buttonIcon[type] && <span className={styles.icon}><FontAwesomeIcon icon={buttonIcon[type]} /></span>}
@@ -29,16 +29,16 @@ const ButtonComponent = ({ label, type, onClick, className }) => (
   </>
 );
 
-ButtonComponent.propTypes = {
+Button.propTypes = {
   label: PropTypes.string,
   type: PropTypes.string,
   onClick: PropTypes.func,
 };
 
-ButtonComponent.defaultProps = {
+Button.defaultProps = {
   label: 'Submit',
-  type: BUTTON_TYPES.ADD,
+  type: buttonTypes.ADD,
   onClick: () => {},
 };
 
-export default ButtonComponent;
+export default Button;
