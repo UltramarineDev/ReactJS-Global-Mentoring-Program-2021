@@ -10,14 +10,9 @@ import styles from './DeleteMovie.module.scss';
 
 const DeleteMovieForm = ({ movieId, onDelete }) => {
   const handleDelete = async () => {
-    try {
-      const response = await fetch(`${URL}/${movieId}`, { method: 'DELETE' });  
-      console.log(response);
-      if (onDelete) {
-        onDelete();
-      }
-    } catch(error) {
-      //
+    const response = await fetch(`${URL}/${movieId}`, { method: 'DELETE' });  
+    if (onDelete) {
+      onDelete();
     }
   };
 
