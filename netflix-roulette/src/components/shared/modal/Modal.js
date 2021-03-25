@@ -13,7 +13,6 @@ const Modal = ({
   children, 
   confirmLabel, 
   onConfirm, 
-  className, 
   resetLabel,
   onReset,
   }) => {
@@ -38,7 +37,6 @@ const Modal = ({
                 label={confirmLabel}
                 type={buttonTypes.SEARCH}
                 onClick={onConfirm}
-                className={className}
                 size={buttonSizes.SMALL} />
             }
           </div>
@@ -53,7 +51,6 @@ Modal.propTypes = {
   children: PropTypes.node,
   confirmLabel: PropTypes.string,
   onConfirm: PropTypes.func,
-  className: PropTypes.string,
   resetLabel: PropTypes.string,
 }
 
@@ -61,7 +58,6 @@ Modal.defaultProps = {
   children: undefined,
   confirmLabel: '',
   onConfirm: undefined,
-  className: '',
   resetLabel: '',
 }
 

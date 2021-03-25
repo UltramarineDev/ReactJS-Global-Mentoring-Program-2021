@@ -16,6 +16,11 @@ const MovieCard = ({
   const year = movie ? new Date(movie.release_date).getFullYear() : '-';
   const [showOptions, setShowOptions] = useState(false);
 
+  const handleItemClick = (id) => {
+    setShowOptions(false);
+    onActionClick(id, movie.id);
+  };
+
    return (
     <div className={styles.cardWrapper}>
       <a onClick={() => setShowOptions(showOptions => !showOptions)} className={styles.dotsMenu}>
@@ -28,7 +33,7 @@ const MovieCard = ({
             key={id}
             value={id}
             label={name}
-            onClick={()=> onActionClick(id)} />)}
+            onClick={handleItemClick} />)}
         </div>
       }
       <a onClick={emptyFunc}>

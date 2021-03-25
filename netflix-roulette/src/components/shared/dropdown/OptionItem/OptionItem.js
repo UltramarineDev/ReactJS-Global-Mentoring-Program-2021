@@ -7,9 +7,7 @@ const OptionItem = ({ label, onClick, value }) => {
   const onLinkClick = () => onClick(value);
   
   return (
-  <div className={styles.item}>
-    <a onClick={onLinkClick}>{label}</a>
-  </div>
+    <a onClick={onLinkClick} className={styles.item}>{label}</a>
 )};
 
 OptionItem.propTypes = {

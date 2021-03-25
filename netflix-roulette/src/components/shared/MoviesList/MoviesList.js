@@ -16,7 +16,7 @@ import styles from './MoviesList.module.scss';
 const MoviesList = ({ movies, getMovies, getFilteredMovies }) => {
   const [activeTab, setActiveTab] = useState(tabs.ALL);
   const [sortOptionId, setSortOptionId] = useState(sortOptions.RELEASE_DATE);
-  const [action, setAction] = useState('');
+  const [action, setAction] = useState({});
 
   useEffect(() => {
     getMovies();
@@ -32,9 +32,15 @@ const MoviesList = ({ movies, getMovies, getFilteredMovies }) => {
     setSortOptionId(value);
   };
 
-  const onActionClick = (id) => {
-    setAction(id);
+  const onActionClick = (id, actionData) => {
+    setAction({ id, actionData });
   };
+
+  const handleMovieDeleted = () => {
+
+    setAction({});
+    getMovies();
+  }
 
   return (
     <>
@@ -63,7 +69,7 @@ const MoviesList = ({ movies, getMovies, getFilteredMovies }) => {
       </div>
       <Modal
         onClose={setAction}
-        isOpen={action === movieActions.edit}
+        isOpen={action.id === movieActions.edit}
         confirmLabel={wordings.save}
         resetLabel={wordings.reset}
         onConfirm={setAction}
@@ -73,11 +79,9 @@ const MoviesList = ({ movies, getMovies, getFilteredMovies }) => {
       </Modal>
       <Modal
         onClose={setAction}
-        isOpen={action === movieActions.delete}
-        confirmLabel={wordings.confirm}
-        onConfirm={setAction}
-        className={styles.confirmButton}>
-          <DeleteMovieForm />
+        isOpen={action.id === movieActions.delete}
+        >
+          <DeleteMovieForm movieId={action.actionData} onDelete={handleMovieDeleted}/>
       </Modal>
     </>
 )};

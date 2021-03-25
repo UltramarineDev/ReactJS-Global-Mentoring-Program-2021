@@ -1,3 +1,8 @@
 .item {
-  padding: 12px 0;
+  display: block;
+  padding: 12px 12px;
+}
+
+.item:hover {
+  background-color: #f65261;
 }
