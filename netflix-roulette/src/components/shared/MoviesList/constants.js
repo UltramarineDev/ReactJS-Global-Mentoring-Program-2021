@@ -1,3 +1,5 @@
+import { wordings } from '/src/locales/wordings';
+
 export const tabs = {
   ALL: 'ALL',
   DOCUMENTARY: 'DOCUMENTARY',
@@ -14,13 +16,13 @@ export const filterTags = {
 };
 
 export const sortOptions = {
-  RELEASE_DATE: 'RELEASE_DATE',
-  TITLE: 'TITLE',
+  RELEASE_DATE: 'release_date',
+  RATING: 'vote_average',
 };
 
 export const sortOptionsLabels = {
-  [sortOptions.RELEASE_DATE]: 'RELEASE DATE',
-  [sortOptions.TITLE]: 'TITLE',
+  [sortOptions.RELEASE_DATE]: wordings.release_date,
+  [sortOptions.RATING]: wordings.rating,
 };
 
 export const movieActions = {

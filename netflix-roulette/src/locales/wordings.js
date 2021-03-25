@@ -33,4 +33,7 @@ export const wordings = {
   search_placeholder: 'What do you want to watch?',
   search: 'SEARCH',
   min: 'min',
+  reset: 'RESET',
+  release_date: 'RELEASE DATE',
+  rating: 'RATING',
 };

@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import { wordings } from '/src/locales/wordings';
 import Modal from '/src/components/shared/Modal/Modal';
@@ -6,40 +8,33 @@ import NavBar from '/src/components/shared/NavBar/NavBar'
 import MovieCard from '../MovieCard/MovieCard';
 import EditMovieForm from '../../features/EditMovie/EditMovie';
 import DeleteMovieForm from '../../features/DeleteMovieForm/DeleteMovieForm';
-import { data } from './data.json';
-import { getTabs, getFilteredMovies, getSortedMovies, getOptions } from './utils';
+import { getMoviesAction, filterMoviesAction } from '/src/components/actions';
+import { getTabs, getOptions } from './utils';
 import { tabs, sortOptions, movieActions, sortOptionsLabels, movieActionLabels } from './constants';
 import styles from './MoviesList.module.scss';
 
-const MoviesList = () => {
-  const [movies, setMovies] = useState([]);
-  const [filteredMovies, setFilteredMovies] = useState([]);
+const MoviesList = ({ movies, getMovies, getFilteredMovies }) => {
   const [activeTab, setActiveTab] = useState(tabs.ALL);
   const [sortOptionId, setSortOptionId] = useState(sortOptions.RELEASE_DATE);
   const [action, setAction] = useState('');
-  const [moviesCount, setMoviesCount] = useState(0);
 
   useEffect(() => {
-    setMovies(data);
-    setFilteredMovies(data);
-    setMoviesCount(data.length);
-  }, filteredMovies);
+    getMovies();
+  }, [])
 
-  const handleTabChange = useCallback((activeTab) => {
-    const filteredMovies = getFilteredMovies(movies, activeTab);
-    setFilteredMovies(filteredMovies);
-    setMoviesCount(filteredMovies.length);
+  const handleTabChange = (activeTab) => {
+    activeTab === tabs.ALL ? getFilteredMovies(null, sortOptionId) : getFilteredMovies(activeTab, sortOptionId);
     setActiveTab(activeTab);
-  }, [activeTab]);
+  };
 
   const handleSortOptionChange = (value) => {
-    setFilteredMovies(getSortedMovies(filteredMovies, value));
+    activeTab === tabs.ALL ? getFilteredMovies(null, value) : getFilteredMovies(activeTab, value);
     setSortOptionId(value);
   };
 
-  const onActionClick = useCallback((id) => {
+  const onActionClick = (id) => {
     setAction(id);
-  }, []);
+  };
 
   return (
     <>
@@ -53,10 +48,10 @@ const MoviesList = () => {
           onSortOptionChange={handleSortOptionChange}
         />
         <div className={styles.border}></div>
-        <div className={styles.moviesCount}><strong>{moviesCount} </strong>{wordings.movies_found}</div>
-        {filteredMovies &&  
+        <div className={styles.moviesCount}><strong>{movies.length} </strong>{wordings.movies_found}</div>
+        {movies &&  
           <div className={styles.moviesList}>
-            {filteredMovies.map((movie) => (
+            {movies.map((movie) => (
               <MovieCard
                 key={movie.title}
                 movie={movie}
@@ -70,12 +65,13 @@ const MoviesList = () => {
         onClose={setAction}
         isOpen={action === movieActions.edit}
         confirmLabel={wordings.save}
+        resetLabel={wordings.reset}
         onConfirm={setAction}
         className={styles.submitButton}
         >
           <EditMovieForm />
       </Modal>
-      <Modal 
+      <Modal
         onClose={setAction}
         isOpen={action === movieActions.delete}
         confirmLabel={wordings.confirm}
@@ -86,4 +82,19 @@ const MoviesList = () => {
     </>
 )};
 
-export default MoviesList;
+MoviesList.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+  getMovies: PropTypes.func.isRequired,
+  getFilteredMovies: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = state => ({
+  movies: state.movies,
+});
+
+const mapDispatchToProps = dispatch => ({
+  getMovies: () => dispatch(getMoviesAction()),
+  getFilteredMovies: (filter, sortBy) => dispatch(filterMoviesAction(filter, sortBy)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MoviesList);
