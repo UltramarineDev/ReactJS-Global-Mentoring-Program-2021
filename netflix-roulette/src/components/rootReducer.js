@@ -1,10 +1,12 @@
-import { GET_MOVIES_SUCCESS } from './constants';
+import * as constants from './constants';
 
 const reducer = (state = {}, action) => {
   switch (action.type) {
-    case GET_MOVIES_SUCCESS: {
-      const { movies } = action;
-      return {...state, movies };
+    case constants.GET_MOVIES: {
+      return {...state, movies: action.payload };
+    }
+    case constants.GET_MOVIE: {
+      return {...state, movie: action.payload };
     }
     default:
       return state;

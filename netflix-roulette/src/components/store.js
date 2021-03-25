@@ -6,6 +6,7 @@ import rootReducer from './rootReducer';
 const Store = () => {
   const initialState = {
     movies: [],
+    movie: { },
   };
 
   return createStore(rootReducer, initialState, applyMiddleware(thunk));
