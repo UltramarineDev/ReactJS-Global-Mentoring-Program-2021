@@ -14,7 +14,6 @@ import { getMovieAction } from '/src/components/actions';
 import styles from './MovieDetails.module.scss';
 
 const MovieDetails = ({ getMovie, movieId, movie }) => {
-  console.log(movie);
   const duration = `${movie.runtime} ${wordings.min}`;
   const year = movie ? new Date(movie.release_date).getFullYear() : '-';
 

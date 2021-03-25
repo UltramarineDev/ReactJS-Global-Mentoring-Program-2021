@@ -8,7 +8,7 @@ import NavBar from '/src/components/shared/NavBar/NavBar'
 import MovieCard from '../MovieCard/MovieCard';
 import EditMovieForm from '../../features/EditMovie/EditMovie';
 import DeleteMovieForm from '../../features/DeleteMovieForm/DeleteMovieForm';
-import { getMoviesAction, filterMoviesAction } from '/src/components/actions';
+import { getMoviesAction } from '/src/components/actions';
 import { getTabs, getOptions } from './utils';
 import { tabs, sortOptions, movieActions, sortOptionsLabels, movieActionLabels } from './constants';
 import styles from './MoviesList.module.scss';
@@ -98,7 +98,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getMovies: () => dispatch(getMoviesAction()),
-  getFilteredMovies: (filter, sortBy) => dispatch(filterMoviesAction(filter, sortBy)),
+  getFilteredMovies: (filter, sortBy) => dispatch(getMoviesAction(filter, sortBy)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MoviesList);
