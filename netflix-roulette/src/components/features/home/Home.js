@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { buttonIcons, buttonTypes, emptyFunc } from '/src/components/shared/constants';
+import { buttonIcons, buttonTypes, emptyFunc, buttonSizes } from '/src/components/shared/constants';
 import StoryCard from '/src/components/shared/StoryCard/StoryCard';
 import MoviesList from '/src/components/shared/MoviesList/MoviesList';
 import Modal from '/src/components/shared/Modal/Modal';
@@ -18,16 +18,17 @@ const Home = () => {
   <>
     <StoryCard>
       <div className={styles.searchSection}>
-         <Header>
+        <Header>
            <Button
            type={buttonTypes.ADD} 
            iconType={buttonIcons.ADD}
            label={wordings.add_movie}
-           onClick={() => setModalOpened(true)} />
-         </Header>
-       <div className={styles.searchDescription}>{wordings.find_your_movie}</div>
-       <Search />
-   </div>
+           onClick={() => setModalOpened(true)}
+           size={buttonSizes.MEDIUM} />
+        </Header>
+        <div className={styles.searchDescription}>{wordings.find_your_movie}</div>
+        <Search />
+      </div>
     </StoryCard>
     <MoviesList />
 
@@ -35,8 +36,10 @@ const Home = () => {
       onClose={() => setModalOpened(false)}
       isOpen={isModalOpened}
       confirmLabel={wordings.submit}
+      resetLabel={wordings.reset}
       onConfirm={emptyFunc}
       className={styles.submitButton}
+      onReset={emptyFunc}
       >
         <AddMovieForm />
     </Modal>

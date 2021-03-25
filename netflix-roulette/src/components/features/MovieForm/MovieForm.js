@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { wordings } from '/src/locales/wordings';
 import styles from './MovieForm.module.scss';
 
-const MovieForm = () => (
+const MovieForm = ({ title }) => (
   <form className={styles.form}>
+    {title && <div className={styles.title}>{title}</div> }
     <p className={styles.label}>{wordings.title}</p>
     <input type="text" placeholder={wordings.movie_form_title_placeholder}></input>
     <p className={styles.label}>{wordings.release_date}</p>
@@ -19,5 +21,13 @@ const MovieForm = () => (
     <input type="text" placeholder={wordings.movie_form_runtime_placeholder}></input>
   </form>
 );
+
+MovieForm.propTypes = {
+  title: PropTypes.string,
+};
+
+MovieForm.defaultProps = {
+  title: '',
+};
 
 export default MovieForm;
