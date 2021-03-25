@@ -1,20 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { connect } from 'react-redux';
 
 import { emptyFunc } from '/src/components/shared/constants';
-import { data } from '../../shared/MoviesList/data.json';
 import { wordings } from '/src/locales/wordings';
 import MovieImage from '/src/components/shared/MovieImage/MovieImage';
 import Header from '/src/components/shared/Header/Header';
 import StoryCard from '/src/components/shared/StoryCard/StoryCard';
 import MoviesList from '/src/components/shared/MoviesList/MoviesList';
+import { getMovieAction } from '/src/components/actions';
 
 import styles from './MovieDetails.module.scss';
 
-const MovieDetails = () => {
-  const movie = data[3];
+const MovieDetails = ({ getMovie, movieId, movie }) => {
+  console.log(movie);
   const duration = `${movie.runtime} ${wordings.min}`;
   const year = movie ? new Date(movie.release_date).getFullYear() : '-';
+
+  useEffect(() => {
+    getMovie(movieId);
+  }, [])
 
   return (
     <>
@@ -46,4 +52,23 @@ const MovieDetails = () => {
     </>
 )};
 
-export default MovieDetails;
+MovieDetails.propTypes = {
+  movieId: PropTypes.number,
+  getMovie: PropTypes.func.isRequired,
+  movie: PropTypes.object.isRequired,
+};
+
+//TODO: implement in Routing module?
+MovieDetails.defaultProps = {
+  movieId: 269149,
+};
+
+const mapStateToProps = state => ({
+  movie: state.movie,
+});
+
+const mapDispatchToProps = dispatch => ({
+  getMovie: (id) => dispatch(getMovieAction(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieDetails);
