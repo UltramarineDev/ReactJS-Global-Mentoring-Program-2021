@@ -1,5 +1,6 @@
-import { tabs, filterTags } from './constants';
-import { wordings } from '/src/locales/wordings';
+import { wordings } from 'locales/wordings';
+
+import { tabs } from './constants';
 
 export const getTabs = () => ([
   {
@@ -27,13 +28,8 @@ export const getTabs = () => ([
 export const getOptions = (options, labels) => {
   const resultIds = Object.values(options);
 
-  return resultIds.map(resultId => ({
+  return resultIds.map((resultId) => ({
     id: resultId,
-    name: labels[resultId]
-  }))
-};
-
-//TODO: implement ui sorting in scope of module 4
-export const getSortedMovies = (movies, value) => {
-  return movies;
+    name: labels[resultId],
+  }));
 };

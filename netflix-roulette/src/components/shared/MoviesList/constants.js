@@ -1,4 +1,4 @@
-import { wordings } from '/src/locales/wordings';
+import { wordings } from 'locales/wordings';
 
 export const tabs = {
   ALL: 'ALL',

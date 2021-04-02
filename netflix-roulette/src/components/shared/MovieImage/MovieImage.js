@@ -8,13 +8,13 @@ const MovieImage = ({ imageUrl }) => {
   const [hasImageError, setImageError] = useState(false);
 
   return (
-  <div className={hasImageError ? styles.noImageWrapper : styles.image}>
-      {hasImageError ?
-        <div className={styles.noImage}><FontAwesomeIcon icon='image'/></div> :
-        <img src={imageUrl} alt="Movie image" onError={() => setImageError(true)}/>
-      }
-  </div>
-)};
+    <div className={hasImageError ? styles.noImageWrapper : styles.image}>
+      {hasImageError
+        ? <div className={styles.noImage}><FontAwesomeIcon icon="image" /></div>
+        : <img src={imageUrl} alt="Movie image" onError={() => setImageError(true)} />}
+    </div>
+  );
+};
 
 MovieImage.propTypes = {
   imageUrl: PropTypes.string.isRequired,

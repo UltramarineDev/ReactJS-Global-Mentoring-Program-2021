@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { connect } from 'react-redux';
 
-import { emptyFunc } from '/src/components/shared/constants';
-import { wordings } from '/src/locales/wordings';
-import MovieImage from '/src/components/shared/MovieImage/MovieImage';
-import Header from '/src/components/shared/Header/Header';
-import StoryCard from '/src/components/shared/StoryCard/StoryCard';
-import MoviesList from '/src/components/shared/MoviesList/MoviesList';
-import { getMovieAction } from '/src/components/actions';
+import { emptyFunc } from 'components/shared/constants';
+import { wordings } from 'locales/wordings';
+import MovieImage from 'components/shared/MovieImage/MovieImage';
+import Header from 'components/shared/Header/Header';
+import StoryCard from 'components/shared/StoryCard/StoryCard';
+import MoviesList from 'components/shared/MoviesList/MoviesList';
+import { getMovieAction } from 'components/actions';
 
 import styles from './MovieDetails.module.scss';
 
@@ -19,7 +19,7 @@ const MovieDetails = ({ getMovie, movieId, movie }) => {
 
   useEffect(() => {
     getMovie(movieId);
-  }, [])
+  }, []);
 
   return (
     <>
@@ -27,7 +27,7 @@ const MovieDetails = ({ getMovie, movieId, movie }) => {
         <div className={styles.root}>
           <Header>
             <a onClick={emptyFunc} className={styles.icon}>
-              <FontAwesomeIcon icon="search"/>
+              <FontAwesomeIcon icon="search" />
             </a>
           </Header>
           <div className={styles.movieDetails}>
@@ -45,11 +45,12 @@ const MovieDetails = ({ getMovie, movieId, movie }) => {
               <div>{movie.overview}</div>
             </div>
           </div>
-       </div>
+        </div>
       </StoryCard>
       <MoviesList />
     </>
-)};
+  );
+};
 
 MovieDetails.propTypes = {
   movieId: PropTypes.number,
@@ -57,16 +58,15 @@ MovieDetails.propTypes = {
   movie: PropTypes.object.isRequired,
 };
 
-//TODO: implement in Routing module?
 MovieDetails.defaultProps = {
   movieId: 269149,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   movie: state.movie,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   getMovie: (id) => dispatch(getMovieAction(id)),
 });
 

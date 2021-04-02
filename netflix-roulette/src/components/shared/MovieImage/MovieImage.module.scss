@@ -3,6 +3,7 @@
   height: 450px;
   background-color: 232323;
   width: 300px;
+  min-width: 300px;
 }
 
 .noImageWrapper {
@@ -19,8 +20,7 @@
 
 .noImage {
   font-size: 80px;
-  top: 30%;
+  top: 40%;
   position: absolute;
-  font-weight: 23px;
-  left: 30%;
+  left: 15%;
 }

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { buttonTypes, buttonSizes } from '/src/components/shared/constants';
-import { wordings } from '/src/locales/wordings';
+import { buttonTypes, buttonSizes } from 'components/shared/constants';
+import { wordings } from 'locales/wordings';
 
-import Button from '../button/Button';
+import Button from '../Button/Button';
 import SearchField from './SearchField/SearchField';
 import styles from './Search.module.scss';
 

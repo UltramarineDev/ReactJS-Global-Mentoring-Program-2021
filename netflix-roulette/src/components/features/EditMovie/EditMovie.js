@@ -1,9 +1,11 @@
 import React from 'react';
-import { wordings } from '/src/locales/wordings';
+
+import { wordings } from 'locales/wordings';
+
 import MovieForm from '../MovieForm/MovieForm';
 
 const EditMovieForm = () => (
-  <MovieForm title={wordings.edit_movie}/>
+  <MovieForm title={wordings.edit_movie} />
 );
 
 export default EditMovieForm;

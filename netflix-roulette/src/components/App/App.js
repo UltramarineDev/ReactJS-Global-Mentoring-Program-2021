@@ -1,9 +1,10 @@
 import React, { Suspense } from 'react';
 
+import { wordings } from 'locales/wordings';
+
 import ErrorBoundary from './ErrorBoundary/ErrorBoundaryContainer';
 import Footer from '../shared/footer/Footer';
-import { wordings } from '/src/locales/wordings';
-import MovieDetails from '../features/MovieDetails/MovieDetails';
+// import MovieDetails from '../features/MovieDetails/MovieDetails';
 import Home from '../features/Home/Home';
 
 const App = () => (

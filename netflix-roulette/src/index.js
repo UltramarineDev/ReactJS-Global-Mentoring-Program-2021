@@ -1,8 +1,8 @@
 import React from 'react';
-import App from './components/App/App';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 
+import App from './components/App/App';
 import configureStore from './components/store';
 import './fontawesome';
 import './index.scss';
@@ -10,7 +10,7 @@ import './index.scss';
 const store = configureStore();
 
 render(
-  <React.StrictMode> 
+  <React.StrictMode>
     <Provider store={store}>
       <App />
     </Provider>
