@@ -34,21 +34,23 @@ export const getMovieAction = (id) => async (dispatch) => {
   }
 };
 
-export const createMovieAction = (input) => async (dispatch) => {
+export const addMovieAction = (input) => async (dispatch) => {
   await fetch(`${constants.URL}`, {
-    body: input,
+    body: JSON.stringify(input),
     method: 'POST',
     headers: {
-      'content-type': 'application/json',
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
     },
   }).then(dispatch(getMoviesAction()));
 };
 
 export const updateMovieAction = (input) => async (dispatch) => {
   await fetch(`${constants.URL}`, {
-    body: input,
+    body: JSON.stringify(input),
     method: 'PUT',
     headers: {
+      Accept: 'application/json',
       'content-type': 'application/json',
     },
   }).then(dispatch(getMoviesAction()));
