@@ -17,3 +17,6 @@ export const buttonSizes = {
   MEDIUM: 'MEDIUM',
   LARGE: 'LARGE',
 };
+
+export const emptyValue = '';
+export const dashEmptyValue = '-';

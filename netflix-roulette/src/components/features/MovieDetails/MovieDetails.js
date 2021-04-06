@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { emptyFunc } from 'components/shared/constants';
+import Loader from 'components/shared/Loader/Loader';
+import { emptyFunc, emptyValue, dashEmptyValue } from 'components/shared/constants';
 import { wordings } from 'locales/wordings';
 import MovieImage from 'components/shared/MovieImage/MovieImage';
 import Header from 'components/shared/Header/Header';
@@ -13,37 +14,51 @@ import { getMovieAction } from 'components/actions';
 
 import styles from './MovieDetails.module.scss';
 
-const MovieDetails = ({ getMovie, movieId, movie }) => {
-  const duration = `${movie.runtime} ${wordings.min}`;
-  const year = movie ? new Date(movie.release_date).getFullYear() : '-';
+const MovieDetails = ({ movieId }) => {
+  const movie = useSelector((state) => state.movie);
+  const isLoading = useSelector(((state) => state.isMovieLoading));
+  const error = useSelector(((state) => state.error));
+  const dispatch = useDispatch();
+
+  const duration = movie.runtime ? `${movie.runtime} ${wordings.min}` : emptyValue;
+  const year = movie ? new Date(movie.release_date).getFullYear() : dashEmptyValue;
 
   useEffect(() => {
-    getMovie(movieId);
+    dispatch(getMovieAction(movieId));
+    if (error) {
+      console.log(error);
+    }
   }, []);
 
   return (
+
     <>
       <StoryCard gradientClassName={styles.gradientClassName}>
         <div className={styles.root}>
           <Header>
-            <a onClick={emptyFunc} className={styles.icon}>
+            <button onClick={emptyFunc} className={styles.icon} type="button">
               <FontAwesomeIcon icon="search" />
-            </a>
+            </button>
           </Header>
           <div className={styles.movieDetails}>
-            <MovieImage imageUrl={movie.poster_path} />
-            <div className={styles.description}>
-              <div className={styles.titleWrapper}>
-                <span className={styles.title}>{movie.title}</span>
-                <span className={styles.rating}>{movie.vote_average}</span>
-              </div>
-              <div className={styles.tagLine}>{movie.tagline}</div>
-              <div className={styles.dataWrapper}>
-                <span className={styles.year}>{year}</span>
-                <span>{duration}</span>
-              </div>
-              <div>{movie.overview}</div>
-            </div>
+            {isLoading ? <Loader />
+              : (
+                <>
+                  <MovieImage imageUrl={movie.poster_path} displayBorder />
+                  <div className={styles.description}>
+                    <div className={styles.titleWrapper}>
+                      <span className={styles.title}>{movie.title}</span>
+                      {movie.vote_average > 0 && <span className={styles.rating}>{movie.vote_average}</span>}
+                    </div>
+                    <div className={styles.tagLine}>{movie.tagline}</div>
+                    <div className={styles.dataWrapper}>
+                      <span className={styles.year}>{year}</span>
+                      <span>{duration}</span>
+                    </div>
+                    <div>{movie.overview}</div>
+                  </div>
+                </>
+              )}
           </div>
         </div>
       </StoryCard>
@@ -54,20 +69,10 @@ const MovieDetails = ({ getMovie, movieId, movie }) => {
 
 MovieDetails.propTypes = {
   movieId: PropTypes.number,
-  getMovie: PropTypes.func.isRequired,
-  movie: PropTypes.object.isRequired,
 };
 
 MovieDetails.defaultProps = {
-  movieId: 269149,
+  movieId: 447365,
 };
 
-const mapStateToProps = (state) => ({
-  movie: state.movie,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  getMovie: (id) => dispatch(getMovieAction(id)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(MovieDetails);
+export default MovieDetails;

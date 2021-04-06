@@ -1,7 +1,11 @@
 export const CREATE_MOVIE = 'ADD_MOVIE';
 export const UPDATE_MOVIE = 'UPDATE_MOVIE';
-export const GET_MOVIE = 'GET_MOVIE';
-export const GET_MOVIES = 'GET_MOVIES';
+export const GET_MOVIE_SUCCESS = 'GET_MOVIE';
+export const GET_MOVIES_SUCCESS = 'GET_MOVIES';
+export const GET_MOVIES_PENDING = 'GET_MOVIES_PENDING';
+export const GET_MOVIE_PENDING = 'GET_MOVIE_PENDING';
+export const GET_MOVIE_ERROR = 'GET_MOVIE_ERROR';
+export const GET_MOVIES_ERROR = 'GET_MOVIES_ERROR';
 
 export const URL = 'http://localhost:4000/movies';
 export const DEFAULT_SORT_ORDER = 'desc';

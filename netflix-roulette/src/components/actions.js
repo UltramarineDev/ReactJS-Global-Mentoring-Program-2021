@@ -1,42 +1,55 @@
 import * as constants from './constants';
 
-const getMoviesSuccessAction = movies => 
-  ({ type: constants.GET_MOVIES, payload: movies });
+const getMoviesSuccessAction = (movies) => ({ type: constants.GET_MOVIES_SUCCESS, payload: movies });
 
-const getMovieSuccessAction = movie => 
-  ({ type: constants.GET_MOVIE, payload: movie });
+const getMovieSuccessAction = (movie) => ({ type: constants.GET_MOVIE_SUCCESS, payload: movie });
+
+const getMoviesErrorAction = (error) => ({ type: constants.GET_MOVIES_ERROR, payload: error });
+
+const getMoviesPendingAction = () => ({ type: constants.GET_MOVIES_PENDING });
+
+const getMoviePendingAction = () => ({ type: constants.GET_MOVIE_PENDING });
 
 export const getMoviesAction = (filter = undefined, sortBy = constants.DEFAULT_SORT_BY) => async (dispatch) => {
-  let url = `${constants.URL}?sortBy=${sortBy}&sortOrder=${constants.DEFAULT_SORT_ORDER}&limit=${constants.DEFAULT_LIMIT}`;
+  try {
+    dispatch(getMoviesPendingAction());
+    let url = `${constants.URL}?sortBy=${sortBy}&sortOrder=${constants.DEFAULT_SORT_ORDER}&limit=${constants.DEFAULT_LIMIT}`;
+    if (filter) {
+      url = `${url}&filter=${filter}`;
+    }
 
-  if (filter) {
-    url = `${url}&filter=${filter}`;
+    await fetch(url).then((res) => res.json()).then((res) => dispatch(getMoviesSuccessAction(res.data)));
+  } catch (error) {
+    dispatch(getMoviesErrorAction(error));
   }
-  const response = await fetch(url).then(res => res.json());
-  dispatch(getMoviesSuccessAction(response.data));
 };
 
 export const getMovieAction = (id) => async (dispatch) => {
-   const response = await fetch(`${constants.URL}/${id}`).then(res => res.json());
-   dispatch(getMovieSuccessAction(response));
+  try {
+    dispatch(getMoviePendingAction());
+    const url = `${constants.URL}/${id}`;
+    await fetch(url).then((res) => res.json()).then((res) => dispatch(getMovieSuccessAction(res)));
+  } catch (error) {
+    dispatch(getMoviesErrorAction(error));
+  }
 };
 
 export const createMovieAction = (input) => async (dispatch) => {
-  const response = await fetch(`${constants.URL}`, {
-      body: input,
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-    });
+  await fetch(`${constants.URL}`, {
+    body: input,
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+    },
+  }).then(dispatch(getMoviesAction()));
 };
 
 export const updateMovieAction = (input) => async (dispatch) => {
-  const response = await fetch(`${constants.URL}`, {
-      body: input,
-      method: 'PUT',
-      headers: {
-        'content-type': 'application/json',
-      },
-    });
-  };
+  await fetch(`${constants.URL}`, {
+    body: input,
+    method: 'PUT',
+    headers: {
+      'content-type': 'application/json',
+    },
+  }).then(dispatch(getMoviesAction()));
+};

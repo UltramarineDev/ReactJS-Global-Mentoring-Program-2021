@@ -15,10 +15,11 @@ const Modal = ({
   onConfirm,
   resetLabel,
   onReset,
+  moviesListRef,
 }) => {
   if (!isOpen) return null;
   return ReactDOM.createPortal(
-    <div className={styles.modal}>
+    <div className={styles.modal} ref={moviesListRef}>
       <div className={styles.modalContent}>
         <a className={styles.close} onClick={onClose}>&times;</a>
         {children}

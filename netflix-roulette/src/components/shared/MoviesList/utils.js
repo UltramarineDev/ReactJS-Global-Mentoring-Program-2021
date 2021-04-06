@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { wordings } from 'locales/wordings';
 
 import { tabs } from './constants';
@@ -32,4 +34,14 @@ export const getOptions = (options, labels) => {
     id: resultId,
     name: labels[resultId],
   }));
+};
+
+export const useOutsideClick = (ref, callback) => {
+  const handleClick = (e) => ref.current && !ref.current.contains(e.target) && callback();
+  useEffect(() => {
+    document.addEventListener('click', handleClick);
+    return () => {
+      document.removeEventListener('click', handleClick);
+    };
+  });
 };
