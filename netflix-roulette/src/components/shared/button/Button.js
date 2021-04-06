@@ -35,12 +35,13 @@ const Button = ({ label, type, onClick, size }) => {
       )}
       {type === buttonTypes.SEARCH
       && (
-      <a className={classNames(styles.searchButton, sizeClassName)} onClick={onClick}>
+
+      <button className={classNames(styles.searchButton, sizeClassName)} onClick={onClick} type="submit">
         <>
           {buttonIcon[type] && <span className={styles.icon}><FontAwesomeIcon icon={buttonIcon[type]} /></span>}
           <span className={styles.labelSearch}>{label}</span>
         </>
-      </a>
+      </button>
       )}
     </>
   );

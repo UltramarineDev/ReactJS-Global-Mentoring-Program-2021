@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import classnames from 'classnames';
 
 import OptionItem from './OptionItem/OptionItem';
 import styles from './Dropdown.module.scss';
@@ -9,8 +10,10 @@ const Dropdown = ({
   value,
   options,
   onChange,
+  placeholder,
+  className,
 }) => {
-  const currentValueLabel = options.find(({ id }) => id === value).name;
+  const currentValueLabel = value ? options.find(({ id }) => id === value).name : placeholder;
   const [showOptions, setShowOptions] = useState(false);
 
   const onChangeClick = useCallback((value) => {
@@ -26,7 +29,7 @@ const Dropdown = ({
         : <div className={styles.icon}><FontAwesomeIcon icon="sort-down" /></div>}
       {showOptions
         && (
-        <div className={styles.menu}>
+        <div className={classnames(styles.menu, className)}>
           {options.map(({ id, name }) => (
             <OptionItem
               key={id}
@@ -48,6 +51,13 @@ Dropdown.propTypes = {
     name: PropTypes.string,
   })).isRequired,
   onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
+  className: PropTypes.string,
+};
+
+Dropdown.defaultProps = {
+  placeholder: '',
+  className: '',
 };
 
 export default Dropdown;
