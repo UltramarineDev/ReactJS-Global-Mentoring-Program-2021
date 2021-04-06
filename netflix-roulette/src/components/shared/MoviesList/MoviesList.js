@@ -44,7 +44,7 @@ const MoviesList = () => {
     setSortOptionId(value);
   };
 
-  const handleMovieDeleted = () => {
+  const handleActionCompleted = () => {
     setAction({});
   };
 
@@ -90,19 +90,17 @@ const MoviesList = () => {
       <Modal
         onClose={setAction}
         isOpen={action.id === movieActions.edit}
-        confirmLabel={wordings.save}
         resetLabel={wordings.reset}
-        onConfirm={setAction}
         className={styles.submitButton}
-        moviesListRef={moviesListRef}
+        // moviesListRef={moviesListRef}
       >
-        <EditMovieForm />
+        <EditMovieForm movieId={action.actionData} onSave={handleActionCompleted} />
       </Modal>
       <Modal
         onClose={setAction}
         isOpen={action.id === movieActions.delete}
       >
-        <DeleteMovieForm movieId={action.actionData} onDelete={handleMovieDeleted} />
+        <DeleteMovieForm movieId={action.actionData} onDelete={handleActionCompleted} onSave={setAction} />
       </Modal>
     </div>
   );

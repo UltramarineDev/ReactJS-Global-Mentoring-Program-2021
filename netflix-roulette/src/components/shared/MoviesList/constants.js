@@ -8,13 +8,6 @@ export const tabs = {
   CRIME: 'CRIME',
 };
 
-export const filterTags = {
-  DOCUMENTARY: ['Documentary', 'Adventure'],
-  COMEDY: ['Comedy', 'Family', 'Fantasy'],
-  HORROR: ['Horror', 'Action'],
-  CRIME: ['Crime', 'Action'],
-};
-
 export const sortOptions = {
   RELEASE_DATE: 'release_date',
   RATING: 'vote_average',
@@ -33,4 +26,12 @@ export const movieActions = {
 export const movieActionLabels = {
   [movieActions.edit]: 'Edit',
   [movieActions.delete]: 'Delete',
+};
+
+export const genres = {
+  DOCUMENTARY: 'Documentary',
+  COMEDY: 'Comedy',
+  HORROR: 'Horror',
+  CRIME: 'Crime',
+  ACTION: 'Action',
 };

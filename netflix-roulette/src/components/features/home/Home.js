@@ -36,13 +36,10 @@ const Home = () => {
       <Modal
         onClose={() => setModalOpened(false)}
         isOpen={isModalOpened}
-        confirmLabel={wordings.submit}
         resetLabel={wordings.reset}
-        onConfirm={emptyFunc}
         className={styles.submitButton}
-        onReset={emptyFunc}
       >
-        <AddMovieForm />
+        <AddMovieForm onSave={() => setModalOpened(false)} />
       </Modal>
     </>
   );

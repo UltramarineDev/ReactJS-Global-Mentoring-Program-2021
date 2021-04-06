@@ -35,4 +35,5 @@ export const wordings = {
   min: 'min',
   reset: 'RESET',
   rating: 'RATING',
+  action: 'ACTION',
 };
