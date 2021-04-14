@@ -1,8 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
-import { emptyFunc } from 'components/shared/constants';
+import { getMovieAction } from 'components/actions';
 
 import MovieImage from '../MovieImage/MovieImage';
 import OptionItem from '../dropdown/OptionItem/OptionItem';
@@ -16,7 +18,7 @@ const MovieCard = ({
   const genre = movie ? movie.genres.join(', ') : '-';
   const year = movie ? new Date(movie.release_date).getFullYear() : '-';
   const [showOptions, setShowOptions] = useState(false);
-
+  const dispatch = useDispatch();
   const handleItemClick = (id) => {
     setShowOptions(false);
     onActionClick(id, movie.id);
@@ -40,9 +42,9 @@ const MovieCard = ({
           ))}
         </div>
         )}
-      <a onClick={emptyFunc}>
+      <Link to={`/movie/${movie.id}`} onClick={() => dispatch(getMovieAction(movie.id))}>
         <MovieImage imageUrl={movie.poster_path} />
-      </a>
+      </Link>
       <div className={styles.nameWraper}>
         <div className={styles.name}>{movie.title}</div>
         <div className={styles.year}>{year}</div>
