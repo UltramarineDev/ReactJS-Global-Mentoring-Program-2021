@@ -6,6 +6,7 @@ export const GET_MOVIES_PENDING = 'GET_MOVIES_PENDING';
 export const GET_MOVIE_PENDING = 'GET_MOVIE_PENDING';
 export const GET_MOVIE_ERROR = 'GET_MOVIE_ERROR';
 export const GET_MOVIES_ERROR = 'GET_MOVIES_ERROR';
+export const SET_SEARCH_EXPRESSION = 'SET_SEARCH_EXPRESSION';
 
 export const URL = 'http://localhost:4000/movies';
 export const DEFAULT_SORT_ORDER = 'desc';
