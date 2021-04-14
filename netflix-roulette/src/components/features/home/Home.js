@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { buttonIcons, buttonTypes, emptyFunc, buttonSizes } from 'components/shared/constants';
+import { buttonIcons, buttonTypes, buttonSizes } from 'components/shared/constants';
 import StoryCard from 'components/shared/StoryCard/StoryCard';
 import MoviesList from 'components/shared/MoviesList/MoviesList';
 import Modal from 'components/shared/Modal/Modal';
@@ -14,6 +14,7 @@ import styles from './Home.module.scss';
 
 const Home = () => {
   const [isModalOpened, setModalOpened] = useState(false);
+
   return (
     <>
       <StoryCard>
