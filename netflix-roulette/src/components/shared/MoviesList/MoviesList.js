@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { wordings } from 'locales/wordings';
@@ -15,9 +15,7 @@ import { tabs, sortOptions, movieActions, sortOptionsLabels, movieActionLabels }
 import styles from './MoviesList.module.scss';
 
 const MoviesList = () => {
-  const movies = useSelector((state) => state.movies);
-  const isLoading = useSelector(((state) => state.isMoviesLoading));
-  const error = useSelector(((state) => state.error));
+  const { movies, search, isMoviesLoading: isLoading } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const [activeTab, setActiveTab] = useState(tabs.ALL);
@@ -28,29 +26,16 @@ const MoviesList = () => {
   // useOutsideClick(moviesListRef, setAction);
 
   useEffect(() => {
-    dispatch(getMoviesAction());
-    if (error) {
-      console.log(error);
-    }
-  }, []);
+    dispatch(getMoviesAction(activeTab, sortOptionId, search));
+  }, [activeTab, sortOptionId, search]);
 
-  const handleTabChange = (activeTab) => {
-    activeTab === tabs.ALL ? dispatch(getMoviesAction(null, sortOptionId)) : dispatch(getMoviesAction(activeTab, sortOptionId));
-    setActiveTab(activeTab);
-  };
+  const handleTabChange = (activeTab) => setActiveTab(activeTab);
 
-  const handleSortOptionChange = (value) => {
-    activeTab === tabs.ALL ? dispatch(getMoviesAction(null, value)) : dispatch(getMoviesAction(activeTab, value));
-    setSortOptionId(value);
-  };
+  const handleSortOptionChange = (value) => setSortOptionId(value);
 
-  const handleActionCompleted = () => {
-    setAction({});
-  };
+  const handleActionCompleted = () => setAction({});
 
-  const onActionClick = (id, actionData) => {
-    setAction({ id, actionData });
-  };
+  const onActionClick = (id, actionData) => setAction({ id, actionData });
 
   return (
     <div className={styles.movieListSection}>
