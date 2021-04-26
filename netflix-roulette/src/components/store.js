@@ -10,6 +10,7 @@ const Store = () => {
     isMoviesLoading: false,
     isMovieLoading: false,
     error: false,
+    search: undefined,
   };
 
   return createStore(rootReducer, initialState, applyMiddleware(thunk));
