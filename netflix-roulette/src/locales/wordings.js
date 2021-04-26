@@ -35,4 +35,7 @@ export const wordings = {
   min: 'min',
   reset: 'RESET',
   rating: 'RATING',
+  action: 'ACTION',
+  page_not_found: 'Page Not Found',
+  go_back: 'Go back to home',
 };

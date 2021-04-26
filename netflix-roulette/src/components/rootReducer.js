@@ -15,10 +15,13 @@ const reducer = (state = {}, action) => {
       return { ...state, isMovieLoading: true };
     }
     case constants.GET_MOVIE_ERROR: {
-      return { ...state, error: action.error };
+      return { ...state, error: action.payload };
     }
     case constants.GET_MOVIES_ERROR: {
-      return { ...state, error: action.error };
+      return { ...state, error: action.payload };
+    }
+    case constants.SET_SEARCH_EXPRESSION: {
+      return { ...state, search: action.payload };
     }
     default:
       return state;
