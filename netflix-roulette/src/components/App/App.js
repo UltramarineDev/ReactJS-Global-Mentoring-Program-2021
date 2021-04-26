@@ -16,8 +16,8 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route path="/movie/:id" component={MovieDetails} />
         <Route path="/search/:query" component={Home} />
-        <Route exact path="/error" component={NotFound} />
-        <Redirect to="/error" />
+        <Route exact path="/404" component={NotFound} />
+        <Redirect to="/404" />
       </Switch>
       <Footer />
     </ErrorBoundary>
