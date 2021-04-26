@@ -4,20 +4,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import styles from './MovieImage.module.scss';
 
-const MovieImage = ({ imageUrl }) => {
+const MovieImage = ({ imageUrl, displayBorder }) => {
   const [hasImageError, setImageError] = useState(false);
+  const shouldShowIcon = hasImageError || !imageUrl;
 
   return (
-  <div className={hasImageError ? styles.noImageWrapper : styles.image}>
-      {hasImageError ?
-        <div className={styles.noImage}><FontAwesomeIcon icon='image'/></div> :
-        <img src={imageUrl} alt="Movie image" onError={() => setImageError(true)}/>
-      }
-  </div>
-)};
+    <div className={hasImageError || displayBorder || !imageUrl ? styles.noImageWrapper : styles.image}>
+      {shouldShowIcon ? <FontAwesomeIcon icon="image" className={styles.noImage} />
+        : <img src={imageUrl} onError={() => setImageError(true)} alt="" />}
+    </div>
+  );
+};
 
 MovieImage.propTypes = {
-  imageUrl: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string,
+  displayBorder: PropTypes.bool,
+};
+
+MovieImage.defaultProps = {
+  imageUrl: undefined,
+  displayBorder: false,
 };
 
 export default MovieImage;

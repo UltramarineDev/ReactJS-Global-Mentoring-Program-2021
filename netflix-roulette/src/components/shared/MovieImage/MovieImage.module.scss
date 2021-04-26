@@ -1,8 +1,9 @@
 .image {
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   height: 450px;
   background-color: 232323;
   width: 300px;
+  min-width: 300px;
 }
 
 .noImageWrapper {
@@ -21,6 +22,5 @@
   font-size: 80px;
   top: 30%;
   position: absolute;
-  font-weight: 23px;
   left: 30%;
 }

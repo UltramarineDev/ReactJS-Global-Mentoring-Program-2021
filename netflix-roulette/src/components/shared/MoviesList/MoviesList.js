@@ -1,89 +1,94 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { wordings } from '/src/locales/wordings';
-import Modal from '/src/components/shared/Modal/Modal';
-import NavBar from '/src/components/shared/NavBar/NavBar'
+import { wordings } from 'locales/wordings';
+import Modal from 'components/shared/Modal/Modal';
+import NavBar from 'components/shared/NavBar/NavBar';
+import { getMoviesAction } from 'components/actions';
+import Loader from 'components/shared/Loader/Loader';
+
 import MovieCard from '../MovieCard/MovieCard';
 import EditMovieForm from '../../features/EditMovie/EditMovie';
 import DeleteMovieForm from '../../features/DeleteMovieForm/DeleteMovieForm';
-import { data } from './data.json';
-import { getTabs, getFilteredMovies, getSortedMovies, getOptions } from './utils';
+import { getTabs, getOptions, useOutsideClick } from './utils';
 import { tabs, sortOptions, movieActions, sortOptionsLabels, movieActionLabels } from './constants';
 import styles from './MoviesList.module.scss';
 
 const MoviesList = () => {
-  const [movies, setMovies] = useState([]);
-  const [filteredMovies, setFilteredMovies] = useState([]);
+  const { movies, search, isMoviesLoading: isLoading } = useSelector((state) => state);
+  const dispatch = useDispatch();
+
   const [activeTab, setActiveTab] = useState(tabs.ALL);
   const [sortOptionId, setSortOptionId] = useState(sortOptions.RELEASE_DATE);
-  const [action, setAction] = useState('');
-  const [moviesCount, setMoviesCount] = useState(0);
+  const [action, setAction] = useState({});
+
+  // const moviesListRef = useRef(null);
+  // useOutsideClick(moviesListRef, setAction);
 
   useEffect(() => {
-    setMovies(data);
-    setFilteredMovies(data);
-    setMoviesCount(data.length);
-  }, filteredMovies);
+    dispatch(getMoviesAction(activeTab, sortOptionId, search));
+  }, [activeTab, sortOptionId, search]);
 
-  const handleTabChange = useCallback((activeTab) => {
-    const filteredMovies = getFilteredMovies(movies, activeTab);
-    setFilteredMovies(filteredMovies);
-    setMoviesCount(filteredMovies.length);
-    setActiveTab(activeTab);
-  }, [activeTab]);
+  const handleTabChange = (activeTab) => setActiveTab(activeTab);
 
-  const handleSortOptionChange = (value) => {
-    setFilteredMovies(getSortedMovies(filteredMovies, value));
-    setSortOptionId(value);
-  };
+  const handleSortOptionChange = (value) => setSortOptionId(value);
 
-  const onActionClick = useCallback((id) => {
-    setAction(id);
-  }, []);
+  const handleActionCompleted = () => setAction({});
+
+  const onActionClick = (id, actionData) => setAction({ id, actionData });
 
   return (
-    <>
-      <div className={styles.movieListSection}>
-        <NavBar
-          tabs={getTabs()}
-          activeTab={activeTab}
-          onTabChange={handleTabChange}
-          sortOptions={getOptions(sortOptions, sortOptionsLabels)}
-          sortOptionId={sortOptionId}
-          onSortOptionChange={handleSortOptionChange}
-        />
-        <div className={styles.border}></div>
-        <div className={styles.moviesCount}><strong>{moviesCount} </strong>{wordings.movies_found}</div>
-        {filteredMovies &&  
-          <div className={styles.moviesList}>
-            {filteredMovies.map((movie) => (
-              <MovieCard
-                key={movie.title}
-                movie={movie}
-                onActionClick={onActionClick}
-                actions={getOptions(movieActions, movieActionLabels)}
-            />))}
-          </div>
-          }
-      </div>
+    <div className={styles.movieListSection}>
+      {isLoading ? <Loader />
+        : (
+          <>
+            <NavBar
+              tabs={getTabs()}
+              activeTab={activeTab}
+              onTabChange={handleTabChange}
+              sortOptions={getOptions(sortOptions, sortOptionsLabels)}
+              sortOptionId={sortOptionId}
+              onSortOptionChange={handleSortOptionChange}
+            />
+            <div className={styles.border} />
+            <div className={styles.moviesCount}>
+              <strong>
+                {movies.length}
+                {' '}
+              </strong>
+              {wordings.movies_found}
+            </div>
+            { movies && (
+            <div className={styles.moviesList}>
+              {movies.map((movie) => (
+                <MovieCard
+                  key={movie.title}
+                  movie={movie}
+                  onActionClick={onActionClick}
+                  actions={getOptions(movieActions, movieActionLabels)}
+                />
+              ))}
+            </div>
+            )}
+          </>
+        )}
       <Modal
         onClose={setAction}
-        isOpen={action === movieActions.edit}
-        confirmLabel={wordings.save}
-        onConfirm={setAction}
+        isOpen={action.id === movieActions.edit}
+        resetLabel={wordings.reset}
         className={styles.submitButton}
-        >
-          <EditMovieForm />
+        // moviesListRef={moviesListRef}
+      >
+        <EditMovieForm movieId={action.actionData} onSave={handleActionCompleted} />
       </Modal>
-      <Modal 
+      <Modal
         onClose={setAction}
-        isOpen={action === movieActions.delete}
-        confirmLabel={wordings.confirm}
-        onConfirm={setAction}
-        className={styles.confirmButton}>
-          <DeleteMovieForm />
+        isOpen={action.id === movieActions.delete}
+      >
+        <DeleteMovieForm movieId={action.actionData} onDelete={handleActionCompleted} onSave={setAction} />
       </Modal>
-    </>
-)};
+    </div>
+  );
+};
 
 export default MoviesList;

@@ -33,4 +33,9 @@ export const wordings = {
   search_placeholder: 'What do you want to watch?',
   search: 'SEARCH',
   min: 'min',
+  reset: 'RESET',
+  rating: 'RATING',
+  action: 'ACTION',
+  page_not_found: 'Page Not Found',
+  go_back: 'Go back to home',
 };

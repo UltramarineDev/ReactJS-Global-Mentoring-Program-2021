@@ -1,19 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { wordings } from '/src/locales/wordings';
-import TabBar from '/src/components/shared/TabBar/TabBar';
-import Dropdown from '/src/components/shared/dropdown/Dropdown';
+import { wordings } from 'locales/wordings';
+import TabBar from 'components/shared/TabBar/TabBar';
+import Dropdown from 'components/shared/dropdown/Dropdown';
+
 import styles from './NavBar.module.scss';
 
-const NavBar = ({ 
+const NavBar = ({
   tabs,
   activeTab,
   onTabChange,
   sortOptions,
   onSortOptionChange,
   sortOptionId,
-  }) => (
+}) => (
   <div className={styles.navBar}>
     <div className={styles.resultsFilter}>
       <TabBar
@@ -27,7 +28,8 @@ const NavBar = ({
       <Dropdown
         options={sortOptions}
         value={sortOptionId}
-        onChange={onSortOptionChange} />
+        onChange={onSortOptionChange}
+      />
     </div>
   </div>
 );
@@ -42,4 +44,3 @@ NavBar.propTypes = {
 };
 
 export default NavBar;
-

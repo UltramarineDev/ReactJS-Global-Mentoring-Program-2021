@@ -5,9 +5,10 @@ import clsx from 'clsx';
 import styles from './TabBarItem.module.scss';
 
 const TabBarItem = ({ label, active, onClick }) => (
-  <a 
-    className={clsx(styles.tab, { [styles.activeTab]: active })} 
-    onClick={onClick}>
+  <a
+    className={clsx(styles.tab, { [styles.activeTab]: active })}
+    onClick={onClick}
+  >
     {label}
   </a>
 );

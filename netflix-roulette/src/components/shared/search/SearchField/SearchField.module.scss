@@ -7,13 +7,12 @@ input {
   width: 70%;
   z-index: 2;
   background-color: #232323;
-  border: aliceblue;
-  border: aliceblue;
+  border: none;
   border-radius: 6px;
   margin-right: 24px;
 
   &:focus {
     color: #ffffff;
-    border: none;
+    outline: none;
   }
 }

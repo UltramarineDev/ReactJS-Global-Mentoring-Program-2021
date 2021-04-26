@@ -10,11 +10,10 @@
 }
   
 .modalContent {
-  margin: 20% auto;
+  margin: 10% auto;
   padding: 20px;
   border: 1px solid #232323;
-  width: 50%;
-  color: #ffffff;
+  width: 40%;
   background-color: #232323;
 }
 
@@ -28,4 +27,15 @@
 .close:focus {
   text-decoration: none;
   cursor: pointer;
+}
+
+.buttonWrapper {
+  display: flex;
+  padding: 32px;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.button {
+  padding-right: 12px;
 }

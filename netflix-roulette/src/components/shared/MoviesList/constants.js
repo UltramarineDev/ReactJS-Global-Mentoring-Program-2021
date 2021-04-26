@@ -1,3 +1,5 @@
+import { wordings } from 'locales/wordings';
+
 export const tabs = {
   ALL: 'ALL',
   DOCUMENTARY: 'DOCUMENTARY',
@@ -6,21 +8,14 @@ export const tabs = {
   CRIME: 'CRIME',
 };
 
-export const filterTags = {
-  DOCUMENTARY: ['Documentary', 'Adventure'],
-  COMEDY: ['Comedy', 'Family', 'Fantasy'],
-  HORROR: ['Horror', 'Action'],
-  CRIME: ['Crime', 'Action'],
-};
-
 export const sortOptions = {
-  RELEASE_DATE: 'RELEASE_DATE',
-  TITLE: 'TITLE',
+  RELEASE_DATE: 'release_date',
+  RATING: 'vote_average',
 };
 
 export const sortOptionsLabels = {
-  [sortOptions.RELEASE_DATE]: 'RELEASE DATE',
-  [sortOptions.TITLE]: 'TITLE',
+  [sortOptions.RELEASE_DATE]: wordings.release_date,
+  [sortOptions.RATING]: wordings.rating,
 };
 
 export const movieActions = {
@@ -31,4 +26,12 @@ export const movieActions = {
 export const movieActionLabels = {
   [movieActions.edit]: 'Edit',
   [movieActions.delete]: 'Delete',
+};
+
+export const genres = {
+  DOCUMENTARY: 'Documentary',
+  COMEDY: 'Comedy',
+  HORROR: 'Horror',
+  CRIME: 'Crime',
+  ACTION: 'Action',
 };
