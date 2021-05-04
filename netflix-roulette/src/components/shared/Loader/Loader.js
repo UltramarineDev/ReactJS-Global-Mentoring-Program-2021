@@ -5,7 +5,7 @@ import styles from './Loader.module.scss';
 
 const Loader = () => (
   <div className={styles.loader}>
-    <ReactLoader type="ThreeDots" color="#f65261" height={80} width={80} />
+    <ReactLoader type="ThreeDots" color="$color-red" height={80} width={80} />
   </div>
 );
 

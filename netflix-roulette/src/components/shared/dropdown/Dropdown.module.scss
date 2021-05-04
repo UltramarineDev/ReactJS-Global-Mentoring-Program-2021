@@ -7,18 +7,18 @@
 .menu {
   position: absolute;
   min-width: 160px;
-  background-color: #232323;
+  background-color: $color-black;
   z-index: 1;
   left: -9%;
-  margin-top: 16px;
+  margin-top: $space-16;
   min-width: 100%;
 }
 
 .icon {
   display: inline;
   float: right;
-  padding-left: 12px; 
-  color: #f65261;
+  padding-left: $space-12; 
+  color: $color-red;
 }
 
 .menu:hover, .value:hover {

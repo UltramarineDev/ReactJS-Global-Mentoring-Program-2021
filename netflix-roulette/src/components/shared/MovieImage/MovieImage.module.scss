@@ -1,5 +1,5 @@
 .image {
-  margin-bottom: 16px;
+  margin-bottom: $space-16;
   height: 450px;
   background-color: 232323;
   width: 300px;
@@ -19,7 +19,7 @@
 }
 
 .noImage {
-  font-size: 80px;
+  font-size: $fontSize-80;
   top: 30%;
   position: absolute;
   left: 30%;

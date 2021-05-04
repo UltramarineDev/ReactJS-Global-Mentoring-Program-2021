@@ -1,8 +1,8 @@
 .item {
   display: block;
-  padding: 12px 12px;
+  padding: $space-12 $space-12;
 }
 
 .item:hover {
-  background-color: #f65261;
+  background-color: $color-red;
 }
