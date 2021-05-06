@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeleteMovie renders delete form component 1`] = `
+<DocumentFragment>
+  <p
+    class="header"
+  >
+    DELETE MOVIE
+  </p>
+  <p
+    class="content"
+  >
+    Are you sure you want to delete this movie?
+  </p>
+  <div
+    class="button"
+  >
+    <button
+      class="searchButton smallSize"
+      type="submit"
+    >
+      <span
+        class="labelSearch"
+      >
+        CONFIRM
+      </span>
+    </button>
+  </div>
+</DocumentFragment>
+`;

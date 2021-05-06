@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OptionItem tests renders OptionItem 1`] = `
+<DocumentFragment>
+  <a
+    aria-label="option_item"
+    class="item"
+  />
+</DocumentFragment>
+`;

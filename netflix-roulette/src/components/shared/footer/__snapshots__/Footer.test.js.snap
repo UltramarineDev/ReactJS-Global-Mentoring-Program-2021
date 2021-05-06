@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for Footer renders MovieList 1`] = `
+<DocumentFragment>
+  <div
+    class="footer"
+  >
+    <span
+      class="title"
+    >
+      <strong>
+        netflix
+      </strong>
+      roulette
+    </span>
+  </div>
+</DocumentFragment>
+`;
