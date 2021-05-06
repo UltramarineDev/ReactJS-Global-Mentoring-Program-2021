@@ -10,7 +10,7 @@ import MovieImage from 'components/shared/MovieImage/MovieImage';
 import Header from 'components/shared/Header/Header';
 import StoryCard from 'components/shared/StoryCard/StoryCard';
 import MoviesList from 'components/shared/MoviesList/MoviesList';
-import { getMovieAction } from 'components/actions';
+import { getMovieAction } from 'actions';
 
 import styles from './MovieDetails.module.scss';
 
@@ -21,7 +21,7 @@ const MovieDetails = () => {
   const dispatch = useDispatch();
   const { id: movieId } = useParams();
 
-  const duration = movie.runtime ? `${movie.runtime} ${wordings.min}` : emptyValue;
+  const duration = movie && movie.runtime ? `${movie.runtime} ${wordings.min}` : emptyValue;
   const year = movie ? new Date(movie.release_date).getFullYear() : dashEmptyValue;
 
   useEffect(() => {

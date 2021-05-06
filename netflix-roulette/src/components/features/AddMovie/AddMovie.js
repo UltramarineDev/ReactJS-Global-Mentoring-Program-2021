@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 
 import { wordings } from 'locales/wordings';
-import { addMovieAction } from 'components/actions';
+import { addMovieAction } from 'actions';
 
 import { getInitialValues, buildAddMovieInput } from './utils';
 import MovieForm from '../MovieForm/MovieForm';

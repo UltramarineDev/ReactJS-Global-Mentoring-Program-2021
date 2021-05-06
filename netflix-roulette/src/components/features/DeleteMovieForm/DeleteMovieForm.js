@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 
-import { URL } from 'components/constants';
 import { wordings } from 'locales/wordings';
 import { buttonTypes, buttonSizes } from 'components/shared/constants';
 import Button from 'components/shared/button/Button';
+import { deleteMovieAction } from 'actions';
 
 import styles from './DeleteMovie.module.scss';
 
-const DeleteMovieForm = ({ movieId, onDelete }) => {
-  const handleDelete = async () => {
-    const response = await fetch(`${URL}/${movieId}`, { method: 'DELETE' });
-    if (onDelete) {
-      onDelete();
-    }
+const DeleteMovieForm = ({ movieId }) => {
+  const dispatch = useDispatch();
+
+  const handleDelete = () => {
+    dispatch(deleteMovieAction(movieId));
   };
 
   return (
@@ -34,11 +34,6 @@ const DeleteMovieForm = ({ movieId, onDelete }) => {
 
 DeleteMovieForm.propTypes = {
   movieId: PropTypes.number.isRequired,
-  onDelete: PropTypes.func,
-};
-
-DeleteMovieForm.defaultProps = {
-  onDelete: undefined,
 };
 
 export default DeleteMovieForm;

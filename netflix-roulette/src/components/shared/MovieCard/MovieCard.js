@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import { getMovieAction } from 'components/actions';
+import { getMovieAction } from 'actions';
 
 import MovieImage from '../MovieImage/MovieImage';
 import OptionItem from '../dropdown/OptionItem/OptionItem';
@@ -15,10 +15,12 @@ const MovieCard = ({
   actions,
   onActionClick,
 }) => {
-  const genre = movie ? movie.genres.join(', ') : '-';
+  const genre = movie && movie.genres ? movie.genres.join(', ') : '-';
   const year = movie ? new Date(movie.release_date).getFullYear() : '-';
+
   const [showOptions, setShowOptions] = useState(false);
   const dispatch = useDispatch();
+
   const handleItemClick = (id) => {
     setShowOptions(false);
     onActionClick(id, movie.id);
@@ -26,7 +28,7 @@ const MovieCard = ({
 
   return (
     <div className={styles.cardWrapper}>
-      <a onClick={() => setShowOptions((showOptions) => !showOptions)} className={styles.dotsMenu}>
+      <a id="set_options" onClick={() => setShowOptions((showOptions) => !showOptions)} className={styles.dotsMenu}>
         <FontAwesomeIcon icon="ellipsis-v" />
       </a>
       {showOptions
@@ -42,7 +44,7 @@ const MovieCard = ({
           ))}
         </div>
         )}
-      <Link to={`/movie/${movie.id}`} onClick={() => dispatch(getMovieAction(movie.id))}>
+      <Link id="movie_link" to={`/movie/${movie.id}`} onClick={() => dispatch(getMovieAction(movie.id))}>
         <MovieImage imageUrl={movie.poster_path} />
       </Link>
       <div className={styles.nameWraper}>

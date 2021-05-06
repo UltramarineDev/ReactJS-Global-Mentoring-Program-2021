@@ -12,7 +12,7 @@ export const validate = (values) => {
 
   if (!values.overview) {
     errors.overview = 'Required';
-  } else if (!values.overview.length > 1000) {
+  } else if (values.overview.length > 1000) {
     errors.overview = 'Must be 1000 characters or less';
   }
 
@@ -20,7 +20,7 @@ export const validate = (values) => {
     errors.movieUrl = 'Invalid movie url';
   }
 
-  if (!values.runtime < 0) {
+  if (values.runtime < 0) {
     errors.runtime = 'Must be more than 0';
   }
 
