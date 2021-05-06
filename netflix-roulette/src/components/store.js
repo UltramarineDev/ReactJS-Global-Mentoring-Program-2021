@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
-import rootReducer from './rootReducer';
+import rootReducer from '../reducers';
 
 const Store = () => {
   const initialState = {
@@ -11,6 +11,7 @@ const Store = () => {
     isMovieLoading: false,
     error: false,
     search: undefined,
+    isMovieDeleted: false,
   };
 
   return createStore(rootReducer, initialState, applyMiddleware(thunk));
