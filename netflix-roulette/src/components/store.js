@@ -14,7 +14,7 @@ const Store = () => {
     isMovieDeleted: false,
   };
 
-  return createStore(rootReducer, initialState, applyMiddleware(thunk));
+  return createStore(rootReducer, applyMiddleware(thunk));
 };
 
 export default Store;

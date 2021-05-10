@@ -14,7 +14,7 @@ const OptionItem = ({ label, onClick, value }) => {
 OptionItem.propTypes = {
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  value: PropTypes.object.isRequired,
+  value: PropTypes.string.isRequired,
 };
 
 export default OptionItem;

@@ -15,9 +15,8 @@ import { getMovieAction } from 'actions';
 import styles from './MovieDetails.module.scss';
 
 const MovieDetails = () => {
-  const movie = useSelector((state) => state.movie);
-  const isLoading = useSelector(((state) => state.isMovieLoading));
-  const error = useSelector(((state) => state.error));
+  const { fetchMovies } = useSelector((state) => state);
+  const { movie, isMovieLoading: isLoading, error } = fetchMovies;
   const dispatch = useDispatch();
   const { id: movieId } = useParams();
 

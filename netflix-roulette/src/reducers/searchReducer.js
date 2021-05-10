@@ -1,16 +1,10 @@
 import * as constants from '../constants';
 
-export const initialState = {
-  movies: [],
-  movie: { },
-  isMoviesLoading: false,
-  isMovieLoading: false,
-  error: null,
+const initialState = {
   search: undefined,
-  isMovieDeleted: false,
 };
 
-const reducer = (state = {}, action) => {
+const searchBy = (state = initialState, action) => {
   switch (action.type) {
     case constants.SET_SEARCH_EXPRESSION: {
       return { ...state, search: action.payload };
@@ -20,4 +14,4 @@ const reducer = (state = {}, action) => {
   }
 };
 
-export default reducer;
+export default searchBy;

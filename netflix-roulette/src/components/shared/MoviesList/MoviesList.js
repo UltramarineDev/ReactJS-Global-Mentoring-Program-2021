@@ -15,9 +15,12 @@ import { tabs, sortOptions, movieActions, sortOptionsLabels, movieActionLabels }
 import styles from './MoviesList.module.scss';
 
 const MoviesList = () => {
-  const { movies, search, isMoviesLoading: isLoading, isMovieDeleted } = useSelector((state) => state);
-  const dispatch = useDispatch();
+  const { fetchMovies, searchBy, deleteMovie } = useSelector((state) => state);
+  const { movies, isMoviesLoading: isLoading } = fetchMovies;
+  const { search } = searchBy;
+  const { isMovieDeleted } = deleteMovie;
 
+  const dispatch = useDispatch();
   const [activeTab, setActiveTab] = useState(tabs.ALL);
   const [sortOptionId, setSortOptionId] = useState(sortOptions.RELEASE_DATE);
   const [action, setAction] = useState({});
@@ -53,7 +56,7 @@ const MoviesList = () => {
             <div className={styles.border} />
             <div className={styles.moviesCount}>
               <strong>
-                {movies.length}
+                {movies ? movies.length : 0}
                 {' '}
               </strong>
               {wordings.movies_found}

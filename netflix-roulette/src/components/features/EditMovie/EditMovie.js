@@ -9,8 +9,8 @@ import MovieForm from '../MovieForm/MovieForm';
 import { getInitialValues, buildAddMovieInput } from '../AddMovie/utils';
 
 const EditMovieForm = ({ movieId, onSave }) => {
-  const movie = useSelector((state) => state.movie);
-  const error = useSelector(((state) => state.error));
+  const { fetchMovies } = useSelector((state) => state);
+  const { movie, error } = fetchMovies;
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -1,16 +1,11 @@
 import * as constants from '../constants';
 
-export const initialState = {
-  movies: [],
-  movie: { },
-  isMoviesLoading: false,
+const initialState = {
   isMovieLoading: false,
-  error: null,
-  search: undefined,
   isMovieDeleted: false,
 };
 
-const reducer = (state = {}, action) => {
+const deleteMovie = (state = initialState, action) => {
   switch (action.type) {
     case constants.DELETE_MOVIE_PENDING: {
       return { ...state, isMovieLoading: true };
@@ -23,4 +18,4 @@ const reducer = (state = {}, action) => {
   }
 };
 
-export default reducer;
+export default deleteMovie;
