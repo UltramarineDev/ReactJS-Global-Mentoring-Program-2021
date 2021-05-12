@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { backgroundImageUrl } from 'components/shared/constants';
-
+import { backgroundImageUrl } from '../constants';
 import styles from './StoryCard.module.scss';
 
 const StoryCard = ({ children, gradientClassName }) => (
