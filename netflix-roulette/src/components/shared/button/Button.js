@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -6,7 +7,6 @@ import classNames from 'classnames';
 import { buttonTypes, buttonSizes } from 'components/shared/constants';
 
 import styles from './Button.module.scss';
-import { buttonIcon } from './constants';
 import { getButtonSizeStyle } from './utils';
 
 const Button = ({ label, type, onClick, size }) => {
@@ -14,34 +14,24 @@ const Button = ({ label, type, onClick, size }) => {
 
   return (
     <>
-      {type === buttonTypes.ADD
-      && (
-      <a className={classNames(styles.addButton, sizeClassName)} onClick={onClick}>
-        <div className={styles.background} />
-        <div className={styles.labelAdd}>
-          {buttonIcon[type] && <span className={styles.icon}><FontAwesomeIcon icon={buttonIcon[type]} /></span>}
-          <span>{label}</span>
-        </div>
+      {type === buttonTypes.PRIMARY && (
+      <a className={classNames(styles.primary, sizeClassName)} onClick={onClick}>
+        <span className={styles.label}>{label}</span>
       </a>
       )}
-      {type === buttonTypes.CANCEL
-      && (
-      <a className={classNames(styles.cancelButton, sizeClassName)} onClick={onClick}>
+      {type === buttonTypes.PRIMARY_WITH_ICON && (
+      <a className={classNames(styles.primaryWithIcon, sizeClassName)} onClick={onClick}>
         <>
-          {buttonIcon[type] && <span className={styles.icon}><FontAwesomeIcon icon={buttonIcon[type]} /></span>}
-          <span className={styles.labelSearch}>{label}</span>
+          <span className={styles.icon}><FontAwesomeIcon icon="plus" /></span>
+          <span className={styles.labelWithIcon}>{label}</span>
         </>
       </a>
       )}
-      {type === buttonTypes.SEARCH
+      {type === buttonTypes.SECONDARY
       && (
-
-      <button className={classNames(styles.searchButton, sizeClassName)} onClick={onClick} type="submit">
-        <>
-          {buttonIcon[type] && <span className={styles.icon}><FontAwesomeIcon icon={buttonIcon[type]} /></span>}
-          <span className={styles.labelSearch}>{label}</span>
-        </>
-      </button>
+      <a className={classNames(styles.secondary, sizeClassName)} onClick={onClick}>
+        <span className={styles.label}>{label}</span>
+      </a>
       )}
     </>
   );
@@ -56,7 +46,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   label: 'Submit',
-  type: buttonTypes.ADD,
+  type: buttonTypes.PRIMARY,
   onClick: () => {},
   size: buttonSizes.MEDIUM,
 };

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { buttonIcons, buttonTypes, buttonSizes } from 'components/shared/constants';
+import { buttonTypes, buttonSizes } from 'components/shared/constants';
 import StoryCard from 'components/shared/StoryCard/StoryCard';
 import MoviesList from 'components/shared/MoviesList/MoviesList';
 import Modal from 'components/shared/Modal/Modal';
@@ -21,8 +21,7 @@ const Home = () => {
         <div className={styles.searchSection}>
           <Header>
             <Button
-              type={buttonTypes.ADD}
-              iconType={buttonIcons.ADD}
+              type={buttonTypes.PRIMARY_WITH_ICON}
               label={wordings.add_movie}
               onClick={() => setModalOpened(true)}
               size={buttonSizes.MEDIUM}

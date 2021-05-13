@@ -1,12 +1,8 @@
 import * as constants from './constants';
 
 describe('Shared constants tests', () => {
-  it('buttonIcons', () => {
-    expect(constants.buttonIcons).toEqual({ ADD: 'ADD' });
-  });
-
   it('buttonTypes', () => {
-    expect(constants.buttonTypes).toEqual({ ADD: 'ADD', SEARCH: 'SEARCH', CANCEL: 'CANCEL' });
+    expect(constants.buttonTypes).toEqual({ PRIMARY: 'PRIMARY', SECONDARY: 'SECONDARY', PRIMARY_WITH_ICON: 'PRIMARY_WITH_ICON' });
   });
 
   it('backgroundImageUrl', () => {
