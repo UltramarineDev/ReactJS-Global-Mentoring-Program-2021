@@ -23,7 +23,8 @@ const Dropdown = ({
 
   return (
     <div className={styles.dropdown}>
-      <a id="set_options_dropdown" aria-label="set_options_dropdown_label" onClick={() => setShowOptions((showOptions) => !showOptions)}>{currentValueLabel}</a>
+      {/* testid */}
+      <a data-testid="set_options_dropdown_label" onClick={() => setShowOptions((showOptions) => !showOptions)}>{currentValueLabel}</a>
       {showOptions
         ? <div className={styles.icon}><FontAwesomeIcon icon="sort-up" /></div>
         : <div className={styles.icon}><FontAwesomeIcon icon="sort-down" /></div>}

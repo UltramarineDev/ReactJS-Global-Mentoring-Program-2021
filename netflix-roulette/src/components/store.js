@@ -3,18 +3,6 @@ import thunk from 'redux-thunk';
 
 import rootReducer from '../reducers';
 
-const Store = () => {
-  const initialState = {
-    movies: [],
-    movie: { },
-    isMoviesLoading: false,
-    isMovieLoading: false,
-    error: false,
-    search: undefined,
-    isMovieDeleted: false,
-  };
-
-  return createStore(rootReducer, applyMiddleware(thunk));
-};
+const Store = () => createStore(rootReducer, applyMiddleware(thunk));
 
 export default Store;

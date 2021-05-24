@@ -91,6 +91,7 @@ const MovieForm = ({ title, onSave, initialValues }) => {
         onChange={formik.handleChange}
       />
       <Button
+        onClick={onSave}
         label={wordings.save}
         type={buttonTypes.SEARCH}
         size={buttonSizes.SMALL}

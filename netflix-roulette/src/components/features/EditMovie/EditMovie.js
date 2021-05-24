@@ -10,14 +10,11 @@ import { getInitialValues, buildAddMovieInput } from '../AddMovie/utils';
 
 const EditMovieForm = ({ movieId, onSave }) => {
   const { fetchMovies } = useSelector((state) => state);
-  const { movie, error } = fetchMovies;
+  const { movie } = fetchMovies;
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getMovieAction(movieId));
-    if (error) {
-      console.log(error);
-    }
   }, []);
 
   const handleSave = (values) => {

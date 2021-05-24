@@ -7,7 +7,7 @@ const OptionItem = ({ label, onClick, value }) => {
   const onLinkClick = () => onClick(value);
 
   return (
-    <a aria-label="option_item" onClick={onLinkClick} className={styles.item}>{label}</a>
+    <a data-testid="option_item" onClick={onLinkClick} className={styles.item}>{label}</a>
   );
 };
 

@@ -3,8 +3,8 @@
 exports[`OptionItem tests renders OptionItem 1`] = `
 <DocumentFragment>
   <a
-    aria-label="option_item"
     class="item"
+    data-testid="option_item"
   />
 </DocumentFragment>
 `;

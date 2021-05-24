@@ -16,18 +16,15 @@ import styles from './MovieDetails.module.scss';
 
 const MovieDetails = () => {
   const { fetchMovies } = useSelector((state) => state);
-  const { movie, isMovieLoading: isLoading, error } = fetchMovies;
+  const { movie, isMovieLoading: isLoading } = fetchMovies;
   const dispatch = useDispatch();
   const { id: movieId } = useParams();
 
   const duration = movie && movie.runtime ? `${movie.runtime} ${wordings.min}` : emptyValue;
-  const year = movie ? new Date(movie.release_date).getFullYear() : dashEmptyValue;
+  const year = new Date(movie.release_date).getFullYear();
 
   useEffect(() => {
     dispatch(getMovieAction(movieId));
-    if (error) {
-      console.log(error);
-    }
   }, []);
 
   return (

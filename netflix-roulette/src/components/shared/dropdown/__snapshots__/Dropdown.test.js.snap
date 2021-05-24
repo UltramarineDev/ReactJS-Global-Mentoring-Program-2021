@@ -6,8 +6,7 @@ exports[`Dropdown tests renders Dropdown 1`] = `
     class="dropdown"
   >
     <a
-      aria-label="set_options_dropdown_label"
-      id="set_options_dropdown"
+      data-testid="set_options_dropdown_label"
     />
     <div
       class="icon"

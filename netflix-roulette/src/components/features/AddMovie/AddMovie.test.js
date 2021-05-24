@@ -1,7 +1,5 @@
 import React from 'react';
-import { fireEvent, render, screen, cleanup } from '@testing-library/react';
-
-import { addMovieAction } from 'actions';
+import { fireEvent, render, cleanup } from '@testing-library/react';
 
 import { buildAddMovieInput, getInitialValues } from './utils';
 import AddMovie from './AddMovie';
@@ -59,16 +57,14 @@ describe('Add movie tests', () => {
     expect(asFragment(<AddMovie onSave={onSave} />)).toMatchSnapshot();
   });
 
-  // it('calls onSave callback handler', () => {
-  //   const onSave = jest.fn();
+  it('calls onSave callback handler', () => {
+    const onSave = jest.fn();
 
-  //   const { getByText } = render(<AddMovie onSave={onSave} />);
-  //   const button = getByText(/save/i);
+    const { getByTestId } = render(<AddMovie onSave={onSave} />);
+    const button = getByTestId('save_form');
 
-  //   fireEvent.click(button);
+    fireEvent.click(button);
 
-  //   expect(onSave).toHaveBeenCalledTimes(1);
-  //   // expect(buildAddMovieInput).toHaveBeenCalledTimes(1);
-  //   // expect(addMovieAction).toHaveBeenCalledTimes(1);
-  // });
+    expect(onSave).toHaveBeenCalledTimes(1);
+  });
 });
