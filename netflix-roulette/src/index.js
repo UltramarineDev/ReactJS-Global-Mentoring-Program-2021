@@ -1,22 +1,24 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react';
-import { render } from 'react-dom';
+import { hydrate } from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import App from './components/App/App';
-import configureStore from './components/store';
+import getStore from './components/store';
 import './fontawesome';
 import './index.scss';
 
-const store = configureStore();
+const preloadedState = window.__INITIAL_STATE__;
+delete window.__INITIAL_STATE__;
 
-render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <Router>
-        <App />
-      </Router>
-    </Provider>
-  </React.StrictMode>,
+const store = getStore(preloadedState);
+
+hydrate(
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
   document.getElementById('root'),
 );

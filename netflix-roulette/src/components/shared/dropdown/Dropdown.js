@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classnames from 'classnames';
 
+import { getDropdownValue } from './utils';
 import OptionItem from './OptionItem/OptionItem';
 import styles from './Dropdown.module.scss';
 
@@ -13,7 +14,7 @@ const Dropdown = ({
   placeholder,
   className,
 }) => {
-  const currentValueLabel = value ? options.find(({ id }) => id === value).name : placeholder;
+  const currentValueLabel = value && getDropdownValue(options, value) ? getDropdownValue(options, value).name : placeholder;
   const [showOptions, setShowOptions] = useState(false);
 
   const onChangeClick = useCallback((value) => {
