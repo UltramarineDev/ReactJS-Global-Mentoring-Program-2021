@@ -35,7 +35,7 @@ const Search = () => {
   return (
     <div className={styles.search}>
       <SearchField onChange={handleChange} initialValue={searchExpression} />
-      <Button label={wordings.search} type={buttonTypes.SEARCH} size={buttonSizes.LARGE} onClick={handleSearch} />
+      <Button label={wordings.search} type={buttonTypes.PRIMARY} size={buttonSizes.LARGE} onClick={handleSearch} />
     </div>
   );
 };

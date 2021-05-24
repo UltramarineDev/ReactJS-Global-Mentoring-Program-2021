@@ -93,7 +93,7 @@ const MovieForm = ({ title, onSave, initialValues }) => {
       <Button
         onClick={onSave}
         label={wordings.save}
-        type={buttonTypes.SEARCH}
+        type={buttonTypes.PRIMARY}
         size={buttonSizes.SMALL}
       />
     </form>

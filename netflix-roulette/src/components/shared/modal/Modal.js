@@ -29,7 +29,7 @@ const Modal = ({
               <div className={styles.button}>
                 <Button
                   label={resetLabel}
-                  type={buttonTypes.CANCEL}
+                  type={buttonTypes.SECONDARY}
                   onClick={onClose}
                   size={buttonSizes.SMALL}
                 />
@@ -39,7 +39,7 @@ const Modal = ({
               && (
               <Button
                 label={confirmLabel}
-                type={buttonTypes.SEARCH}
+                type={buttonTypes.SECONDARY}
                 onClick={onConfirm}
                 size={buttonSizes.SMALL}
               />
