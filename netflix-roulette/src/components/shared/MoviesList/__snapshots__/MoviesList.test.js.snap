@@ -47,8 +47,7 @@ exports[`MovieList tests renders MovieList 1`] = `
           class="dropdown"
         >
           <a
-            aria-label="set_options_dropdown_label"
-            id="set_options_dropdown"
+            data-testid="set_options_dropdown_label"
           >
             RELEASE DATE
           </a>

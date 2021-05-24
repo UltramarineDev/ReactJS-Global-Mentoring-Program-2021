@@ -13,6 +13,7 @@ exports[`Search tests renders Search 1`] = `
   />
   <button
     className="searchButton largeSize"
+    data-testid="save_form"
     onClick={[Function]}
     type="submit"
   >

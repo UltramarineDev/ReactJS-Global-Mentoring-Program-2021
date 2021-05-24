@@ -56,8 +56,7 @@ exports[`Edit movie tests renders EditMovie 1`] = `
         class="dropdown"
       >
         <a
-          aria-label="set_options_dropdown_label"
-          id="set_options_dropdown"
+          data-testid="set_options_dropdown_label"
         >
           Select Genre
         </a>
@@ -90,6 +89,7 @@ exports[`Edit movie tests renders EditMovie 1`] = `
     />
     <button
       class="searchButton smallSize"
+      data-testid="save_form"
       type="submit"
     >
       <span

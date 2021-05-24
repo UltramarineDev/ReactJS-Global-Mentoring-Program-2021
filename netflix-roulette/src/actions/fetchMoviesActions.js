@@ -13,9 +13,9 @@ const getMoviesPendingAction = () => ({ type: constants.GET_MOVIES_PENDING });
 const getMoviePendingAction = () => ({ type: constants.GET_MOVIE_PENDING });
 
 export const getMoviesAction = (
-  filter = undefined,
+  filter,
   sortBy = constants.DEFAULT_SORT_BY,
-  search = undefined,
+  search,
 ) => async (dispatch) => {
   try {
     dispatch(getMoviesPendingAction());
