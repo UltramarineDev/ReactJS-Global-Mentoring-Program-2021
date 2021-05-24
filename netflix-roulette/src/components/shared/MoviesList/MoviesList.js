@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { wordings } from 'locales/wordings';
 import Modal from 'components/shared/Modal/Modal';
 import NavBar from 'components/shared/NavBar/NavBar';
-import { getMoviesAction } from 'components/actions';
+import { getMoviesAction } from 'actions';
 import Loader from 'components/shared/Loader/Loader';
 
 import MovieCard from '../MovieCard/MovieCard';
@@ -15,9 +15,12 @@ import { tabs, sortOptions, movieActions, sortOptionsLabels, movieActionLabels }
 import styles from './MoviesList.module.scss';
 
 const MoviesList = () => {
-  const { movies, search, isMoviesLoading: isLoading } = useSelector((state) => state);
-  const dispatch = useDispatch();
+  const { fetchMovies, searchBy, deleteMovie } = useSelector((state) => state);
+  const { movies, isMoviesLoading: isLoading } = fetchMovies;
+  const { search } = searchBy;
+  const { isMovieDeleted } = deleteMovie;
 
+  const dispatch = useDispatch();
   const [activeTab, setActiveTab] = useState(tabs.ALL);
   const [sortOptionId, setSortOptionId] = useState(sortOptions.RELEASE_DATE);
   const [action, setAction] = useState({});
@@ -27,7 +30,7 @@ const MoviesList = () => {
 
   useEffect(() => {
     dispatch(getMoviesAction(activeTab, sortOptionId, search));
-  }, [activeTab, sortOptionId, search]);
+  }, [activeTab, sortOptionId, search, isMovieDeleted]);
 
   const handleTabChange = (activeTab) => setActiveTab(activeTab);
 
@@ -53,12 +56,12 @@ const MoviesList = () => {
             <div className={styles.border} />
             <div className={styles.moviesCount}>
               <strong>
-                {movies.length}
+                {movies ? movies.length : 0}
                 {' '}
               </strong>
               {wordings.movies_found}
             </div>
-            { movies && (
+            { movies && movies.length > 0 && (
             <div className={styles.moviesList}>
               {movies.map((movie) => (
                 <MovieCard

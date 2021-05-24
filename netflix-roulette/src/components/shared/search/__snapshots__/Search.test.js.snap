@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search tests renders Search 1`] = `
+<div
+  className="search"
+>
+  <input
+    aria-label="search_field"
+    onChange={[Function]}
+    placeholder="What do you want to watch?"
+    type="search"
+    value=""
+  />
+  <button
+    className="searchButton largeSize"
+    data-testid="save_form"
+    onClick={[Function]}
+    type="submit"
+  >
+    <span
+      className="labelSearch"
+    >
+      SEARCH
+    </span>
+  </button>
+</div>
+`;

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button tests renders Button 1`] = `
+<DocumentFragment>
+  <a
+    class="addButton mediumSize"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="labelAdd"
+    >
+      <span
+        class="icon"
+      />
+      <span>
+        Submit
+      </span>
+    </div>
+  </a>
+</DocumentFragment>
+`;

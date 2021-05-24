@@ -10,25 +10,21 @@ import MovieImage from 'components/shared/MovieImage/MovieImage';
 import Header from 'components/shared/Header/Header';
 import StoryCard from 'components/shared/StoryCard/StoryCard';
 import MoviesList from 'components/shared/MoviesList/MoviesList';
-import { getMovieAction } from 'components/actions';
+import { getMovieAction } from 'actions';
 
 import styles from './MovieDetails.module.scss';
 
 const MovieDetails = () => {
-  const movie = useSelector((state) => state.movie);
-  const isLoading = useSelector(((state) => state.isMovieLoading));
-  const error = useSelector(((state) => state.error));
+  const { fetchMovies } = useSelector((state) => state);
+  const { movie, isMovieLoading: isLoading } = fetchMovies;
   const dispatch = useDispatch();
   const { id: movieId } = useParams();
 
-  const duration = movie.runtime ? `${movie.runtime} ${wordings.min}` : emptyValue;
-  const year = movie ? new Date(movie.release_date).getFullYear() : dashEmptyValue;
+  const duration = movie && movie.runtime ? `${movie.runtime} ${wordings.min}` : emptyValue;
+  const year = new Date(movie.release_date).getFullYear();
 
   useEffect(() => {
     dispatch(getMovieAction(movieId));
-    if (error) {
-      console.log(error);
-    }
   }, []);
 
   return (

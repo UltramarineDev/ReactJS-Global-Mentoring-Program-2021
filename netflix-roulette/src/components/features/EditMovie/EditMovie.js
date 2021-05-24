@@ -3,21 +3,18 @@ import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { wordings } from 'locales/wordings';
-import { getMovieAction, updateMovieAction } from 'components/actions';
+import { getMovieAction, updateMovieAction } from 'actions';
 
 import MovieForm from '../MovieForm/MovieForm';
 import { getInitialValues, buildAddMovieInput } from '../AddMovie/utils';
 
 const EditMovieForm = ({ movieId, onSave }) => {
-  const movie = useSelector((state) => state.movie);
-  const error = useSelector(((state) => state.error));
+  const { fetchMovies } = useSelector((state) => state);
+  const { movie } = fetchMovies;
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getMovieAction(movieId));
-    if (error) {
-      console.log(error);
-    }
   }, []);
 
   const handleSave = (values) => {

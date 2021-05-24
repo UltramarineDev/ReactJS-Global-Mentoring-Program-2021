@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieCard tests renders MovieCard 1`] = `
+<div
+  className="cardWrapper"
+>
+  <a
+    className="dotsMenu"
+    id="set_options"
+    onClick={[Function]}
+  />
+  <a
+    href="/movie/undefined"
+    id="movie_link"
+    onClick={[Function]}
+  >
+    <div
+      className="noImageWrapper"
+    />
+  </a>
+  <div
+    className="nameWraper"
+  >
+    <div
+      className="name"
+    />
+    <div
+      className="year"
+    >
+      NaN
+    </div>
+  </div>
+  <div
+    className="genre"
+  >
+    -
+  </div>
+</div>
+`;

@@ -1,18 +1,18 @@
 input {
   box-sizing: border-box;
-  font-size: 24px;
-  color: #555555;
+  font-size: $fontSize-24;
+  color: $color-gray;
   height: 70px;
-  padding: 18px;
+  padding: $space-16;
   width: 70%;
   z-index: 2;
-  background-color: #232323;
+  background-color: $color-black;
   border: none;
   border-radius: 6px;
-  margin-right: 24px;
+  margin-right: $space-24;
 
   &:focus {
-    color: #ffffff;
+    color: $color-white;
     outline: none;
   }
 }

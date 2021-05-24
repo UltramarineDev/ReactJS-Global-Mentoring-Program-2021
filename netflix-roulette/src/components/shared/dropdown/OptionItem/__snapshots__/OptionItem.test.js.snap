@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OptionItem tests renders OptionItem 1`] = `
+<DocumentFragment>
+  <a
+    class="item"
+    data-testid="option_item"
+  />
+</DocumentFragment>
+`;

@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound render NotFound 1`] = `
+Array [
+  <div
+    className="header"
+  >
+    <span
+      className="title"
+    >
+      <strong>
+        netflix
+      </strong>
+      roulette
+    </span>
+  </div>,
+  <div
+    className="container"
+  >
+    <h2
+      className="title"
+    >
+      Page Not Found
+    </h2>
+    <div
+      className="errorCode"
+    >
+      404
+    </div>
+    <a
+      className="icon"
+      href="/"
+      onClick={[Function]}
+    >
+      <a
+        className="cancelButton largeSize"
+        onClick={[Function]}
+      >
+        <span
+          className="labelSearch"
+        >
+          Go back to home
+        </span>
+      </a>
+    </a>
+  </div>,
+]
+`;

@@ -7,14 +7,14 @@ const OptionItem = ({ label, onClick, value }) => {
   const onLinkClick = () => onClick(value);
 
   return (
-    <a onClick={onLinkClick} className={styles.item}>{label}</a>
+    <a data-testid="option_item" onClick={onLinkClick} className={styles.item}>{label}</a>
   );
 };
 
 OptionItem.propTypes = {
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  value: PropTypes.object.isRequired,
+  value: PropTypes.string.isRequired,
 };
 
 export default OptionItem;

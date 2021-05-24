@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieList tests renders MovieList 1`] = `
+<DocumentFragment>
+  <div
+    class="movieListSection"
+  >
+    <div
+      class="navBar"
+    >
+      <div
+        class="resultsFilter"
+      >
+        <a
+          class="tab activeTab"
+        >
+          ALL
+        </a>
+        <a
+          class="tab"
+        >
+          DOCUMENTARY
+        </a>
+        <a
+          class="tab"
+        >
+          COMEDY
+        </a>
+        <a
+          class="tab"
+        >
+          HORROR
+        </a>
+        <a
+          class="tab"
+        >
+          CRIME
+        </a>
+      </div>
+      <div
+        class="resultsSort"
+      >
+        <span>
+          SORT BY
+        </span>
+        <div
+          class="dropdown"
+        >
+          <a
+            data-testid="set_options_dropdown_label"
+          >
+            RELEASE DATE
+          </a>
+          <div
+            class="icon"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="border"
+    />
+    <div
+      class="moviesCount"
+    >
+      <strong>
+         
+      </strong>
+      movies found
+    </div>
+  </div>
+</DocumentFragment>
+`;

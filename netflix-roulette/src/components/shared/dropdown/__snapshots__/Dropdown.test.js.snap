@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown tests renders Dropdown 1`] = `
+<DocumentFragment>
+  <div
+    class="dropdown"
+  >
+    <a
+      data-testid="set_options_dropdown_label"
+    />
+    <div
+      class="icon"
+    />
+  </div>
+</DocumentFragment>
+`;

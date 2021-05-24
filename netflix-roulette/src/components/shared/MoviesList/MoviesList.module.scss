@@ -1,24 +1,22 @@
 .movieListSection {
   position: relative;
-  background-color: #232323;
+  background-color: $color-black;
 }
 
 .border {
-  margin-left: 64px;
-  border-bottom: solid thin #424242;
+  margin-left: $space-64;
+  border-bottom: solid thin $color-darkGray;
 }
 
 .moviesCount {
-  padding: 24px 64px;
-  font-size: 16px;
+  padding: $space-24 $space-64;
+  font-size: $fontSize-16;
 }
 
 .moviesList {
-  padding-left: 64px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
+  @include rowContainer(space-between, center);
+
+  padding-left: $space-64;
   flex-flow: wrap;
 }
 

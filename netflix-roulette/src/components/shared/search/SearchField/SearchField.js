@@ -5,7 +5,7 @@ import { wordings } from 'locales/wordings';
 import './SearchField.module.scss';
 
 const SearchField = ({ onChange, initialValue }) => (
-  <input type="search" placeholder={wordings.search_placeholder} onChange={onChange} value={initialValue} />
+  <input aria-label="search_field" type="search" placeholder={wordings.search_placeholder} onChange={onChange} value={initialValue} />
 );
 
 SearchField.propTypes = {

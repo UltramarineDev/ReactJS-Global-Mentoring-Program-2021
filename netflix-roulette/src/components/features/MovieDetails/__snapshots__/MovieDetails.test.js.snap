@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieDetails renders MovieDetails 1`] = `
+Array [
+  <div
+    className="storyCard"
+  >
+    <div
+      className="background"
+    >
+      <img
+        alt="Background image"
+        src="https://assets.nflxext.com/ffe/siteui/vlv3/e178a4e7-4f52-4661-b2ae-41efa25dca7c/eb618394-24cd-43ae-8799-c1a76a7bcbfc/BY-en-20210222-popsignuptwoweeks-perspective_alpha_website_small.jpg"
+      />
+      <div
+        className="gradient gradientClassName"
+      />
+    </div>
+    <div
+      className="root"
+    >
+      <div
+        className="header"
+      >
+        <span
+          className="title"
+        >
+          <strong>
+            netflix
+          </strong>
+          roulette
+        </span>
+        <a
+          className="icon"
+          href="/"
+          onClick={[Function]}
+        />
+      </div>
+      <div
+        className="movieDetails"
+      >
+        <div
+          className="noImageWrapper"
+        />
+        <div
+          className="description"
+        >
+          <div
+            className="titleWrapper"
+          >
+            <span
+              className="title"
+            />
+          </div>
+          <div
+            className="tagLine"
+          />
+          <div
+            className="dataWrapper"
+          >
+            <span
+              className="year"
+            >
+              NaN
+            </span>
+            <span>
+              
+            </span>
+          </div>
+          <div />
+        </div>
+      </div>
+    </div>
+  </div>,
+  <MovieList />,
+]
+`;

@@ -1,28 +1,24 @@
 .storyCard {
-  margin-bottom: 16px;
+  margin-bottom: $space-16;
   position: relative;
   height: 600px;
   width: 100%;
 }
 
 .background {
+  @include reset-position(-70px);
+
   z-index: 0;
   position: absolute;
-  top: -70px;
-  left: 0;
-  right: 0;
-  bottom: 0;
   overflow: hidden; 
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .gradient {
+  @include reset-position;
+
   position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
   background: rgba(0,0,0,.4);
   background-image: linear-gradient(to top,rgba(0,0,0,.8) 0,rgba(0,0,0,0) 60%,rgba(0,0,0,.8) 100%);
 }

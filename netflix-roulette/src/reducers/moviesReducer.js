@@ -1,6 +1,14 @@
-import * as constants from './constants';
+import * as constants from '../constants';
 
-const reducer = (state = {}, action) => {
+export const initialState = {
+  movies: [],
+  movie: { },
+  isMoviesLoading: false,
+  isMovieLoading: false,
+  error: null,
+};
+
+const fetchMovies = (state = initialState, action) => {
   switch (action.type) {
     case constants.GET_MOVIES_SUCCESS: {
       return { ...state, movies: action.payload, isMoviesLoading: false };
@@ -20,12 +28,9 @@ const reducer = (state = {}, action) => {
     case constants.GET_MOVIES_ERROR: {
       return { ...state, error: action.payload };
     }
-    case constants.SET_SEARCH_EXPRESSION: {
-      return { ...state, search: action.payload };
-    }
     default:
       return state;
   }
 };
 
-export default reducer;
+export default fetchMovies;

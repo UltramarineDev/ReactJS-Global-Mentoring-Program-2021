@@ -1,13 +1,13 @@
 .root {
   position: relative;
-  padding: 24px 64px;
+  padding: $space-24 $space-64;
   z-index: 1;
 }
 
 .icon {
-  color: #f65261;
+  color: $color-red;
   transform: rotate(90deg);
-  font-size: 25px;
+  font-size: $fontSize-24;
   background-color: unset;
   border: none;
 }
@@ -17,45 +17,41 @@
 }
 
 .movieDetails {
-  display: flex;
-  flex-direction: row;
-  justify-content: start;
-  align-items: flex-start;
-  margin-top: 30px;
+  @include rowContainer;
+
+  margin-top: $space-32;
   max-width: 90%;
 }
 
 .titleWrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding-bottom: 12px;
-  padding-top: 24px;
+  @include rowContainer;
+
+  padding-bottom: $space-12;
+  padding-top: $space-24;
 }
 
 .title {
-  padding-right: 16px;
+  padding-right: $space-16;
   text-transform: uppercase;
-  font-size: 46px;
+  font-size: $fontSize-48;
 }
 
 .description {
-  padding-left: 42px;
+  padding-left: $space-40;
 }
 
 .tagLine {
-  padding-bottom: 24px;
+  padding-bottom: $space-24;
 }
 
 .dataWrapper {
-  padding-bottom: 24px;
-  color: #f65261;
-  font-size: 26px;
+  padding-bottom: $space-24;
+  color: $color-red;
+  font-size: $fontSize-24;
 }
 
 .year {
-  padding-right: 32px;
+  padding-right: $space-32;
 }
 
 .rating {
@@ -63,9 +59,9 @@
   width: 42px;
   min-width: 42px;
   height: 42px;
-  padding: 8px;
+  padding: $space-8;
   border: 2px solid #666;
   text-align: center;
-  font-size: 26px;
+  font-size: $fontSize-24;
   color: #80B859;
 }

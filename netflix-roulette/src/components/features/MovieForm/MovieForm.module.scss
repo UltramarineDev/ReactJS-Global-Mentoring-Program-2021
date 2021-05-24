@@ -1,27 +1,27 @@
 .form {
-  padding: 32px;
+  padding: $space-32;
 }
 
 .title {
-  font-size: 32px;
-  padding-bottom: 24px;
+  font-size: $fontSize-32;
+  padding-bottom: $space-24;
 }
 
 .form input, .dropdown {
   width: 100%;
   height: 50px;
-  padding: 12px 20px;
+  padding: $space-12 $space-24;
   display: inline-block;
   border-radius: 0px;
   box-sizing: border-box;
-  margin-bottom: 16px;
-  background-color: #424242;
+  margin-bottom: $space-16;
+  background-color: $color-darkGray;
 }
 
 .label {
-  color: #f65261;
+  color: $color-red;
 }
 
 .dropdown {
-  font-size: 21px;
+  font-size: $fontSize-24;
 }

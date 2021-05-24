@@ -4,7 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 
 import { buttonTypes, buttonSizes } from 'components/shared/constants';
 import { wordings } from 'locales/wordings';
-import { setSearchExpressionAction } from 'components/actions';
+import { setSearchExpressionAction } from 'actions';
 
 import Button from '../Button/Button';
 import SearchField from './SearchField/SearchField';
@@ -20,7 +20,7 @@ const Search = () => {
     if (searchExpression) {
       dispatch(setSearchExpressionAction(searchExpression));
     }
-  }, []);
+  }, [searchExpression]);
 
   const handleSearch = () => {
     dispatch(setSearchExpressionAction(searchExpression));

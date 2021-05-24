@@ -6,13 +6,13 @@
 
 .searchSection{
   position: relative;
-  padding: 24px 64px;
+  padding: $space-24 $space-64;
   z-index: 1;
 }
 
 .searchDescription {
   text-transform: uppercase;
-  font-size: 76px;
-  margin-top: 64px;
-  margin-left: 140px;
+  font-size: $fontSize-80;
+  margin-top: $space-64;
+  margin-left: $space-140;
 }

@@ -1,12 +1,12 @@
 .header {
- font-size: 26px;
+ font-size: $fontSize-24;
 }
 
 .content {
-  padding-bottom: 36px;
+  padding-bottom: $space-32;
 }
 
 .button {
   float: right;
-  padding-right: 16px;
+  padding-right: $space-16;
 }

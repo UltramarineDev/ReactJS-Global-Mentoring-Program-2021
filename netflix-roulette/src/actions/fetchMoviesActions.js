@@ -1,10 +1,10 @@
 import { tabs } from 'components/shared/MoviesList/constants';
 
-import * as constants from './constants';
-
-const getMoviesSuccessAction = (movies) => ({ type: constants.GET_MOVIES_SUCCESS, payload: movies });
+import * as constants from '../constants';
 
 const getMovieSuccessAction = (movie) => ({ type: constants.GET_MOVIE_SUCCESS, payload: movie });
+
+const getMoviesSuccessAction = (movies) => ({ type: constants.GET_MOVIES_SUCCESS, payload: movies });
 
 const getMoviesErrorAction = (error) => ({ type: constants.GET_MOVIES_ERROR, payload: error });
 
@@ -12,12 +12,10 @@ const getMoviesPendingAction = () => ({ type: constants.GET_MOVIES_PENDING });
 
 const getMoviePendingAction = () => ({ type: constants.GET_MOVIE_PENDING });
 
-export const setSearchExpressionAction = (search) => ({ type: constants.SET_SEARCH_EXPRESSION, payload: search });
-
 export const getMoviesAction = (
-  filter = undefined,
+  filter,
   sortBy = constants.DEFAULT_SORT_BY,
-  search = undefined,
+  search,
 ) => async (dispatch) => {
   try {
     dispatch(getMoviesPendingAction());
@@ -44,26 +42,4 @@ export const getMovieAction = (id) => async (dispatch) => {
   } catch (error) {
     dispatch(getMoviesErrorAction(error));
   }
-};
-
-export const addMovieAction = (input) => async (dispatch) => {
-  await fetch(`${constants.URL}`, {
-    body: JSON.stringify(input),
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-  }).then(dispatch(getMoviesAction()));
-};
-
-export const updateMovieAction = (input) => async (dispatch) => {
-  await fetch(`${constants.URL}`, {
-    body: JSON.stringify(input),
-    method: 'PUT',
-    headers: {
-      Accept: 'application/json',
-      'content-type': 'application/json',
-    },
-  }).then(dispatch(getMoviesAction()));
 };

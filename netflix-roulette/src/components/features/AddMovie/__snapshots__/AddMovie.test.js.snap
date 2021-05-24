@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Add movie tests renders AddMovie 1`] = `
+<DocumentFragment>
+  <form
+    class="form"
+  >
+    <div
+      class="title"
+    >
+      ADD MOVIE
+    </div>
+    <p
+      class="label"
+    >
+      TITLE
+    </p>
+    <input
+      id="title"
+      name="title"
+      placeholder="Title here"
+      type="text"
+      value=""
+    />
+    <p
+      class="label"
+    >
+      RELEASE DATE
+    </p>
+    <input
+      id="releaseDate"
+      placeholder="Select Date"
+      type="date"
+      value=""
+    />
+    <p
+      class="label"
+    >
+      MOVIE URL
+    </p>
+    <input
+      id="movieUrl"
+      placeholder="Movie URL here"
+      type="text"
+      value=""
+    />
+    <p
+      class="label"
+    >
+      GENRE
+    </p>
+    <div
+      class="dropdown"
+    >
+      <div
+        class="dropdown"
+      >
+        <a
+          data-testid="set_options_dropdown_label"
+        >
+          Select Genre
+        </a>
+        <div
+          class="icon"
+        />
+      </div>
+    </div>
+    <p
+      class="label"
+    >
+      OVERVIEW
+    </p>
+    <input
+      id="overview"
+      placeholder="Overview here"
+      type="text"
+      value=""
+    />
+    <p
+      class="label"
+    >
+      RUNTIME
+    </p>
+    <input
+      id="runtime"
+      placeholder="Runtime here"
+      type="text"
+      value=""
+    />
+    <button
+      class="searchButton smallSize"
+      data-testid="save_form"
+      type="submit"
+    >
+      <span
+        class="labelSearch"
+      >
+        SAVE
+      </span>
+    </button>
+  </form>
+</DocumentFragment>
+`;

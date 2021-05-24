@@ -1,25 +1,21 @@
 .navBar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding-right: 64px;
+  @include rowContainer(space-between, center);
+
+  padding-right: $space-64;
 }
 
 .resultsFilter {
-  padding-left: 64px;
+  padding-left: $space-64;
 }
   
 .resultsSort {
+  @include rowContainer(space-between, center);
+
   max-width: 300px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 16px;
+  font-size: $fontSize-16;
 }
 
 .resultsSort span {
-  color: #555555;
-  padding-right: 18px;
+  color: $color-gray;
+  padding-right: $space-16;
 }
