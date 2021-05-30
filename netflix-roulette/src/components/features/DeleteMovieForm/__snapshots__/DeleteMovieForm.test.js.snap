@@ -15,17 +15,15 @@ exports[`DeleteMovie renders delete form component 1`] = `
   <div
     class="button"
   >
-    <button
-      class="searchButton smallSize"
-      data-testid="save_form"
-      type="submit"
+    <a
+      class="primary smallSize"
     >
       <span
-        class="labelSearch"
+        class="label"
       >
         CONFIRM
       </span>
-    </button>
+    </a>
   </div>
 </DocumentFragment>
 `;

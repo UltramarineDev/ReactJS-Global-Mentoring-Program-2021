@@ -14,7 +14,9 @@ const EditMovieForm = ({ movieId, onSave }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getMovieAction(movieId));
+    if (movieId) {
+      dispatch(getMovieAction(movieId));
+    }
   }, []);
 
   const handleSave = (values) => {
@@ -30,7 +32,7 @@ const EditMovieForm = ({ movieId, onSave }) => {
 };
 
 EditMovieForm.propTypes = {
-  movieId: PropTypes.number.isRequired,
+  movieId: PropTypes.number,
   onSave: PropTypes.func.isRequired,
 };
 
