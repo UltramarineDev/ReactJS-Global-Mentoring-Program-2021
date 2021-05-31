@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { wordings } from 'locales/wordings';
+import { wordings } from '../../../locales/wordings';
 
-import styles from './NetflixRoulette.module.scss';
+import styles from '../../../../styles/NetflixRoulette.module.scss';
 
 const NetflixRoulette = () => (
   <span className={styles.title}>

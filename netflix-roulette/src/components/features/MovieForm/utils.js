@@ -1,5 +1,5 @@
-import { genres } from 'components/shared/MoviesList/constants';
-import { wordings } from 'locales/wordings';
+import { genres } from '../../shared/MoviesList/constants';
+import { wordings } from '../../../locales/wordings';
 
 export const getGenres = () => ([
   {

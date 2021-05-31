@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
-
-import { buttonTypes, buttonSizes } from 'components/shared/constants';
-import { wordings } from 'locales/wordings';
-import { setSearchExpressionAction } from 'actions';
+import { useRouter } from 'next/router'
+import { buttonTypes, buttonSizes } from '../constants';
+import { wordings } from '../../../locales/wordings';
+import { setSearchExpressionAction } from '../../../actions';
 
 import Button from '../Button/Button';
 import SearchField from './SearchField/SearchField';
-import styles from './Search.module.scss';
+import styles from '../../../../styles/Search.module.scss';
 
 const Search = () => {
-  const { query } = useParams();
+  const router = useRouter();
+  const { query } = router.query;
   const [searchExpression, setSearchExpression] = useState(query);
   const dispatch = useDispatch();
-  const history = useHistory();
 
   useEffect(() => {
     if (searchExpression) {
@@ -24,7 +23,7 @@ const Search = () => {
 
   const handleSearch = () => {
     dispatch(setSearchExpressionAction(searchExpression));
-    searchExpression ? history.push(`/search/${searchExpression}`) : history.push('/');
+    searchExpression ? router.push(`/search/${searchExpression}`) : router.push('/');
   };
 
   const handleChange = (e) => {

@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { wordings } from 'locales/wordings';
-import TabBar from 'components/shared/TabBar/TabBar';
-import Dropdown from 'components/shared/dropdown/Dropdown';
+import { wordings } from '../../../locales/wordings';
+import TabBar from '../TabBar/TabBar';
+import Dropdown from '../dropdown/Dropdown';
 
-import styles from './NavBar.module.scss';
+import styles from '../../../../styles/NavBar.module.scss';
 
 const NavBar = ({
   tabs,

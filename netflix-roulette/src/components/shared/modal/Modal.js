@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
-import Button from 'components/shared/button/Button';
-import { buttonTypes, buttonSizes } from 'components/shared/constants';
+import Button from '../../shared/button/Button';
+import { buttonTypes, buttonSizes } from '../../shared/constants';
 
-import styles from './Modal.module.scss';
+import styles from '../../../../styles/Modal.module.scss';
 
 const Modal = ({
   onClose,

@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 
-import { buttonTypes, buttonSizes } from 'components/shared/constants';
-import StoryCard from 'components/shared/StoryCard/StoryCard';
-import MoviesList from 'components/shared/MoviesList/MoviesList';
-import Modal from 'components/shared/Modal/Modal';
-import { wordings } from 'locales/wordings';
-import Search from 'components/shared/Search/Search';
-import Button from 'components/shared/Button/Button';
-import Header from 'components/shared/Header/Header';
+import { buttonTypes, buttonSizes } from '../../shared/constants';
+import StoryCard from '../../shared/StoryCard/StoryCard';
+import MoviesList from '../../shared/MoviesList/MoviesList';
+import Modal from '../../shared/Modal/Modal';
+import { wordings } from '../../../locales/wordings';
+import Search from '../../shared/Search/Search';
+import Button from '../../shared//Button/Button';
+import Header from '../../shared/Header/Header';
 
 import AddMovieForm from '../AddMovie/AddMovie';
-import styles from './Home.module.scss';
+import styles from '../../../../styles/Home.module.scss';
 
 const Home = () => {
   const [isModalOpened, setModalOpened] = useState(false);

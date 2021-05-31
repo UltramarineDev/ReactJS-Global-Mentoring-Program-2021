@@ -4,9 +4,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { buttonTypes, buttonSizes } from 'components/shared/constants';
+import { buttonTypes, buttonSizes } from '../constants';
 
-import styles from './Button.module.scss';
+import styles from '../../../../styles/Button.module.scss';
 import { getButtonSizeStyle } from './utils';
 
 const Button = ({ label, type, onClick, size }) => {

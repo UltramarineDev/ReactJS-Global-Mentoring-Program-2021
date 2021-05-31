@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
 
-import { wordings } from 'locales/wordings';
-import Dropdown from 'components/shared/dropdown/Dropdown';
-import Button from 'components/shared/button/Button';
-import { buttonTypes, buttonSizes } from 'components/shared/constants';
+import { wordings } from '../../../locales/wordings';
+import Dropdown from '../../shared/dropdown/Dropdown';
+import Button from '../../shared/button/Button';
+import { buttonTypes, buttonSizes } from '../../shared/constants';
 
 import { validate } from './validate';
 import { getGenres } from './utils';
-import styles from './MovieForm.module.scss';
+import styles from '../../../../styles/MovieForm.module.scss';
 
 const MovieForm = ({ title, onSave, initialValues }) => {
   const genres = getGenres();
