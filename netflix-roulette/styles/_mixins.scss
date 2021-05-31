@@ -1,0 +1,15 @@
+
+@mixin rowContainer($justifyContent: start, $alignItems: flex-start) {
+    display: flex;
+    flex-direction: row;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+  }
+  
+  @mixin reset-position($top: 0) {
+    left: 0;
+    top: $top;
+    right: 0;
+    bottom: 0;
+  }
+  

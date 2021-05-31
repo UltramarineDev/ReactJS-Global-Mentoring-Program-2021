@@ -1,0 +1,71 @@
+@import "mixins";
+@import "variables";
+
+.root {
+    position: relative;
+    padding: $space-24 $space-64;
+    z-index: 1;
+  }
+  
+  .icon {
+    color: $color-red;
+    transform: rotate(90deg);
+    font-size: $fontSize-24;
+    background-color: unset;
+    border: none;
+  }
+  
+  .gradientClassName {
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 0.9) 60%);
+  }
+  
+  .movieDetails {
+    @include rowContainer;
+  
+    margin-top: $space-32;
+    max-width: 90%;
+  }
+  
+  .titleWrapper {
+    @include rowContainer;
+  
+    padding-bottom: $space-12;
+    padding-top: $space-24;
+  }
+  
+  .title {
+    padding-right: $space-16;
+    text-transform: uppercase;
+    font-size: $fontSize-48;
+  }
+  
+  .description {
+    padding-left: $space-40;
+  }
+  
+  .tagLine {
+    padding-bottom: $space-24;
+  }
+  
+  .dataWrapper {
+    padding-bottom: $space-24;
+    color: $color-red;
+    font-size: $fontSize-24;
+  }
+  
+  .year {
+    padding-right: $space-32;
+  }
+  
+  .rating {
+    border-radius: 50%;
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+    padding: $space-8;
+    border: 2px solid #666;
+    text-align: center;
+    font-size: $fontSize-24;
+    color: #80B859;
+  }
+  

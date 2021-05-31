@@ -1,0 +1,9 @@
+@import "mixins";
+@import "variables";
+
+.footer {
+    @include reset-position;
+    
+    margin: $space-24;
+    text-align: center;
+}

@@ -1,0 +1,25 @@
+@import "mixins";
+@import "variables";
+
+.navBar {
+    @include rowContainer(space-between, center);
+  
+    padding-right: $space-64;
+  }
+  
+  .resultsFilter {
+    padding-left: $space-64;
+  }
+    
+  .resultsSort {
+    @include rowContainer(space-between, center);
+  
+    max-width: 300px;
+    font-size: $fontSize-16;
+  }
+  
+  .resultsSort span {
+    color: $color-gray;
+    padding-right: $space-16;
+  }
+  

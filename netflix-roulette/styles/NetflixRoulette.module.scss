@@ -1,0 +1,8 @@
+@import "mixins";
+@import "variables";
+
+.title {
+  text-align: left;
+  color: $color-red;
+  font-size: $fontSize-32;
+}
