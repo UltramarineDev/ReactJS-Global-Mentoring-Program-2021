@@ -1,0 +1,13 @@
+@import "mixins";
+@import "variables";
+
+html,
+body {
+  height: 100%;
+  overflow: auto;
+  background-color: $color-gray;
+  margin: 0 auto;
+  font-family: 'Quicksand', sans-serif;
+  font-size: $fontSize-16;
+  color: $color-white;
+}

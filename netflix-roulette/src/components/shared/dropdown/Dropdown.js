@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classnames from 'classnames';
 
 import OptionItem from './OptionItem/OptionItem';
-import styles from './Dropdown.module.scss';
+import styles from '../../../../styles/Dropdown.module.scss';
 
 const Dropdown = ({
   value,

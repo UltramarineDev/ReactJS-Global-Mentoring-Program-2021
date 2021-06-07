@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { wordings } from 'locales/wordings';
-import { getMovieAction, updateMovieAction } from 'actions';
+import { wordings } from '../../../locales/wordings';
+import { getMovieAction, updateMovieAction } from '../../../actions';
 
 import MovieForm from '../MovieForm/MovieForm';
 import { getInitialValues, buildAddMovieInput } from '../AddMovie/utils';
@@ -14,7 +14,9 @@ const EditMovieForm = ({ movieId, onSave }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getMovieAction(movieId));
+    if (movieId) {
+      dispatch(getMovieAction(movieId));
+    }
   }, []);
 
   const handleSave = (values) => {
@@ -30,7 +32,7 @@ const EditMovieForm = ({ movieId, onSave }) => {
 };
 
 EditMovieForm.propTypes = {
-  movieId: PropTypes.number.isRequired,
+  movieId: PropTypes.number,
   onSave: PropTypes.func.isRequired,
 };
 

@@ -1,0 +1,12 @@
+@import "mixins";
+@import "variables";
+
+.item {
+    display: block;
+    padding: $space-12 $space-12;
+  }
+  
+  .item:hover {
+    background-color: $color-red;
+  }
+  

@@ -1,10 +1,10 @@
-import { tabs } from 'components/shared/MoviesList/constants';
+import { tabs } from '../components/shared/MoviesList/constants';
 
 import * as constants from '../constants';
 
-const getMovieSuccessAction = (movie) => ({ type: constants.GET_MOVIE_SUCCESS, payload: movie });
+export const getMovieSuccessAction = (movie) => ({ type: constants.GET_MOVIE_SUCCESS, payload: movie });
 
-const getMoviesSuccessAction = (movies) => ({ type: constants.GET_MOVIES_SUCCESS, payload: movies });
+export const getMoviesSuccessAction = (movies) => ({ type: constants.GET_MOVIES_SUCCESS, payload: movies });
 
 const getMoviesErrorAction = (error) => ({ type: constants.GET_MOVIES_ERROR, payload: error });
 

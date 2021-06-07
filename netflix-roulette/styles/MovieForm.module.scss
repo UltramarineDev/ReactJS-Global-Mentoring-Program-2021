@@ -1,0 +1,30 @@
+@import "mixins";
+@import "variables";
+
+.form {
+    padding: $space-32;
+  }
+  
+  .title {
+    font-size: $fontSize-32;
+    padding-bottom: $space-24;
+  }
+  
+  .form input, .dropdown {
+    width: 100%;
+    height: 50px;
+    padding: $space-12 $space-24;
+    display: inline-block;
+    border-radius: 0px;
+    box-sizing: border-box;
+    margin-bottom: $space-16;
+    background-color: $color-darkGray;
+  }
+  
+  .label {
+    color: $color-red;
+  }
+  
+  .dropdown {
+    font-size: $fontSize-24;
+  }

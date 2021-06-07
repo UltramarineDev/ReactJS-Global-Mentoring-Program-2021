@@ -1,0 +1,22 @@
+@import "mixins";
+@import "variables";
+
+.input {
+    box-sizing: border-box;
+    font-size: $fontSize-24;
+    color: $color-gray;
+    height: 70px;
+    padding: $space-16;
+    width: 70%;
+    z-index: 2;
+    background-color: $color-black;
+    border: none;
+    border-radius: 6px;
+    margin-right: $space-24;
+  
+    &:focus {
+      color: $color-white;
+      outline: none;
+    }
+  }
+  

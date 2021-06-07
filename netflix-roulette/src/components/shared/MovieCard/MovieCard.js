@@ -1,14 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-
-import { getMovieAction } from 'actions';
+import Link from 'next/link'
+import { getMovieAction } from '../../../actions';
 
 import MovieImage from '../MovieImage/MovieImage';
 import OptionItem from '../dropdown/OptionItem/OptionItem';
-import styles from './MovieCard.module.scss';
+import styles from '../../../../styles/MovieCard.module.scss';
 
 const MovieCard = ({
   movie,
@@ -44,7 +43,7 @@ const MovieCard = ({
           ))}
         </div>
         )}
-      <Link id="movie_link" to={`/movie/${movie.id}`} onClick={() => dispatch(getMovieAction(movie.id))}>
+      <Link href={`/movie/${movie.id}`} passHref={true}>
         <MovieImage imageUrl={movie.poster_path} />
       </Link>
       <div className={styles.nameWraper}>

@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 
-import { wordings } from 'locales/wordings';
-import { buttonTypes, buttonSizes } from 'components/shared/constants';
-import Button from 'components/shared/button/Button';
-import { deleteMovieAction } from 'actions';
+import { wordings } from '../../../locales/wordings';
+import { buttonTypes, buttonSizes } from '../../shared/constants';
+import Button from '../../shared/button/Button';
+import { deleteMovieAction } from '../../../actions';
 
-import styles from './DeleteMovie.module.scss';
+import styles from '../../../../styles/DeleteMovie.module.scss';
 
 const DeleteMovieForm = ({ movieId }) => {
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ const DeleteMovieForm = ({ movieId }) => {
       <div className={styles.button}>
         <Button
           label={wordings.confirm}
-          type={buttonTypes.SEARCH}
+          type={buttonTypes.PRIMARY}
           onClick={handleDelete}
           size={buttonSizes.SMALL}
         />

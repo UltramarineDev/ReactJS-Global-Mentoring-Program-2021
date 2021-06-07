@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import clsx from 'clsx';
 
-import styles from './TabBarItem.module.scss';
+import styles from '../../../../../styles/TabBarItem.module.scss';
 
 const TabBarItem = ({ label, active, onClick }) => (
   <a

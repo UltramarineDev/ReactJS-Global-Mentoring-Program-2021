@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { wordings } from 'locales/wordings';
+import { wordings } from '../../../locales/wordings';
 
 import { tabs } from './constants';
 

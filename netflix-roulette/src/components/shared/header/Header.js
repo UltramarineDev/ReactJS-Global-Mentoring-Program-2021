@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import NetflixRoulette from 'components/shared/NetflixRoulette/NetflixRoulette';
+import NetflixRoulette from '../NetflixRoulette/NetflixRoulette';
 
-import styles from './Header.module.scss';
+import styles from '../../../../styles/Header.module.scss';
 
 const Header = ({ children }) => (
   <div className={styles.header}>

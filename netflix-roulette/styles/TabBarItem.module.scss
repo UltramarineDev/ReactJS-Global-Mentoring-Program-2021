@@ -1,0 +1,21 @@
+@import "mixins";
+@import "variables";
+
+.tab {
+    text-decoration: none;
+    font-size: $fontSize-16;
+    padding: 0 $space-8;
+    line-height: 60px;
+    display: inline-block;
+    position: relative;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  
+  .activeTab {
+    @extend .tab;
+  
+    cursor: pointer;
+    border-bottom: solid $color-red;
+  }
+  

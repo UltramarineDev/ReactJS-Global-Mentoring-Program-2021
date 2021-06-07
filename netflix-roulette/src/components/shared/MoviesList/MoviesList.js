@@ -1,18 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { wordings } from 'locales/wordings';
-import Modal from 'components/shared/Modal/Modal';
-import NavBar from 'components/shared/NavBar/NavBar';
-import { getMoviesAction } from 'actions';
-import Loader from 'components/shared/Loader/Loader';
+import { wordings } from '../../../locales/wordings';
+import Modal from '../Modal/Modal';
+import NavBar from '../NavBar/NavBar';
+import { getMoviesAction } from '../../../actions';
+import Loader from '../Loader/Loader';
 
 import MovieCard from '../MovieCard/MovieCard';
 import EditMovieForm from '../../features/EditMovie/EditMovie';
 import DeleteMovieForm from '../../features/DeleteMovieForm/DeleteMovieForm';
 import { getTabs, getOptions, useOutsideClick } from './utils';
 import { tabs, sortOptions, movieActions, sortOptionsLabels, movieActionLabels } from './constants';
-import styles from './MoviesList.module.scss';
+import styles from '../../../../styles/MoviesList.module.scss';
 
 const MoviesList = () => {
   const { fetchMovies, searchBy, deleteMovie } = useSelector((state) => state);

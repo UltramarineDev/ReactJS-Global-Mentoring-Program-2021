@@ -1,24 +1,26 @@
 import React, { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, Link } from 'react-router-dom';
+import Link from 'next/link'
+import Loader from '../../shared/Loader/Loader';
+import { emptyValue } from '../../shared/constants';
+import { wordings } from '../../../locales/wordings';
+import MovieImage from '../../shared/MovieImage/MovieImage';
+import Header from '../../shared/Header/Header';
+import StoryCard from '../../shared/StoryCard/StoryCard';
+import MoviesList from '../../shared/MoviesList/MoviesList';
+import { getMovieAction } from '../../../actions';
+import { useRouter } from 'next/router'
 
-import Loader from 'components/shared/Loader/Loader';
-import { emptyValue, dashEmptyValue } from 'components/shared/constants';
-import { wordings } from 'locales/wordings';
-import MovieImage from 'components/shared/MovieImage/MovieImage';
-import Header from 'components/shared/Header/Header';
-import StoryCard from 'components/shared/StoryCard/StoryCard';
-import MoviesList from 'components/shared/MoviesList/MoviesList';
-import { getMovieAction } from 'actions';
-
-import styles from './MovieDetails.module.scss';
+import styles from '../../../../styles/MovieDetails.module.scss';
 
 const MovieDetails = () => {
+  const router = useRouter();
+  const { id: movieId } = router.query;
+
   const { fetchMovies } = useSelector((state) => state);
   const { movie, isMovieLoading: isLoading } = fetchMovies;
   const dispatch = useDispatch();
-  const { id: movieId } = useParams();
 
   const duration = movie && movie.runtime ? `${movie.runtime} ${wordings.min}` : emptyValue;
   const year = new Date(movie.release_date).getFullYear();
@@ -32,7 +34,7 @@ const MovieDetails = () => {
       <StoryCard gradientClassName={styles.gradientClassName}>
         <div className={styles.root}>
           <Header>
-            <Link to="/" className={styles.icon}>
+            <Link href="/" className={styles.icon}>
               <FontAwesomeIcon icon="search" />
             </Link>
           </Header>

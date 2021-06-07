@@ -1,0 +1,18 @@
+@import "mixins";
+@import "variables";
+  
+  .container {
+   @include reset-position;
+  
+    margin-top: $space-200;
+    text-align: center;
+  }
+  
+  .title {
+    font-size: $fontSize-48;
+  }
+  
+  .errorCode {
+    font-size: $fontSize-256;
+  }
+  

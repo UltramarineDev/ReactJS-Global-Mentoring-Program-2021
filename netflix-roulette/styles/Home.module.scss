@@ -1,0 +1,22 @@
+@import "mixins";
+@import "variables";
+
+.submitButton {
+    float: right;
+    width: 155px;
+    height: 55px;
+  }
+  
+  .searchSection{
+    position: relative;
+    padding: $space-24 $space-64;
+    z-index: 1;
+  }
+  
+  .searchDescription {
+    text-transform: uppercase;
+    font-size: $fontSize-80;
+    margin-top: $space-64;
+    margin-left: $space-140;
+  }
+  

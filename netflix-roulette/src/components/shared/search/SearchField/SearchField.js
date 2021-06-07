@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { wordings } from 'locales/wordings';
-import './SearchField.module.scss';
+import { wordings } from '../../../../locales/wordings';
+import styles from '../../../../../styles/SearchField.module.scss';
 
 const SearchField = ({ onChange, initialValue }) => (
-  <input aria-label="search_field" type="search" placeholder={wordings.search_placeholder} onChange={onChange} value={initialValue} />
+  <input className={styles.input} aria-label="search_field" type="search" placeholder={wordings.search_placeholder} onChange={onChange} value={initialValue} />
 );
 
 SearchField.propTypes = {

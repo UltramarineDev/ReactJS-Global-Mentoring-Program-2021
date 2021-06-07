@@ -1,0 +1,11 @@
+@import "mixins";
+@import "variables";
+
+.search {
+    @include rowContainer(_, center);
+    
+    margin-left: $space-140;
+    margin-top: $space-40;
+    width: 80%;
+  }
+  

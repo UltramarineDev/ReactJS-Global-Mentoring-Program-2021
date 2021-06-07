@@ -1,4 +1,4 @@
-import { buttonSizes } from 'components/shared/constants';
+import { buttonSizes } from '../constants';
 
 export const getButtonSizeStyle = (size, styles) => {
   switch (size) {

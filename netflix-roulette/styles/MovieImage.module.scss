@@ -1,0 +1,30 @@
+@import "mixins";
+@import "variables";
+
+.image {
+    margin-bottom: $space-16;
+    height: 450px;
+    background-color: 232323;
+    width: 300px;
+    min-width: 300px;
+  }
+  
+  .noImageWrapper {
+    @extend .image;
+  
+    border: solid thin;
+  }
+  
+  .image img {
+    min-width: 300px;
+    width: 300px;
+    height: 450px;
+  }
+  
+  .noImage {
+    font-size: $fontSize-80;
+    top: 30%;
+    position: absolute;
+    left: 30%;
+  }
+  

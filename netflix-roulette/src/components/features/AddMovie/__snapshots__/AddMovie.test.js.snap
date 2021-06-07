@@ -87,17 +87,15 @@ exports[`Add movie tests renders AddMovie 1`] = `
       type="text"
       value=""
     />
-    <button
-      class="searchButton smallSize"
-      data-testid="save_form"
-      type="submit"
+    <a
+      class="primary smallSize"
     >
       <span
-        class="labelSearch"
+        class="label"
       >
         SAVE
       </span>
-    </button>
+    </a>
   </form>
 </DocumentFragment>
 `;

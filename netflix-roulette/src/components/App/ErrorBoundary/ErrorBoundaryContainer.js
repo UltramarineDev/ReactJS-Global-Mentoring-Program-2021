@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import { wordings } from 'locales/wordings';
+import { wordings } from '../../../locales//wordings';
 
-import styles from './ErrorBoundary.module.scss';
+import styles from '../../../../styles/ErrorBoundary.module.scss';
 
 class ErrorBoundaryContainer extends PureComponent {
   static propTypes = {

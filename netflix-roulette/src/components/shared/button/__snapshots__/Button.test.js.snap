@@ -3,21 +3,13 @@
 exports[`Button tests renders Button 1`] = `
 <DocumentFragment>
   <a
-    class="addButton mediumSize"
+    class="primary mediumSize"
   >
-    <div
-      class="background"
-    />
-    <div
-      class="labelAdd"
+    <span
+      class="label"
     >
-      <span
-        class="icon"
-      />
-      <span>
-        Submit
-      </span>
-    </div>
+      Submit
+    </span>
   </a>
 </DocumentFragment>
 `;

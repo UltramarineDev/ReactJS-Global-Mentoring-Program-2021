@@ -11,17 +11,15 @@ exports[`Search tests renders Search 1`] = `
     type="search"
     value=""
   />
-  <button
-    className="searchButton largeSize"
-    data-testid="save_form"
+  <a
+    className="primary largeSize"
     onClick={[Function]}
-    type="submit"
   >
     <span
-      className="labelSearch"
+      className="label"
     >
       SEARCH
     </span>
-  </button>
+  </a>
 </div>
 `;

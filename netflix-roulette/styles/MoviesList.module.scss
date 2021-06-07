@@ -1,0 +1,37 @@
+@import "mixins";
+@import "variables";
+
+.movieListSection {
+    position: relative;
+    background-color: $color-black;
+  }
+  
+  .border {
+    margin-left: $space-64;
+    border-bottom: solid thin $color-darkGray;
+  }
+  
+  .moviesCount {
+    padding: $space-24 $space-64;
+    font-size: $fontSize-16;
+  }
+  
+  .moviesList {
+    @include rowContainer(space-between, center);
+  
+    padding-left: $space-64;
+    flex-flow: wrap;
+  }
+  
+  .confirmButton {
+    float: right;
+    width: 150px;
+    height: 50px;
+  }
+  
+  .submitButton {
+    float: right;
+    width: 155px;
+    height: 55px;
+  }
+  
