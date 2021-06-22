@@ -17,7 +17,7 @@ const NotFound = () => (
       <Link to="/" className={styles.icon}>
         <Button
           label={wordings.go_back}
-          type={buttonTypes.CANCEL}
+          type={buttonTypes.PRIMARY}
           size={buttonSizes.LARGE}
         />
       </Link>

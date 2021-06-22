@@ -23,7 +23,7 @@ const DeleteMovieForm = ({ movieId }) => {
       <div className={styles.button}>
         <Button
           label={wordings.confirm}
-          type={buttonTypes.SEARCH}
+          type={buttonTypes.PRIMARY}
           onClick={handleDelete}
           size={buttonSizes.SMALL}
         />
